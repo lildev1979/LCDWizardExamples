@@ -1,0 +1,679 @@
+{
+  "version": 1,
+  "name": "Pocket Hygrometer",
+  "created": "2026-09-11T00:00:00.000Z",
+  "target": "esphome",
+  "lvglVersion": "9",
+  "theme": {
+    "mode": "light",
+    "primary": "#2196F3",
+    "secondary": "#EF6C00",
+    "fontDefault": 14
+  },
+  "hardware": {
+    "board": "lilygo-tdisplay-s3",
+    "mcu": "esp32s3",
+    "gfxLib": "arduino_gfx",
+    "psram": true,
+    "flashMB": 16,
+    "psramMB": 8,
+    "usbCdc": false,
+    "display": {
+      "driver": "st7789",
+      "interface": "par8",
+      "width": 170,
+      "height": 320,
+      "rotation": 0,
+      "colorDepth": 16,
+      "invert": true,
+      "rgbOrder": "rgb",
+      "colOffset": 35,
+      "rowOffset": 0,
+      "pins": {
+        "wr": 8,
+        "rd": 9,
+        "dc": 7,
+        "cs": 6,
+        "rst": 5,
+        "d0": 39,
+        "d1": 40,
+        "d2": 41,
+        "d3": 42,
+        "d4": 45,
+        "d5": 46,
+        "d6": 47,
+        "d7": 48
+      },
+      "opts": {
+        "freqMhz": 20
+      },
+      "backlight": {
+        "pin": 38,
+        "active": 1,
+        "pwm": true,
+        "freq": 5000,
+        "defaultLevel": 100
+      }
+    },
+    "touch": {
+      "driver": "cst816s",
+      "pins": {
+        "sda": 18,
+        "scl": 17,
+        "int": 16,
+        "rst": 21
+      },
+      "opts": {
+        "i2cAddr": "0x15",
+        "freqKhz": 400,
+        "sharedI2C": false
+      },
+      "swapXY": false,
+      "invertX": false,
+      "invertY": false
+    },
+    "extraSetup": [
+      {
+        "pin": 15,
+        "level": 1,
+        "comment": "LCD power enable"
+      }
+    ],
+    "inputs": [],
+    "buses": [
+      {
+        "id": "bus_i2c",
+        "kind": "i2c",
+        "index": 0,
+        "name": "Sensor I2C",
+        "pins": {
+          "sda": 12,
+          "scl": 13
+        },
+        "opts": {
+          "freqKhz": 400,
+          "pullups": true
+        }
+      }
+    ],
+    "peripherals": [
+      {
+        "id": "per_sht",
+        "type": "sht31",
+        "name": "SHT31",
+        "busId": "bus_i2c",
+        "addr": "0x44",
+        "pins": {},
+        "config": {
+          "heater": false
+        },
+        "pollMs": 5000,
+        "enabled": true
+      }
+    ],
+    "ioExtenders": [],
+    "analogInputs": [],
+    "digitalIO": [],
+    "partitions": "big_app"
+  },
+  "screens": [
+    {
+      "id": "scr_screen1",
+      "name": "Screen1",
+      "type": "screen",
+      "width": 170,
+      "height": 320,
+      "params": {
+        "temporary": false,
+        "noExport": false
+      },
+      "styles": {},
+      "flags": {},
+      "events": [],
+      "bindings": [],
+      "children": [
+        {
+          "id": "pnl_head_1",
+          "type": "panel",
+          "name": "Header",
+          "x": 0,
+          "y": 0,
+          "w": 170,
+          "h": 44,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#1565C0",
+              "bgOpa": 255,
+              "radius": 0,
+              "borderWidth": 0,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_head_1",
+              "type": "label",
+              "name": "HeaderText",
+              "x": 0,
+              "y": 11,
+              "w": 170,
+              "h": 22,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "Room",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 18,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#FFFFFF",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            }
+          ]
+        },
+        {
+          "id": "pnl_t",
+          "type": "panel",
+          "name": "Temp",
+          "x": 8,
+          "y": 52,
+          "w": 154,
+          "h": 92,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 8,
+              "borderWidth": 1,
+              "borderColor": "#E0E0E0",
+              "padTop": 4,
+              "padBottom": 4,
+              "padLeft": 4,
+              "padRight": 4
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_t_cap",
+              "type": "label",
+              "name": "TempCaption",
+              "x": 0,
+              "y": 12,
+              "w": 144,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "TEMPERATURE C",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "lbl_t",
+              "type": "label",
+              "name": "TempValue",
+              "x": 0,
+              "y": 30,
+              "w": 144,
+              "h": 40,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "21.4",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 36,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#EF6C00",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd41",
+                  "source": "variable",
+                  "variableId": "v_temp",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "text",
+                  "direction": "read",
+                  "format": "%.1f",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pnl_h",
+          "type": "panel",
+          "name": "Humidity",
+          "x": 8,
+          "y": 150,
+          "w": 154,
+          "h": 92,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 8,
+              "borderWidth": 1,
+              "borderColor": "#E0E0E0",
+              "padTop": 4,
+              "padBottom": 4,
+              "padLeft": 4,
+              "padRight": 4
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_h_cap",
+              "type": "label",
+              "name": "HumidityCaption",
+              "x": 0,
+              "y": 12,
+              "w": 144,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "HUMIDITY %",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "lbl_h",
+              "type": "label",
+              "name": "HumidityValue",
+              "x": 0,
+              "y": 30,
+              "w": 144,
+              "h": 40,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "48",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 36,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#1565C0",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd42",
+                  "source": "variable",
+                  "variableId": "v_hum",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "text",
+                  "direction": "read",
+                  "format": "%.0f",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "bar_hum",
+          "type": "bar",
+          "name": "HumidityBar",
+          "x": 8,
+          "y": 248,
+          "w": 154,
+          "h": 10,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "min": 0,
+            "max": 100,
+            "mode": "LV_BAR_MODE_NORMAL",
+            "orientation": "LV_BAR_ORIENTATION_AUTO",
+            "value": 48,
+            "animate": false,
+            "valueStart": 0,
+            "animTime": 0
+          },
+          "styles": {},
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd43",
+              "source": "variable",
+              "variableId": "v_hum",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "value",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "pnl_d",
+          "type": "panel",
+          "name": "Dew",
+          "x": 8,
+          "y": 264,
+          "w": 154,
+          "h": 52,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 8,
+              "borderWidth": 1,
+              "borderColor": "#E0E0E0",
+              "padTop": 4,
+              "padBottom": 4,
+              "padLeft": 4,
+              "padRight": 4
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_d_cap",
+              "type": "label",
+              "name": "DewCaption",
+              "x": 0,
+              "y": 0,
+              "w": 144,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "DEW POINT C",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "lbl_d",
+              "type": "label",
+              "name": "DewValue",
+              "x": 0,
+              "y": 18,
+              "w": 144,
+              "h": 24,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "9.8",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 20,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#2E7D32",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd44",
+                  "source": "variable",
+                  "variableId": "v_dew",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "text",
+                  "direction": "read",
+                  "format": "%.1f",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "fs": {
+    "type": "spiffs",
+    "letter": "S",
+    "autoFormat": true
+  },
+  "variables": [
+    {
+      "id": "v_temp",
+      "name": "temperature",
+      "type": "float",
+      "initial": 0,
+      "unit": "C",
+      "decimals": 1,
+      "min": -10,
+      "max": 50,
+      "source": {
+        "kind": "peripheral",
+        "ref": "per_sht",
+        "channel": "temperature"
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_hum",
+      "name": "humidity",
+      "type": "float",
+      "initial": 0,
+      "unit": "%",
+      "decimals": 0,
+      "min": 0,
+      "max": 100,
+      "source": {
+        "kind": "peripheral",
+        "ref": "per_sht",
+        "channel": "humidity"
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_dew",
+      "name": "dewPoint",
+      "type": "float",
+      "initial": 0,
+      "unit": "C",
+      "decimals": 1,
+      "min": -20,
+      "max": 30,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "temperature - (100 - humidity) / 5",
+      "persist": false
+    }
+  ],
+  "automations": [],
+  "exportOpts": {
+    "uiPrefix": "ui",
+    "includeSketch": true,
+    "includeConfig": true,
+    "includePlatformIO": true,
+    "includeLvConf": true,
+    "bufferLines": 40,
+    "doubleBuffer": true,
+    "useDMA": true,
+    "psramBuffer": false,
+    "esphome": {
+      "homeAssistant": true
+    }
+  },
+  "fonts": [],
+  "config": []
+}

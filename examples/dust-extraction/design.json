@@ -1,0 +1,1538 @@
+{
+  "version": 1,
+  "name": "Dust Extraction Panel",
+  "created": "2026-09-11T00:00:00.000Z",
+  "target": "arduino",
+  "lvglVersion": "9",
+  "theme": {
+    "mode": "light",
+    "primary": "#2196F3",
+    "secondary": "#EF6C00",
+    "fontDefault": 14
+  },
+  "hardware": {
+    "board": "sunton-8048s043",
+    "mcu": "esp32s3",
+    "gfxLib": "arduino_gfx",
+    "psram": true,
+    "flashMB": 16,
+    "psramMB": 8,
+    "usbCdc": false,
+    "display": {
+      "driver": "st7262",
+      "interface": "rgb",
+      "width": 800,
+      "height": 480,
+      "rotation": 0,
+      "colorDepth": 16,
+      "invert": false,
+      "rgbOrder": "rgb",
+      "pins": {
+        "de": 40,
+        "vsync": 41,
+        "hsync": 39,
+        "pclk": 42,
+        "r0": 45,
+        "r1": 48,
+        "r2": 47,
+        "r3": 21,
+        "r4": 14,
+        "g0": 5,
+        "g1": 6,
+        "g2": 7,
+        "g3": 15,
+        "g4": 16,
+        "g5": 4,
+        "b0": 8,
+        "b1": 3,
+        "b2": 46,
+        "b3": 9,
+        "b4": 1,
+        "rst": -1
+      },
+      "opts": {
+        "pclkMhz": 16,
+        "hsyncPolarity": "0",
+        "hsyncFrontPorch": 8,
+        "hsyncPulseWidth": 4,
+        "hsyncBackPorch": 8,
+        "vsyncPolarity": "0",
+        "vsyncFrontPorch": 8,
+        "vsyncPulseWidth": 4,
+        "vsyncBackPorch": 8,
+        "pclkActiveNeg": true
+      },
+      "backlight": {
+        "pin": 2,
+        "active": 1,
+        "pwm": true,
+        "freq": 5000,
+        "defaultLevel": 100
+      }
+    },
+    "touch": {
+      "driver": "gt911",
+      "pins": {
+        "sda": 19,
+        "scl": 20,
+        "int": -1,
+        "rst": 38
+      },
+      "opts": {
+        "i2cAddr": "0x5D",
+        "freqKhz": 400,
+        "sharedI2C": false
+      },
+      "swapXY": false,
+      "invertX": false,
+      "invertY": false
+    },
+    "extraSetup": [],
+    "inputs": [],
+    "buses": [
+      {
+        "id": "bus_shop",
+        "kind": "i2c",
+        "index": 1,
+        "name": "Shop I2C",
+        "pins": {
+          "sda": 17,
+          "scl": 18
+        },
+        "opts": {
+          "freqKhz": 100,
+          "pullups": true
+        }
+      }
+    ],
+    "peripherals": [],
+    "ioExtenders": [
+      {
+        "id": "ext_gates",
+        "type": "pcf8574",
+        "name": "Gates",
+        "busId": "bus_shop",
+        "addr": "0x20",
+        "channels": [
+          {
+            "index": 0,
+            "dir": "out",
+            "name": "Table saw",
+            "pullup": false
+          },
+          {
+            "index": 1,
+            "dir": "out",
+            "name": "Planer",
+            "pullup": false
+          },
+          {
+            "index": 2,
+            "dir": "out",
+            "name": "Sander",
+            "pullup": false
+          },
+          {
+            "index": 3,
+            "dir": "out",
+            "name": "Lathe",
+            "pullup": false
+          },
+          {
+            "index": 4,
+            "dir": "out",
+            "name": "Extractor",
+            "pullup": false
+          }
+        ]
+      }
+    ],
+    "analogInputs": [
+      {
+        "id": "ain_dp",
+        "name": "FilterDP",
+        "pin": 10,
+        "atten": "ADC_11db",
+        "bits": 12,
+        "samples": 8,
+        "pollMs": 2000,
+        "rawMin": 0,
+        "rawMax": 4095,
+        "scaleMin": 0,
+        "scaleMax": 100,
+        "formula": "",
+        "unit": "raw",
+        "decimals": 0,
+        "smoothing": 0.25
+      }
+    ],
+    "digitalIO": [],
+    "partitions": "big_app"
+  },
+  "screens": [
+    {
+      "id": "scr_screen1",
+      "name": "Screen1",
+      "type": "screen",
+      "width": 800,
+      "height": 480,
+      "params": {
+        "temporary": false,
+        "noExport": false
+      },
+      "styles": {},
+      "flags": {},
+      "events": [],
+      "bindings": [],
+      "children": [
+        {
+          "id": "pnl_head_1",
+          "type": "panel",
+          "name": "Header",
+          "x": 0,
+          "y": 0,
+          "w": 800,
+          "h": 44,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#37474F",
+              "bgOpa": 255,
+              "radius": 0,
+              "borderWidth": 0,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_head_1",
+              "type": "label",
+              "name": "HeaderText",
+              "x": 0,
+              "y": 11,
+              "w": 800,
+              "h": 22,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "Dust Extraction",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 18,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#FFFFFF",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            }
+          ]
+        },
+        {
+          "id": "pnl_saw",
+          "type": "panel",
+          "name": "Tablesaw",
+          "x": 16,
+          "y": 64,
+          "w": 180,
+          "h": 150,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 10,
+              "borderWidth": 1,
+              "borderColor": "#CFD8DC",
+              "padTop": 8,
+              "padBottom": 8,
+              "padLeft": 8,
+              "padRight": 8
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_saw",
+              "type": "label",
+              "name": "TablesawName",
+              "x": 0,
+              "y": 8,
+              "w": 162,
+              "h": 22,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "Table saw",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 18,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#212121",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "sw_saw",
+              "type": "switch",
+              "name": "TablesawGate",
+              "x": 41,
+              "y": 46,
+              "w": 80,
+              "h": 40,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "checked": false,
+                "animTime": 0
+              },
+              "styles": {},
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd68",
+                  "source": "variable",
+                  "variableId": "v_saw",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "checked",
+                  "direction": "both",
+                  "format": "",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            },
+            {
+              "id": "lbl_saw_s",
+              "type": "label",
+              "name": "TablesawState",
+              "x": 0,
+              "y": 98,
+              "w": 162,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "gate",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            }
+          ]
+        },
+        {
+          "id": "pnl_planer",
+          "type": "panel",
+          "name": "Planer",
+          "x": 212,
+          "y": 64,
+          "w": 180,
+          "h": 150,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 10,
+              "borderWidth": 1,
+              "borderColor": "#CFD8DC",
+              "padTop": 8,
+              "padBottom": 8,
+              "padLeft": 8,
+              "padRight": 8
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_planer",
+              "type": "label",
+              "name": "PlanerName",
+              "x": 0,
+              "y": 8,
+              "w": 162,
+              "h": 22,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "Planer",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 18,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#212121",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "sw_planer",
+              "type": "switch",
+              "name": "PlanerGate",
+              "x": 41,
+              "y": 46,
+              "w": 80,
+              "h": 40,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "checked": false,
+                "animTime": 0
+              },
+              "styles": {},
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd69",
+                  "source": "variable",
+                  "variableId": "v_planer",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "checked",
+                  "direction": "both",
+                  "format": "",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            },
+            {
+              "id": "lbl_planer_s",
+              "type": "label",
+              "name": "PlanerState",
+              "x": 0,
+              "y": 98,
+              "w": 162,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "gate",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            }
+          ]
+        },
+        {
+          "id": "pnl_sander",
+          "type": "panel",
+          "name": "Sander",
+          "x": 408,
+          "y": 64,
+          "w": 180,
+          "h": 150,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 10,
+              "borderWidth": 1,
+              "borderColor": "#CFD8DC",
+              "padTop": 8,
+              "padBottom": 8,
+              "padLeft": 8,
+              "padRight": 8
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_sander",
+              "type": "label",
+              "name": "SanderName",
+              "x": 0,
+              "y": 8,
+              "w": 162,
+              "h": 22,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "Sander",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 18,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#212121",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "sw_sander",
+              "type": "switch",
+              "name": "SanderGate",
+              "x": 41,
+              "y": 46,
+              "w": 80,
+              "h": 40,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "checked": false,
+                "animTime": 0
+              },
+              "styles": {},
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd70",
+                  "source": "variable",
+                  "variableId": "v_sander",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "checked",
+                  "direction": "both",
+                  "format": "",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            },
+            {
+              "id": "lbl_sander_s",
+              "type": "label",
+              "name": "SanderState",
+              "x": 0,
+              "y": 98,
+              "w": 162,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "gate",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            }
+          ]
+        },
+        {
+          "id": "pnl_lathe",
+          "type": "panel",
+          "name": "Lathe",
+          "x": 604,
+          "y": 64,
+          "w": 180,
+          "h": 150,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 10,
+              "borderWidth": 1,
+              "borderColor": "#CFD8DC",
+              "padTop": 8,
+              "padBottom": 8,
+              "padLeft": 8,
+              "padRight": 8
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_lathe",
+              "type": "label",
+              "name": "LatheName",
+              "x": 0,
+              "y": 8,
+              "w": 162,
+              "h": 22,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "Lathe",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 18,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#212121",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "sw_lathe",
+              "type": "switch",
+              "name": "LatheGate",
+              "x": 41,
+              "y": 46,
+              "w": 80,
+              "h": 40,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "checked": false,
+                "animTime": 0
+              },
+              "styles": {},
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd71",
+                  "source": "variable",
+                  "variableId": "v_lathe",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "checked",
+                  "direction": "both",
+                  "format": "",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            },
+            {
+              "id": "lbl_lathe_s",
+              "type": "label",
+              "name": "LatheState",
+              "x": 0,
+              "y": 98,
+              "w": 162,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "gate",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            }
+          ]
+        },
+        {
+          "id": "pnl_fan",
+          "type": "panel",
+          "name": "ExtractorPanel",
+          "x": 16,
+          "y": 230,
+          "w": 768,
+          "h": 120,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#ECEFF1",
+              "bgOpa": 255,
+              "radius": 10,
+              "borderWidth": 0,
+              "padTop": 16,
+              "padBottom": 16,
+              "padLeft": 16,
+              "padRight": 16
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_fancap",
+              "type": "label",
+              "name": "ExtractorCaption",
+              "x": 0,
+              "y": 6,
+              "w": 110,
+              "h": 24,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "Extractor",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 20,
+                  "textAlign": "LV_TEXT_ALIGN_LEFT",
+                  "textColor": "#212121",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "sw_fan",
+              "type": "switch",
+              "name": "ExtractorSwitch",
+              "x": 0,
+              "y": 40,
+              "w": 90,
+              "h": 44,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "checked": false,
+                "animTime": 0
+              },
+              "styles": {},
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd72",
+                  "source": "variable",
+                  "variableId": "v_fan",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "checked",
+                  "direction": "both",
+                  "format": "",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            },
+            {
+              "id": "lbl_hours",
+              "type": "label",
+              "name": "RunHours",
+              "x": 120,
+              "y": 28,
+              "w": 200,
+              "h": 32,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "18.4 h",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 28,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#37474F",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd73",
+                  "source": "variable",
+                  "variableId": "v_hours",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "text",
+                  "direction": "read",
+                  "format": "%.1f",
+                  "prefix": "",
+                  "postfix": " h",
+                  "formula": ""
+                }
+              ]
+            },
+            {
+              "id": "lbl_hourscap",
+              "type": "label",
+              "name": "RunHoursCaption",
+              "x": 120,
+              "y": 62,
+              "w": 200,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "Motor hours",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "lbl_dpcap",
+              "type": "label",
+              "name": "FilterCaption",
+              "x": 436,
+              "y": 6,
+              "w": 300,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "Filter pressure drop",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "bar_dp",
+              "type": "bar",
+              "name": "FilterBar",
+              "x": 436,
+              "y": 30,
+              "w": 300,
+              "h": 22,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "min": 0,
+                "max": 2000,
+                "mode": "LV_BAR_MODE_NORMAL",
+                "orientation": "LV_BAR_ORIENTATION_AUTO",
+                "value": 620,
+                "animate": false,
+                "valueStart": 0,
+                "animTime": 0
+              },
+              "styles": {},
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd74",
+                  "source": "variable",
+                  "variableId": "v_dp",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "value",
+                  "direction": "read",
+                  "format": "",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            },
+            {
+              "id": "lbl_dp",
+              "type": "label",
+              "name": "FilterValue",
+              "x": 436,
+              "y": 58,
+              "w": 300,
+              "h": 28,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "620 Pa",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 24,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#1565C0",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd75",
+                  "source": "variable",
+                  "variableId": "v_dp",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "text",
+                  "direction": "read",
+                  "format": "%.0f",
+                  "prefix": "",
+                  "postfix": " Pa",
+                  "formula": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lbl_service",
+          "type": "label",
+          "name": "ServiceBanner",
+          "x": 16,
+          "y": 366,
+          "w": 768,
+          "h": 24,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "Clean the filter - pressure drop is above 1200 Pa",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 20,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#C62828",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd76",
+              "source": "variable",
+              "variableId": "v_service",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "hidden",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": "needsService == 0"
+            }
+          ]
+        },
+        {
+          "id": "btn_all",
+          "type": "button",
+          "name": "CloseAllGates",
+          "x": 16,
+          "y": 406,
+          "w": 220,
+          "h": 54,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "text": "Close all gates",
+            "icon": "",
+            "iconPos": "left",
+            "iconSize": 20,
+            "iconGap": 6
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#37474F",
+              "bgOpa": 255,
+              "borderWidth": 0,
+              "radius": 8,
+              "textColor": "#FFFFFF",
+              "textFont": 14,
+              "padTop": 18,
+              "padBottom": 18,
+              "padLeft": 8,
+              "padRight": 8
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [
+            {
+              "id": "ev76",
+              "trigger": "CLICKED",
+              "action": "set_variable",
+              "params": {
+                "variable": "v_saw",
+                "mode": "set",
+                "value": 0
+              }
+            },
+            {
+              "id": "ev77",
+              "trigger": "CLICKED",
+              "action": "set_variable",
+              "params": {
+                "variable": "v_planer",
+                "mode": "set",
+                "value": 0
+              }
+            },
+            {
+              "id": "ev78",
+              "trigger": "CLICKED",
+              "action": "set_variable",
+              "params": {
+                "variable": "v_sander",
+                "mode": "set",
+                "value": 0
+              }
+            },
+            {
+              "id": "ev79",
+              "trigger": "CLICKED",
+              "action": "set_variable",
+              "params": {
+                "variable": "v_lathe",
+                "mode": "set",
+                "value": 0
+              }
+            }
+          ],
+          "bindings": [],
+          "children": []
+        },
+        {
+          "id": "lbl_hint",
+          "type": "label",
+          "name": "Hint",
+          "x": 252,
+          "y": 425,
+          "w": 532,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "The extractor starts itself when a gate opens and stops when the last one closes.",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#757575",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "fs": {
+    "type": "spiffs",
+    "letter": "S",
+    "autoFormat": true
+  },
+  "variables": [
+    {
+      "id": "v_saw",
+      "name": "saw",
+      "type": "bool",
+      "initial": 1,
+      "unit": "",
+      "decimals": 0,
+      "min": 0,
+      "max": 1,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_planer",
+      "name": "planer",
+      "type": "bool",
+      "initial": 0,
+      "unit": "",
+      "decimals": 0,
+      "min": 0,
+      "max": 1,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_sander",
+      "name": "sander",
+      "type": "bool",
+      "initial": 0,
+      "unit": "",
+      "decimals": 0,
+      "min": 0,
+      "max": 1,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_lathe",
+      "name": "lathe",
+      "type": "bool",
+      "initial": 0,
+      "unit": "",
+      "decimals": 0,
+      "min": 0,
+      "max": 1,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_fan",
+      "name": "extractor",
+      "type": "bool",
+      "initial": 0,
+      "unit": "",
+      "decimals": 0,
+      "min": 0,
+      "max": 1,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_dp",
+      "name": "filterPressure",
+      "type": "float",
+      "initial": 0,
+      "unit": "Pa",
+      "decimals": 0,
+      "min": 0,
+      "max": 2000,
+      "source": {
+        "kind": "analog",
+        "ref": "ain_dp",
+        "channel": ""
+      },
+      "formula": "clamp(map(raw, 0, 4095, 0, 2000), 0, 2000)",
+      "persist": false
+    },
+    {
+      "id": "v_hours",
+      "name": "runHours",
+      "type": "float",
+      "initial": 0,
+      "unit": "h",
+      "decimals": 1,
+      "min": 0,
+      "max": 9999,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": true
+    },
+    {
+      "id": "v_service",
+      "name": "needsService",
+      "type": "bool",
+      "initial": 0,
+      "unit": "",
+      "decimals": 0,
+      "min": 0,
+      "max": 1,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": false
+    }
+  ],
+  "automations": [
+    {
+      "id": "auto_fan",
+      "name": "Extractor follows the gates",
+      "enabled": true,
+      "trigger": {
+        "kind": "timer",
+        "params": {
+          "intervalMs": 1000,
+          "runAtStart": false,
+          "everyMs": 1000
+        }
+      },
+      "actions": [
+        {
+          "id": "act15",
+          "action": "set_variable",
+          "params": {
+            "variable": "v_fan",
+            "mode": "expr",
+            "value": 0,
+            "text": "",
+            "delta": 1,
+            "expr": "saw || planer || sander || lathe",
+            "source": ""
+          }
+        },
+        {
+          "id": "act16",
+          "action": "set_variable",
+          "params": {
+            "variable": "v_hours",
+            "mode": "expr",
+            "value": 0,
+            "text": "",
+            "delta": 1,
+            "expr": "extractor ? runHours + 0.000278 : runHours",
+            "source": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "auto_filter",
+      "name": "Filter needs cleaning",
+      "enabled": true,
+      "trigger": {
+        "kind": "analog_threshold",
+        "params": {
+          "input": "ain_dp",
+          "compare": "above",
+          "threshold": 50,
+          "hysteresis": 1,
+          "edge": "above",
+          "value": 2458
+        }
+      },
+      "actions": [
+        {
+          "id": "act17",
+          "action": "set_variable",
+          "params": {
+            "variable": "v_service",
+            "mode": "set",
+            "value": 1,
+            "text": "",
+            "delta": 1,
+            "expr": "",
+            "source": ""
+          }
+        }
+      ]
+    }
+  ],
+  "exportOpts": {
+    "uiPrefix": "ui",
+    "includeSketch": true,
+    "includeConfig": true,
+    "includePlatformIO": true,
+    "includeLvConf": true,
+    "bufferLines": 40,
+    "doubleBuffer": true,
+    "useDMA": true,
+    "psramBuffer": false,
+    "esphome": {
+      "homeAssistant": false
+    }
+  },
+  "fonts": [],
+  "config": []
+}

@@ -1,0 +1,881 @@
+{
+  "version": 1,
+  "name": "Espresso Shot Timer",
+  "created": "2026-09-11T00:00:00.000Z",
+  "target": "micropython",
+  "lvglVersion": "9",
+  "theme": {
+    "mode": "light",
+    "primary": "#2196F3",
+    "secondary": "#EF6C00",
+    "fontDefault": 14
+  },
+  "hardware": {
+    "board": "m5stack-core2",
+    "mcu": "esp32",
+    "gfxLib": "lovyangfx",
+    "psram": true,
+    "flashMB": 16,
+    "psramMB": 8,
+    "usbCdc": false,
+    "display": {
+      "driver": "ili9342",
+      "interface": "spi",
+      "width": 320,
+      "height": 240,
+      "rotation": 0,
+      "colorDepth": 16,
+      "invert": true,
+      "rgbOrder": "bgr",
+      "pins": {
+        "sck": 18,
+        "mosi": 23,
+        "miso": 38,
+        "cs": 5,
+        "dc": 15,
+        "rst": -1
+      },
+      "opts": {
+        "freqMhz": 40,
+        "spiHost": "VSPI",
+        "spiMode": "0",
+        "threeWire": false
+      },
+      "backlight": {
+        "pin": -1,
+        "active": 1,
+        "pwm": false,
+        "freq": 5000,
+        "defaultLevel": 100
+      }
+    },
+    "touch": {
+      "driver": "ft6236",
+      "pins": {
+        "sda": 21,
+        "scl": 22,
+        "int": 39,
+        "rst": -1
+      },
+      "opts": {
+        "i2cAddr": "0x38",
+        "freqKhz": 400,
+        "sharedI2C": true
+      },
+      "swapXY": false,
+      "invertX": false,
+      "invertY": false
+    },
+    "extraSetup": [],
+    "inputs": [],
+    "buses": [],
+    "peripherals": [],
+    "ioExtenders": [],
+    "analogInputs": [],
+    "digitalIO": [],
+    "partitions": "big_app"
+  },
+  "screens": [
+    {
+      "id": "scr_screen1",
+      "name": "Screen1",
+      "type": "screen",
+      "width": 320,
+      "height": 240,
+      "params": {
+        "temporary": false,
+        "noExport": false
+      },
+      "styles": {},
+      "flags": {},
+      "events": [],
+      "bindings": [],
+      "children": [
+        {
+          "id": "pnl_head_1",
+          "type": "panel",
+          "name": "Header",
+          "x": 0,
+          "y": 0,
+          "w": 320,
+          "h": 44,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#4E342E",
+              "bgOpa": 255,
+              "radius": 0,
+              "borderWidth": 0,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_head_1",
+              "type": "label",
+              "name": "HeaderText",
+              "x": 0,
+              "y": 11,
+              "w": 320,
+              "h": 22,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "Espresso",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 18,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#FFFFFF",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            }
+          ]
+        },
+        {
+          "id": "lbl_time",
+          "type": "label",
+          "name": "Elapsed",
+          "x": 0,
+          "y": 54,
+          "w": 224,
+          "h": 52,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "0.0",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 48,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#4E342E",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd54",
+              "source": "variable",
+              "variableId": "v_elapsed",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "text",
+              "direction": "read",
+              "format": "%.1f",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_unit",
+          "type": "label",
+          "name": "ElapsedUnit",
+          "x": 0,
+          "y": 108,
+          "w": 224,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "seconds",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#757575",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "bar_shot",
+          "type": "bar",
+          "name": "ShotBar",
+          "x": 16,
+          "y": 132,
+          "w": 192,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "min": 0,
+            "max": 45,
+            "mode": "LV_BAR_MODE_NORMAL",
+            "orientation": "LV_BAR_ORIENTATION_AUTO",
+            "value": 0,
+            "animate": false,
+            "valueStart": 0,
+            "animTime": 0
+          },
+          "styles": {},
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd55",
+              "source": "variable",
+              "variableId": "v_elapsed",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "value",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_inrange",
+          "type": "label",
+          "name": "InRange",
+          "x": 0,
+          "y": 156,
+          "w": 224,
+          "h": 18,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "in range",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 14,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#2E7D32",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd56",
+              "source": "variable",
+              "variableId": "v_good",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "hidden",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": "inRange == 0"
+            }
+          ]
+        },
+        {
+          "id": "btn_start",
+          "type": "button",
+          "name": "StartStop",
+          "x": 12,
+          "y": 182,
+          "w": 120,
+          "h": 40,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "text": "Start / stop",
+            "icon": "",
+            "iconPos": "left",
+            "iconSize": 20,
+            "iconGap": 6
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#4E342E",
+              "bgOpa": 255,
+              "borderWidth": 0,
+              "radius": 8,
+              "textColor": "#FFFFFF",
+              "textFont": 14,
+              "padTop": 11,
+              "padBottom": 11,
+              "padLeft": 8,
+              "padRight": 8
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [
+            {
+              "id": "ev67",
+              "trigger": "CLICKED",
+              "action": "set_variable",
+              "params": {
+                "variable": "v_run",
+                "mode": "toggle"
+              }
+            },
+            {
+              "id": "ev68",
+              "trigger": "CLICKED",
+              "action": "set_variable",
+              "params": {
+                "variable": "v_last",
+                "mode": "expr",
+                "expr": "elapsed"
+              }
+            }
+          ],
+          "bindings": [],
+          "children": []
+        },
+        {
+          "id": "btn_reset",
+          "type": "button",
+          "name": "Reset",
+          "x": 140,
+          "y": 182,
+          "w": 68,
+          "h": 40,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "text": "Reset",
+            "icon": "",
+            "iconPos": "left",
+            "iconSize": 20,
+            "iconGap": 6
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "borderWidth": 1,
+              "borderColor": "#BDBDBD",
+              "radius": 8,
+              "textColor": "#212121",
+              "textFont": 14,
+              "padTop": 11,
+              "padBottom": 11,
+              "padLeft": 8,
+              "padRight": 8
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [
+            {
+              "id": "ev69",
+              "trigger": "CLICKED",
+              "action": "set_variable",
+              "params": {
+                "variable": "v_elapsed",
+                "mode": "set",
+                "value": 0
+              }
+            }
+          ],
+          "bindings": [],
+          "children": []
+        },
+        {
+          "id": "pnl_last",
+          "type": "panel",
+          "name": "Last",
+          "x": 232,
+          "y": 52,
+          "w": 76,
+          "h": 56,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 8,
+              "borderWidth": 1,
+              "borderColor": "#E0E0E0",
+              "padTop": 4,
+              "padBottom": 4,
+              "padLeft": 4,
+              "padRight": 4
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_last_cap",
+              "type": "label",
+              "name": "LastCaption",
+              "x": 0,
+              "y": 2,
+              "w": 66,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "LAST",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "lbl_last",
+              "type": "label",
+              "name": "LastValue",
+              "x": 0,
+              "y": 20,
+              "w": 66,
+              "h": 24,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "26.4",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 20,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#1565C0",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd57",
+                  "source": "variable",
+                  "variableId": "v_last",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "text",
+                  "direction": "read",
+                  "format": "%.1f",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sld_target",
+          "type": "slider",
+          "name": "TargetSlider",
+          "x": 232,
+          "y": 118,
+          "w": 76,
+          "h": 14,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "min": 15,
+            "max": 45,
+            "mode": "LV_SLIDER_MODE_NORMAL",
+            "value": 27,
+            "valueLeft": 0
+          },
+          "styles": {},
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd58",
+              "source": "variable",
+              "variableId": "v_target",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "value",
+              "direction": "both",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "pnl_target",
+          "type": "panel",
+          "name": "Target",
+          "x": 232,
+          "y": 142,
+          "w": 76,
+          "h": 56,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 8,
+              "borderWidth": 1,
+              "borderColor": "#E0E0E0",
+              "padTop": 4,
+              "padBottom": 4,
+              "padLeft": 4,
+              "padRight": 4
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_target_cap",
+              "type": "label",
+              "name": "TargetCaption",
+              "x": 0,
+              "y": 2,
+              "w": 66,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "TARGET",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "lbl_target",
+              "type": "label",
+              "name": "TargetValue",
+              "x": 0,
+              "y": 20,
+              "w": 66,
+              "h": 24,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "27",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 20,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#212121",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd59",
+                  "source": "variable",
+                  "variableId": "v_target",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "text",
+                  "direction": "read",
+                  "format": "%.0f",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "fs": {
+    "type": "spiffs",
+    "letter": "S",
+    "autoFormat": true
+  },
+  "variables": [
+    {
+      "id": "v_run",
+      "name": "running",
+      "type": "bool",
+      "initial": 0,
+      "unit": "",
+      "decimals": 0,
+      "min": 0,
+      "max": 1,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_elapsed",
+      "name": "elapsed",
+      "type": "float",
+      "initial": 0,
+      "unit": "s",
+      "decimals": 1,
+      "min": 0,
+      "max": 90,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_target",
+      "name": "target",
+      "type": "int",
+      "initial": 27,
+      "unit": "s",
+      "decimals": 0,
+      "min": 15,
+      "max": 45,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": true
+    },
+    {
+      "id": "v_last",
+      "name": "lastShot",
+      "type": "float",
+      "initial": 0,
+      "unit": "s",
+      "decimals": 1,
+      "min": 0,
+      "max": 90,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": true
+    },
+    {
+      "id": "v_good",
+      "name": "inRange",
+      "type": "bool",
+      "initial": 0,
+      "unit": "",
+      "decimals": 0,
+      "min": 0,
+      "max": 1,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": false
+    }
+  ],
+  "automations": [
+    {
+      "id": "auto_tick",
+      "name": "Count",
+      "enabled": true,
+      "trigger": {
+        "kind": "timer",
+        "params": {
+          "intervalMs": 1000,
+          "runAtStart": false,
+          "everyMs": 100
+        }
+      },
+      "actions": [
+        {
+          "id": "act8",
+          "action": "set_variable",
+          "params": {
+            "variable": "v_elapsed",
+            "mode": "expr",
+            "value": 0,
+            "text": "",
+            "delta": 1,
+            "expr": "running ? elapsed + 0.1 : elapsed",
+            "source": ""
+          }
+        },
+        {
+          "id": "act9",
+          "action": "set_variable",
+          "params": {
+            "variable": "v_good",
+            "mode": "expr",
+            "value": 0,
+            "text": "",
+            "delta": 1,
+            "expr": "elapsed >= target - 2 && elapsed <= target + 2",
+            "source": ""
+          }
+        }
+      ]
+    }
+  ],
+  "exportOpts": {
+    "uiPrefix": "ui",
+    "includeSketch": true,
+    "includeConfig": true,
+    "includePlatformIO": true,
+    "includeLvConf": true,
+    "bufferLines": 40,
+    "doubleBuffer": true,
+    "useDMA": true,
+    "psramBuffer": false,
+    "esphome": {
+      "homeAssistant": false
+    }
+  },
+  "fonts": [],
+  "config": []
+}

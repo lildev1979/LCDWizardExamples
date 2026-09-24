@@ -1,0 +1,373 @@
+{
+  "version": 1,
+  "name": "Hello CYD",
+  "created": "2026-09-11T00:00:00.000Z",
+  "target": "arduino",
+  "lvglVersion": "9",
+  "theme": {
+    "mode": "light",
+    "primary": "#2196F3",
+    "secondary": "#EF6C00",
+    "fontDefault": 14
+  },
+  "hardware": {
+    "board": "cyd-2432s028r",
+    "mcu": "esp32",
+    "gfxLib": "tft_espi",
+    "psram": false,
+    "flashMB": 4,
+    "psramMB": 0,
+    "usbCdc": false,
+    "display": {
+      "driver": "ili9341",
+      "interface": "spi",
+      "width": 320,
+      "height": 240,
+      "rotation": 1,
+      "colorDepth": 16,
+      "invert": false,
+      "rgbOrder": "rgb",
+      "pins": {
+        "sck": 14,
+        "mosi": 13,
+        "miso": 12,
+        "cs": 15,
+        "dc": 2,
+        "rst": -1
+      },
+      "opts": {
+        "freqMhz": 40,
+        "spiHost": "HSPI",
+        "spiMode": "0",
+        "threeWire": false
+      },
+      "backlight": {
+        "pin": 21,
+        "active": 1,
+        "pwm": true,
+        "freq": 5000,
+        "defaultLevel": 100
+      }
+    },
+    "touch": {
+      "driver": "xpt2046",
+      "pins": {
+        "sck": 25,
+        "mosi": 32,
+        "miso": 39,
+        "cs": 33,
+        "irq": 36
+      },
+      "opts": {
+        "freqKhz": 2500,
+        "sharedSPI": false
+      },
+      "swapXY": true,
+      "invertX": false,
+      "invertY": false,
+      "calib": {
+        "xMin": 200,
+        "xMax": 3700,
+        "yMin": 240,
+        "yMax": 3800
+      }
+    },
+    "extraSetup": [],
+    "inputs": [],
+    "buses": [],
+    "peripherals": [],
+    "ioExtenders": [],
+    "analogInputs": [],
+    "digitalIO": [],
+    "partitions": "big_app"
+  },
+  "screens": [
+    {
+      "id": "scr_screen1",
+      "name": "Screen1",
+      "type": "screen",
+      "width": 240,
+      "height": 320,
+      "params": {
+        "temporary": false,
+        "noExport": false
+      },
+      "styles": {},
+      "flags": {},
+      "events": [],
+      "bindings": [],
+      "children": [
+        {
+          "id": "lbl_title",
+          "type": "label",
+          "name": "Title",
+          "x": 10,
+          "y": 14,
+          "w": 220,
+          "h": 28,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "Hello, CYD!",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 20,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#1565C0"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_hint",
+          "type": "label",
+          "name": "Hint",
+          "x": 10,
+          "y": 44,
+          "w": 220,
+          "h": 18,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "Drag the dial, then tap the button.",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#757575"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "arc_gauge",
+          "type": "arc",
+          "name": "Gauge",
+          "x": 45,
+          "y": 70,
+          "w": 150,
+          "h": 150,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "min": 0,
+            "max": 100,
+            "value": 40,
+            "bgStart": 135,
+            "bgEnd": 45,
+            "start": 135,
+            "end": 45,
+            "mode": "LV_ARC_MODE_NORMAL",
+            "rotation": 0,
+            "changeRate": 720,
+            "knobOffset": 0
+          },
+          "styles": {},
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd5",
+              "source": "widget",
+              "variableId": "",
+              "sourceNodeId": "sld_dial",
+              "sourceProperty": "value",
+              "property": "value",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_readout",
+          "type": "label",
+          "name": "Readout",
+          "x": 45,
+          "y": 128,
+          "w": 150,
+          "h": 36,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "40 %",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 28,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#1565C0"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd6",
+              "source": "widget",
+              "variableId": "",
+              "sourceNodeId": "sld_dial",
+              "sourceProperty": "value",
+              "property": "text",
+              "direction": "read",
+              "format": "%d",
+              "prefix": "",
+              "postfix": " %",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_status",
+          "type": "label",
+          "name": "Status",
+          "x": 10,
+          "y": 226,
+          "w": 220,
+          "h": 22,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "Ready",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textAlign": "LV_TEXT_ALIGN_CENTER"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "sld_dial",
+          "type": "slider",
+          "name": "Dial",
+          "x": 25,
+          "y": 256,
+          "w": 190,
+          "h": 14,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "min": 0,
+            "max": 100,
+            "mode": "LV_SLIDER_MODE_NORMAL",
+            "value": 40,
+            "valueLeft": 0
+          },
+          "styles": {},
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "btn_go",
+          "type": "button",
+          "name": "Go",
+          "x": 60,
+          "y": 278,
+          "w": 120,
+          "h": 36,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "text": "Press me",
+            "icon": "",
+            "iconPos": "left",
+            "iconSize": 20,
+            "iconGap": 6
+          },
+          "styles": {},
+          "flags": {},
+          "layout": {},
+          "events": [
+            {
+              "id": "ev33",
+              "trigger": "CLICKED",
+              "action": "set_property",
+              "params": {
+                "target": "lbl_status",
+                "property": "text",
+                "value": "You pressed it!"
+              }
+            }
+          ],
+          "bindings": [],
+          "children": []
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "fs": {
+    "type": "spiffs",
+    "letter": "S",
+    "autoFormat": true
+  },
+  "variables": [],
+  "automations": [],
+  "exportOpts": {
+    "uiPrefix": "ui",
+    "includeSketch": true,
+    "includeConfig": true,
+    "includePlatformIO": true,
+    "includeLvConf": true,
+    "bufferLines": 40,
+    "doubleBuffer": true,
+    "useDMA": true,
+    "psramBuffer": false,
+    "esphome": {
+      "homeAssistant": false
+    }
+  },
+  "fonts": [],
+  "config": []
+}

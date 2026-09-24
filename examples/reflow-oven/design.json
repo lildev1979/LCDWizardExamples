@@ -1,0 +1,1045 @@
+{
+  "version": 1,
+  "name": "Reflow Oven Controller",
+  "created": "2026-09-11T00:00:00.000Z",
+  "target": "arduino",
+  "lvglVersion": "9",
+  "theme": {
+    "mode": "light",
+    "primary": "#2196F3",
+    "secondary": "#EF6C00",
+    "fontDefault": 14
+  },
+  "hardware": {
+    "board": "stm32f407-ili9341",
+    "mcu": "stm32f4",
+    "gfxLib": "lovyangfx",
+    "psram": false,
+    "usbCdc": false,
+    "display": {
+      "driver": "ili9341",
+      "interface": "spi",
+      "width": 240,
+      "height": 320,
+      "rotation": 1,
+      "colorDepth": 16,
+      "invert": false,
+      "rgbOrder": "bgr",
+      "pins": {
+        "sck": "PA5",
+        "mosi": "PA7",
+        "miso": "PA6",
+        "cs": "PB0",
+        "dc": "PB1",
+        "rst": "PB10"
+      },
+      "opts": {
+        "freqMhz": 40,
+        "spiHost": "VSPI",
+        "spiMode": "0",
+        "threeWire": false
+      },
+      "backlight": {
+        "pin": "PB11",
+        "active": 1,
+        "pwm": true,
+        "freq": 5000,
+        "defaultLevel": 100
+      }
+    },
+    "touch": {
+      "driver": "xpt2046",
+      "pins": {
+        "sck": "PA5",
+        "mosi": "PA7",
+        "miso": "PA6",
+        "cs": "PB12",
+        "irq": "PB13"
+      },
+      "opts": {
+        "freqKhz": 2000,
+        "sharedSPI": true
+      },
+      "swapXY": false,
+      "invertX": false,
+      "invertY": false,
+      "calib": {
+        "xMin": 300,
+        "xMax": 3800,
+        "yMin": 300,
+        "yMax": 3800
+      }
+    },
+    "extraSetup": [],
+    "inputs": [],
+    "buses": [
+      {
+        "id": "bus_spi3",
+        "kind": "spi",
+        "index": 1,
+        "name": "Sensor SPI",
+        "pins": {
+          "sck": "PC10",
+          "mosi": "PC12",
+          "miso": "PC11"
+        },
+        "opts": {
+          "freqMhz": 4,
+          "mode": "0"
+        }
+      }
+    ],
+    "peripherals": [
+      {
+        "id": "per_tc",
+        "type": "max31855",
+        "name": "Thermocouple",
+        "busId": "bus_spi3",
+        "addr": "",
+        "pins": {
+          "cs": "PA8"
+        },
+        "config": {
+          "settleMs": 100
+        },
+        "pollMs": 500,
+        "enabled": true
+      }
+    ],
+    "ioExtenders": [],
+    "analogInputs": [],
+    "digitalIO": [
+      {
+        "id": "dio_heat",
+        "dir": "out",
+        "name": "Heater",
+        "source": "gpio",
+        "pin": "PC13",
+        "extenderId": "",
+        "extPin": 0,
+        "pullup": false,
+        "activeLow": false,
+        "debounceMs": 0,
+        "initial": false
+      }
+    ]
+  },
+  "screens": [
+    {
+      "id": "scr_run",
+      "name": "Run",
+      "type": "screen",
+      "width": 320,
+      "height": 240,
+      "params": {
+        "temporary": false,
+        "noExport": false
+      },
+      "styles": {},
+      "flags": {},
+      "events": [],
+      "bindings": [],
+      "children": [
+        {
+          "id": "pnl_head_1",
+          "type": "panel",
+          "name": "Header",
+          "x": 0,
+          "y": 0,
+          "w": 320,
+          "h": 44,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#B71C1C",
+              "bgOpa": 255,
+              "radius": 0,
+              "borderWidth": 0,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_head_1",
+              "type": "label",
+              "name": "HeaderText",
+              "x": 0,
+              "y": 11,
+              "w": 320,
+              "h": 22,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "Reflow",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 18,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#FFFFFF",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            }
+          ]
+        },
+        {
+          "id": "pnl_t",
+          "type": "panel",
+          "name": "Temp",
+          "x": 8,
+          "y": 52,
+          "w": 120,
+          "h": 76,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 8,
+              "borderWidth": 1,
+              "borderColor": "#E0E0E0",
+              "padTop": 4,
+              "padBottom": 4,
+              "padLeft": 4,
+              "padRight": 4
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_t_cap",
+              "type": "label",
+              "name": "TempCaption",
+              "x": 0,
+              "y": 7,
+              "w": 110,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "OVEN C",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "lbl_t",
+              "type": "label",
+              "name": "TempValue",
+              "x": 0,
+              "y": 25,
+              "w": 110,
+              "h": 34,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "24",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 30,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#B71C1C",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd63",
+                  "source": "variable",
+                  "variableId": "v_temp",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "text",
+                  "direction": "read",
+                  "format": "%.0f",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pnl_sp",
+          "type": "panel",
+          "name": "Setpoint",
+          "x": 136,
+          "y": 52,
+          "w": 120,
+          "h": 76,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 8,
+              "borderWidth": 1,
+              "borderColor": "#E0E0E0",
+              "padTop": 4,
+              "padBottom": 4,
+              "padLeft": 4,
+              "padRight": 4
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_sp_cap",
+              "type": "label",
+              "name": "SetpointCaption",
+              "x": 0,
+              "y": 7,
+              "w": 110,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "TARGET C",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "lbl_sp",
+              "type": "label",
+              "name": "SetpointValue",
+              "x": 0,
+              "y": 25,
+              "w": 110,
+              "h": 34,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "0",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 30,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#212121",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd64",
+                  "source": "variable",
+                  "variableId": "v_setpoint",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "text",
+                  "direction": "read",
+                  "format": "%.0f",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pnl_el",
+          "type": "panel",
+          "name": "Elapsed",
+          "x": 264,
+          "y": 52,
+          "w": 48,
+          "h": 76,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 8,
+              "borderWidth": 1,
+              "borderColor": "#E0E0E0",
+              "padTop": 4,
+              "padBottom": 4,
+              "padLeft": 4,
+              "padRight": 4
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_el_cap",
+              "type": "label",
+              "name": "ElapsedCaption",
+              "x": 0,
+              "y": 12,
+              "w": 38,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "SEC",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "lbl_el",
+              "type": "label",
+              "name": "ElapsedValue",
+              "x": 0,
+              "y": 30,
+              "w": 38,
+              "h": 24,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "0",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 20,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#1565C0",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd65",
+                  "source": "variable",
+                  "variableId": "v_sec",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "text",
+                  "direction": "read",
+                  "format": "%.0f",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cht_profile",
+          "type": "chart",
+          "name": "ProfileChart",
+          "x": 8,
+          "y": 134,
+          "w": 304,
+          "h": 66,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "chartType": "LV_CHART_TYPE_LINE",
+            "pointCount": 60,
+            "divX": 0,
+            "divY": 4,
+            "zoomX": 256,
+            "zoomY": 256,
+            "yMin": 0,
+            "yMax": 260,
+            "secondaryY": false,
+            "y2Min": 0,
+            "y2Max": 100,
+            "xMin": 0,
+            "xMax": 100,
+            "xSource": "",
+            "updateMode": "LV_CHART_UPDATE_MODE_SHIFT",
+            "windowMode": "points",
+            "windowSec": 3600,
+            "majorTickLen": 0,
+            "majorTickCount": 0,
+            "minorTickLen": 0,
+            "minorTickCount": 0,
+            "labelOnX": false,
+            "labelOnY": false,
+            "axisFontSize": 14,
+            "series": [
+              {
+                "name": "Oven",
+                "color": "#B71C1C",
+                "data": [
+                  24,
+                  40,
+                  62,
+                  88,
+                  110,
+                  130,
+                  146,
+                  150,
+                  152,
+                  151,
+                  155,
+                  172,
+                  198,
+                  224,
+                  243
+                ]
+              }
+            ]
+          },
+          "styles": {},
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd66",
+              "source": "variable",
+              "variableId": "v_temp",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "chartPush",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_heat",
+          "type": "label",
+          "name": "HeaterBanner",
+          "x": 8,
+          "y": 204,
+          "w": 90,
+          "h": 20,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "HEATER ON",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 14,
+              "textColor": "#B71C1C"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd67",
+              "source": "variable",
+              "variableId": "v_heat",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "hidden",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": "heater == 0"
+            }
+          ]
+        },
+        {
+          "id": "btn_start",
+          "type": "button",
+          "name": "StartButton",
+          "x": 104,
+          "y": 200,
+          "w": 100,
+          "h": 30,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "text": "Start",
+            "icon": "",
+            "iconPos": "left",
+            "iconSize": 20,
+            "iconGap": 6
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#B71C1C",
+              "bgOpa": 255,
+              "borderWidth": 0,
+              "radius": 8,
+              "textColor": "#FFFFFF",
+              "textFont": 14,
+              "padTop": 6,
+              "padBottom": 6,
+              "padLeft": 8,
+              "padRight": 8
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [
+            {
+              "id": "ev71",
+              "trigger": "CLICKED",
+              "action": "set_variable",
+              "params": {
+                "variable": "v_run",
+                "mode": "set",
+                "value": 1
+              }
+            },
+            {
+              "id": "ev72",
+              "trigger": "CLICKED",
+              "action": "set_variable",
+              "params": {
+                "variable": "v_sec",
+                "mode": "set",
+                "value": 0
+              }
+            },
+            {
+              "id": "ev73",
+              "trigger": "CLICKED",
+              "action": "set_variable",
+              "params": {
+                "variable": "v_stage",
+                "mode": "set",
+                "value": 1
+              }
+            }
+          ],
+          "bindings": [],
+          "children": []
+        },
+        {
+          "id": "btn_abort",
+          "type": "button",
+          "name": "AbortButton",
+          "x": 212,
+          "y": 200,
+          "w": 100,
+          "h": 30,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "text": "Abort",
+            "icon": "",
+            "iconPos": "left",
+            "iconSize": 20,
+            "iconGap": 6
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "borderWidth": 1,
+              "borderColor": "#BDBDBD",
+              "radius": 8,
+              "textColor": "#212121",
+              "textFont": 14,
+              "padTop": 6,
+              "padBottom": 6,
+              "padLeft": 8,
+              "padRight": 8
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [
+            {
+              "id": "ev74",
+              "trigger": "CLICKED",
+              "action": "set_variable",
+              "params": {
+                "variable": "v_run",
+                "mode": "set",
+                "value": 0
+              }
+            },
+            {
+              "id": "ev75",
+              "trigger": "CLICKED",
+              "action": "set_variable",
+              "params": {
+                "variable": "v_stage",
+                "mode": "set",
+                "value": 0
+              }
+            }
+          ],
+          "bindings": [],
+          "children": []
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "fs": {
+    "type": "spiffs",
+    "letter": "S",
+    "autoFormat": true
+  },
+  "variables": [
+    {
+      "id": "v_temp",
+      "name": "temperature",
+      "type": "float",
+      "initial": 0,
+      "unit": "C",
+      "decimals": 0,
+      "min": 0,
+      "max": 300,
+      "source": {
+        "kind": "peripheral",
+        "ref": "per_tc",
+        "channel": "celsius"
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_stage",
+      "name": "stage",
+      "type": "int",
+      "initial": 0,
+      "unit": "",
+      "decimals": 0,
+      "min": 0,
+      "max": 4,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_setpoint",
+      "name": "setpoint",
+      "type": "int",
+      "initial": 0,
+      "unit": "C",
+      "decimals": 0,
+      "min": 0,
+      "max": 260,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_run",
+      "name": "running",
+      "type": "bool",
+      "initial": 0,
+      "unit": "",
+      "decimals": 0,
+      "min": 0,
+      "max": 1,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_sec",
+      "name": "seconds",
+      "type": "int",
+      "initial": 0,
+      "unit": "s",
+      "decimals": 0,
+      "min": 0,
+      "max": 600,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_heat",
+      "name": "heater",
+      "type": "bool",
+      "initial": 0,
+      "unit": "",
+      "decimals": 0,
+      "min": 0,
+      "max": 1,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": false
+    }
+  ],
+  "automations": [
+    {
+      "id": "auto_clock",
+      "name": "Profile clock",
+      "enabled": true,
+      "trigger": {
+        "kind": "timer",
+        "params": {
+          "intervalMs": 1000,
+          "runAtStart": false,
+          "everyMs": 1000
+        }
+      },
+      "actions": [
+        {
+          "id": "act10",
+          "action": "set_variable",
+          "params": {
+            "variable": "v_sec",
+            "mode": "expr",
+            "value": 0,
+            "text": "",
+            "delta": 1,
+            "expr": "running ? seconds + 1 : seconds",
+            "source": ""
+          }
+        },
+        {
+          "id": "act11",
+          "action": "set_variable",
+          "params": {
+            "variable": "v_setpoint",
+            "mode": "expr",
+            "value": 0,
+            "text": "",
+            "delta": 1,
+            "expr": "running ? (seconds < 90 ? map(seconds, 0, 90, 25, 150) : (seconds < 180 ? 150 : (seconds < 240 ? map(seconds, 180, 240, 150, 245) : 0))) : 0",
+            "source": ""
+          }
+        },
+        {
+          "id": "act12",
+          "action": "set_variable",
+          "params": {
+            "variable": "v_stage",
+            "mode": "expr",
+            "value": 0,
+            "text": "",
+            "delta": 1,
+            "expr": "running ? (seconds < 90 ? 1 : (seconds < 180 ? 2 : (seconds < 240 ? 3 : 4))) : 0",
+            "source": ""
+          }
+        },
+        {
+          "id": "act13",
+          "action": "set_variable",
+          "params": {
+            "variable": "v_heat",
+            "mode": "expr",
+            "value": 0,
+            "text": "",
+            "delta": 1,
+            "expr": "running && setpoint > 0 && temperature < setpoint - 2",
+            "source": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "auto_relay",
+      "name": "Drive the element",
+      "enabled": true,
+      "trigger": {
+        "kind": "variable_changed",
+        "params": {
+          "variable": "v_heat",
+          "mode": "any",
+          "value": 0
+        }
+      },
+      "actions": [
+        {
+          "id": "act14",
+          "action": "digital_write",
+          "params": {
+            "output": "dio_heat",
+            "value": "on"
+          }
+        }
+      ]
+    }
+  ],
+  "exportOpts": {
+    "uiPrefix": "ui",
+    "includeSketch": true,
+    "includeConfig": true,
+    "includePlatformIO": true,
+    "includeLvConf": true,
+    "bufferLines": 40,
+    "doubleBuffer": true,
+    "useDMA": true,
+    "psramBuffer": false,
+    "esphome": {
+      "homeAssistant": false
+    }
+  },
+  "fonts": [],
+  "config": []
+}

@@ -1,0 +1,808 @@
+{
+  "version": 1,
+  "name": "Air Quality",
+  "created": "2026-09-11T00:00:00.000Z",
+  "target": "arduino",
+  "lvglVersion": "9",
+  "theme": {
+    "mode": "light",
+    "primary": "#2196F3",
+    "secondary": "#EF6C00",
+    "fontDefault": 14
+  },
+  "hardware": {
+    "board": "cyd-2432s028r",
+    "mcu": "esp32",
+    "gfxLib": "tft_espi",
+    "psram": false,
+    "flashMB": 4,
+    "psramMB": 0,
+    "usbCdc": false,
+    "display": {
+      "driver": "ili9341",
+      "interface": "spi",
+      "width": 320,
+      "height": 240,
+      "rotation": 1,
+      "colorDepth": 16,
+      "invert": false,
+      "rgbOrder": "rgb",
+      "pins": {
+        "sck": 14,
+        "mosi": 13,
+        "miso": 12,
+        "cs": 15,
+        "dc": 2,
+        "rst": -1
+      },
+      "opts": {
+        "freqMhz": 40,
+        "spiHost": "HSPI",
+        "spiMode": "0",
+        "threeWire": false
+      },
+      "backlight": {
+        "pin": 21,
+        "active": 1,
+        "pwm": true,
+        "freq": 5000,
+        "defaultLevel": 100
+      }
+    },
+    "touch": {
+      "driver": "xpt2046",
+      "pins": {
+        "sck": 25,
+        "mosi": 32,
+        "miso": 39,
+        "cs": 33,
+        "irq": 36
+      },
+      "opts": {
+        "freqKhz": 2500,
+        "sharedSPI": false
+      },
+      "swapXY": true,
+      "invertX": false,
+      "invertY": false,
+      "calib": {
+        "xMin": 200,
+        "xMax": 3700,
+        "yMin": 240,
+        "yMax": 3800
+      }
+    },
+    "extraSetup": [],
+    "inputs": [],
+    "buses": [
+      {
+        "id": "bus_cn1",
+        "kind": "i2c",
+        "index": 0,
+        "name": "CN1",
+        "pins": {
+          "sda": 22,
+          "scl": 27
+        },
+        "opts": {
+          "freqKhz": 100,
+          "pullups": true
+        }
+      }
+    ],
+    "peripherals": [
+      {
+        "id": "per_scd",
+        "type": "scd4x",
+        "name": "SCD40",
+        "busId": "bus_cn1",
+        "addr": "0x62",
+        "pins": {},
+        "config": {
+          "tempOffset": 4,
+          "altitude": 0,
+          "asc": true
+        },
+        "pollMs": 5000,
+        "enabled": true
+      },
+      {
+        "id": "per_bh",
+        "type": "bh1750",
+        "name": "BH1750",
+        "busId": "bus_cn1",
+        "addr": "0x23",
+        "pins": {},
+        "config": {
+          "mode": "BH1750::CONTINUOUS_HIGH_RES_MODE",
+          "mtreg": 69
+        },
+        "pollMs": 1000,
+        "enabled": true
+      }
+    ],
+    "ioExtenders": [],
+    "analogInputs": [],
+    "digitalIO": [],
+    "partitions": "big_app"
+  },
+  "screens": [
+    {
+      "id": "scr_screen1",
+      "name": "Screen1",
+      "type": "screen",
+      "width": 240,
+      "height": 320,
+      "params": {
+        "temporary": false,
+        "noExport": false
+      },
+      "styles": {},
+      "flags": {},
+      "events": [],
+      "bindings": [],
+      "children": [
+        {
+          "id": "lbl_title",
+          "type": "label",
+          "name": "Title",
+          "x": 10,
+          "y": 8,
+          "w": 220,
+          "h": 26,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "Air Quality",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 20,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#1565C0"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_co2",
+          "type": "label",
+          "name": "Co2Value",
+          "x": 10,
+          "y": 40,
+          "w": 220,
+          "h": 52,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "650",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 40,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#2E7D32"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd13",
+              "source": "variable",
+              "variableId": "v_co2",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "text",
+              "direction": "read",
+              "format": "%.0f",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_co2cap",
+          "type": "label",
+          "name": "Co2Caption",
+          "x": 10,
+          "y": 92,
+          "w": 220,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "ppm CO2",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#757575"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "bar_co2",
+          "type": "bar",
+          "name": "Co2Bar",
+          "x": 15,
+          "y": 116,
+          "w": 210,
+          "h": 18,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "min": 400,
+            "max": 2000,
+            "mode": "LV_BAR_MODE_NORMAL",
+            "orientation": "LV_BAR_ORIENTATION_AUTO",
+            "value": 650,
+            "animate": false,
+            "valueStart": 0,
+            "animTime": 0
+          },
+          "styles": {},
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd14",
+              "source": "variable",
+              "variableId": "v_co2",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "value",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_verdict",
+          "type": "label",
+          "name": "Verdict",
+          "x": 10,
+          "y": 142,
+          "w": 220,
+          "h": 24,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "Air is fresh",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 16,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#2E7D32"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_tcap",
+          "type": "label",
+          "name": "TempCaption",
+          "x": 12,
+          "y": 180,
+          "w": 68,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "Temp",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#757575",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_t",
+          "type": "label",
+          "name": "TempValue",
+          "x": 12,
+          "y": 198,
+          "w": 68,
+          "h": 22,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "21.0",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 16,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#212121"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd15",
+              "source": "variable",
+              "variableId": "v_temp",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "text",
+              "direction": "read",
+              "format": "%.1f",
+              "prefix": "",
+              "postfix": " C",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_hcap",
+          "type": "label",
+          "name": "HumCaption",
+          "x": 86,
+          "y": 180,
+          "w": 68,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "Humidity",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#757575",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_h",
+          "type": "label",
+          "name": "HumValue",
+          "x": 86,
+          "y": 198,
+          "w": 68,
+          "h": 22,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "45",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 16,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#212121"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd16",
+              "source": "variable",
+              "variableId": "v_hum",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "text",
+              "direction": "read",
+              "format": "%.0f",
+              "prefix": "",
+              "postfix": " %",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_lcap",
+          "type": "label",
+          "name": "LuxCaption",
+          "x": 160,
+          "y": 180,
+          "w": 68,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "Light",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#757575",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_l",
+          "type": "label",
+          "name": "LuxValue",
+          "x": 160,
+          "y": 198,
+          "w": 68,
+          "h": 22,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "120",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 16,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#212121"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd17",
+              "source": "variable",
+              "variableId": "v_lux",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "text",
+              "direction": "read",
+              "format": "%.0f",
+              "prefix": "",
+              "postfix": " lx",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "cht_co2",
+          "type": "chart",
+          "name": "Co2History",
+          "x": 10,
+          "y": 236,
+          "w": 220,
+          "h": 74,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "chartType": "LV_CHART_TYPE_LINE",
+            "pointCount": 40,
+            "divX": 0,
+            "divY": 3,
+            "zoomX": 256,
+            "zoomY": 256,
+            "yMin": 400,
+            "yMax": 2000,
+            "secondaryY": false,
+            "y2Min": 0,
+            "y2Max": 100,
+            "xMin": 0,
+            "xMax": 100,
+            "xSource": "",
+            "updateMode": "LV_CHART_UPDATE_MODE_SHIFT",
+            "windowMode": "points",
+            "windowSec": 3600,
+            "majorTickLen": 0,
+            "majorTickCount": 0,
+            "minorTickLen": 0,
+            "minorTickCount": 0,
+            "labelOnX": false,
+            "labelOnY": false,
+            "axisFontSize": 14,
+            "series": [
+              {
+                "name": "CO2",
+                "color": "#2E7D32",
+                "data": [
+                  520,
+                  560,
+                  610,
+                  680,
+                  740,
+                  820,
+                  910,
+                  980,
+                  1040,
+                  960,
+                  870,
+                  760
+                ]
+              }
+            ]
+          },
+          "styles": {},
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd18",
+              "source": "variable",
+              "variableId": "v_co2",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "chartPush",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "fs": {
+    "type": "spiffs",
+    "letter": "S",
+    "autoFormat": true
+  },
+  "variables": [
+    {
+      "id": "v_co2",
+      "name": "co2",
+      "type": "float",
+      "initial": 0,
+      "unit": "ppm",
+      "decimals": 0,
+      "min": 400,
+      "max": 2000,
+      "source": {
+        "kind": "peripheral",
+        "ref": "per_scd",
+        "channel": "co2"
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_temp",
+      "name": "tempC",
+      "type": "float",
+      "initial": 0,
+      "unit": "C",
+      "decimals": 1,
+      "min": 0,
+      "max": 40,
+      "source": {
+        "kind": "peripheral",
+        "ref": "per_scd",
+        "channel": "temperature"
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_hum",
+      "name": "humidity",
+      "type": "float",
+      "initial": 0,
+      "unit": "%",
+      "decimals": 0,
+      "min": 0,
+      "max": 100,
+      "source": {
+        "kind": "peripheral",
+        "ref": "per_scd",
+        "channel": "humidity"
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_lux",
+      "name": "lux",
+      "type": "float",
+      "initial": 0,
+      "unit": "lx",
+      "decimals": 0,
+      "min": 0,
+      "max": 2000,
+      "source": {
+        "kind": "peripheral",
+        "ref": "per_bh",
+        "channel": "lux"
+      },
+      "formula": "",
+      "persist": false
+    }
+  ],
+  "automations": [
+    {
+      "id": "au_stuffy",
+      "name": "Stuffy",
+      "enabled": true,
+      "trigger": {
+        "kind": "variable_changed",
+        "params": {
+          "variable": "v_co2",
+          "mode": "above",
+          "value": 1000
+        }
+      },
+      "actions": [
+        {
+          "id": "ac1",
+          "action": "set_property",
+          "params": {
+            "target": "lbl_verdict",
+            "property": "text",
+            "value": "Stuffy - open a window"
+          }
+        },
+        {
+          "id": "ac2",
+          "action": "set_property",
+          "params": {
+            "target": "lbl_verdict",
+            "property": "text_color",
+            "value": "#C62828"
+          }
+        }
+      ]
+    },
+    {
+      "id": "au_fresh",
+      "name": "Fresh",
+      "enabled": true,
+      "trigger": {
+        "kind": "variable_changed",
+        "params": {
+          "variable": "v_co2",
+          "mode": "below",
+          "value": 800
+        }
+      },
+      "actions": [
+        {
+          "id": "ac3",
+          "action": "set_property",
+          "params": {
+            "target": "lbl_verdict",
+            "property": "text",
+            "value": "Air is fresh"
+          }
+        },
+        {
+          "id": "ac4",
+          "action": "set_property",
+          "params": {
+            "target": "lbl_verdict",
+            "property": "text_color",
+            "value": "#2E7D32"
+          }
+        }
+      ]
+    }
+  ],
+  "exportOpts": {
+    "uiPrefix": "ui",
+    "includeSketch": true,
+    "includeConfig": true,
+    "includePlatformIO": true,
+    "includeLvConf": true,
+    "bufferLines": 40,
+    "doubleBuffer": true,
+    "useDMA": true,
+    "psramBuffer": false,
+    "esphome": {
+      "homeAssistant": false
+    }
+  },
+  "fonts": [],
+  "config": []
+}

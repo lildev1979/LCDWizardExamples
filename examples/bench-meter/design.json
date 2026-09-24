@@ -1,0 +1,1152 @@
+{
+  "version": 1,
+  "name": "Bench Supply Meter",
+  "created": "2026-09-11T00:00:00.000Z",
+  "target": "esphome",
+  "lvglVersion": "9",
+  "theme": {
+    "mode": "light",
+    "primary": "#2196F3",
+    "secondary": "#EF6C00",
+    "fontDefault": 14
+  },
+  "hardware": {
+    "board": "esp32-ili9341-spi",
+    "mcu": "esp32",
+    "gfxLib": "tft_espi",
+    "psram": false,
+    "flashMB": 4,
+    "psramMB": 0,
+    "usbCdc": false,
+    "display": {
+      "driver": "ili9341",
+      "interface": "spi",
+      "width": 240,
+      "height": 320,
+      "rotation": 1,
+      "colorDepth": 16,
+      "invert": false,
+      "rgbOrder": "bgr",
+      "pins": {
+        "sck": 18,
+        "mosi": 23,
+        "miso": 19,
+        "cs": 15,
+        "dc": 2,
+        "rst": 4
+      },
+      "opts": {
+        "freqMhz": 40,
+        "spiHost": "VSPI",
+        "spiMode": "0",
+        "threeWire": false
+      },
+      "backlight": {
+        "pin": 21,
+        "active": 1,
+        "pwm": true,
+        "freq": 5000,
+        "defaultLevel": 100
+      }
+    },
+    "touch": {
+      "driver": "xpt2046",
+      "pins": {
+        "sck": 18,
+        "mosi": 23,
+        "miso": 19,
+        "cs": 5,
+        "irq": 27
+      },
+      "opts": {
+        "freqKhz": 2500,
+        "sharedSPI": true
+      },
+      "swapXY": false,
+      "invertX": false,
+      "invertY": false,
+      "calib": {
+        "xMin": 300,
+        "xMax": 3800,
+        "yMin": 300,
+        "yMax": 3800
+      }
+    },
+    "extraSetup": [],
+    "inputs": [],
+    "buses": [
+      {
+        "id": "bus_i2c",
+        "kind": "i2c",
+        "index": 0,
+        "name": "Sensor I2C",
+        "pins": {
+          "sda": 16,
+          "scl": 17
+        },
+        "opts": {
+          "freqKhz": 400,
+          "pullups": true
+        }
+      }
+    ],
+    "peripherals": [
+      {
+        "id": "per_ina",
+        "type": "ina219",
+        "name": "INA219",
+        "busId": "bus_i2c",
+        "addr": "0x40",
+        "pins": {},
+        "config": {
+          "calibration": "setCalibration_32V_2A"
+        },
+        "pollMs": 500,
+        "enabled": true
+      }
+    ],
+    "ioExtenders": [],
+    "analogInputs": [],
+    "digitalIO": [],
+    "partitions": "big_app"
+  },
+  "screens": [
+    {
+      "id": "scr_live",
+      "name": "Live",
+      "type": "screen",
+      "width": 320,
+      "height": 240,
+      "params": {
+        "temporary": false,
+        "noExport": false
+      },
+      "styles": {},
+      "flags": {},
+      "events": [],
+      "bindings": [],
+      "children": [
+        {
+          "id": "pnl_head_1",
+          "type": "panel",
+          "name": "Header",
+          "x": 0,
+          "y": 0,
+          "w": 320,
+          "h": 44,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#1565C0",
+              "bgOpa": 255,
+              "radius": 0,
+              "borderWidth": 0,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_head_1",
+              "type": "label",
+              "name": "HeaderText",
+              "x": 0,
+              "y": 11,
+              "w": 320,
+              "h": 22,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "Bench Supply",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 18,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#FFFFFF",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            }
+          ]
+        },
+        {
+          "id": "pnl_v",
+          "type": "panel",
+          "name": "Volts",
+          "x": 8,
+          "y": 54,
+          "w": 96,
+          "h": 108,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 8,
+              "borderWidth": 1,
+              "borderColor": "#E0E0E0",
+              "padTop": 4,
+              "padBottom": 4,
+              "padLeft": 4,
+              "padRight": 4
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_v_cap",
+              "type": "label",
+              "name": "VoltsCaption",
+              "x": 0,
+              "y": 23,
+              "w": 86,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "VOLTS",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "lbl_v",
+              "type": "label",
+              "name": "VoltsValue",
+              "x": 0,
+              "y": 41,
+              "w": 86,
+              "h": 34,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "12.04",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 30,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#1565C0",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd21",
+                  "source": "variable",
+                  "variableId": "v_volts",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "text",
+                  "direction": "read",
+                  "format": "%.2f",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pnl_i",
+          "type": "panel",
+          "name": "Amps",
+          "x": 112,
+          "y": 54,
+          "w": 96,
+          "h": 108,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 8,
+              "borderWidth": 1,
+              "borderColor": "#E0E0E0",
+              "padTop": 4,
+              "padBottom": 4,
+              "padLeft": 4,
+              "padRight": 4
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_i_cap",
+              "type": "label",
+              "name": "AmpsCaption",
+              "x": 0,
+              "y": 23,
+              "w": 86,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "AMPS",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "lbl_i",
+              "type": "label",
+              "name": "AmpsValue",
+              "x": 0,
+              "y": 41,
+              "w": 86,
+              "h": 34,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "0.482",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 30,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#EF6C00",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd22",
+                  "source": "variable",
+                  "variableId": "v_amps",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "text",
+                  "direction": "read",
+                  "format": "%.3f",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pnl_w",
+          "type": "panel",
+          "name": "Watts",
+          "x": 216,
+          "y": 54,
+          "w": 96,
+          "h": 108,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 8,
+              "borderWidth": 1,
+              "borderColor": "#E0E0E0",
+              "padTop": 4,
+              "padBottom": 4,
+              "padLeft": 4,
+              "padRight": 4
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_w_cap",
+              "type": "label",
+              "name": "WattsCaption",
+              "x": 0,
+              "y": 23,
+              "w": 86,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "WATTS",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "lbl_w",
+              "type": "label",
+              "name": "WattsValue",
+              "x": 0,
+              "y": 41,
+              "w": 86,
+              "h": 34,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "5.80",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 30,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#2E7D32",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd23",
+                  "source": "variable",
+                  "variableId": "v_watts",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "text",
+                  "direction": "read",
+                  "format": "%.2f",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lbl_loadcap",
+          "type": "label",
+          "name": "LoadCaption",
+          "x": 8,
+          "y": 170,
+          "w": 304,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "Current against the trip limit",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#757575",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "bar_load",
+          "type": "bar",
+          "name": "LoadBar",
+          "x": 8,
+          "y": 190,
+          "w": 304,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "min": 0,
+            "max": 3000,
+            "mode": "LV_BAR_MODE_NORMAL",
+            "orientation": "LV_BAR_ORIENTATION_AUTO",
+            "value": 482,
+            "animate": false,
+            "valueStart": 0,
+            "animTime": 0
+          },
+          "styles": {},
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd24",
+              "source": "variable",
+              "variableId": "v_amps",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "value",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": "amps * 1000"
+            }
+          ]
+        },
+        {
+          "id": "lbl_trip",
+          "type": "label",
+          "name": "TripBanner",
+          "x": 8,
+          "y": 212,
+          "w": 150,
+          "h": 20,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "OVER LIMIT",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 16,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#C62828",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd25",
+              "source": "variable",
+              "variableId": "v_tripped",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "hidden",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": "tripped == 0"
+            }
+          ]
+        },
+        {
+          "id": "btn_limits",
+          "type": "button",
+          "name": "LimitsButton",
+          "x": 212,
+          "y": 204,
+          "w": 100,
+          "h": 32,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "text": "Limits",
+            "icon": "",
+            "iconPos": "left",
+            "iconSize": 20,
+            "iconGap": 6
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "borderWidth": 1,
+              "borderColor": "#BDBDBD",
+              "radius": 8,
+              "textColor": "#212121",
+              "textFont": 14,
+              "padTop": 7,
+              "padBottom": 7,
+              "padLeft": 8,
+              "padRight": 8
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [
+            {
+              "id": "ev54",
+              "trigger": "CLICKED",
+              "action": "change_screen",
+              "params": {
+                "screen": "scr_limits"
+              }
+            }
+          ],
+          "bindings": [],
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "scr_limits",
+      "name": "Limits",
+      "type": "screen",
+      "width": 320,
+      "height": 240,
+      "params": {
+        "temporary": false,
+        "noExport": false
+      },
+      "styles": {},
+      "flags": {},
+      "events": [],
+      "bindings": [],
+      "children": [
+        {
+          "id": "pnl_head_2",
+          "type": "panel",
+          "name": "Header",
+          "x": 0,
+          "y": 0,
+          "w": 320,
+          "h": 44,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#37474F",
+              "bgOpa": 255,
+              "radius": 0,
+              "borderWidth": 0,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_head_2",
+              "type": "label",
+              "name": "HeaderText",
+              "x": 0,
+              "y": 11,
+              "w": 320,
+              "h": 22,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "Trip limit",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 18,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#FFFFFF",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            }
+          ]
+        },
+        {
+          "id": "lbl_limcap",
+          "type": "label",
+          "name": "LimitCaption",
+          "x": 20,
+          "y": 62,
+          "w": 280,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "Warn above this current",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#757575",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "spb_limit",
+          "type": "spinbox",
+          "name": "CurrentLimit",
+          "x": 20,
+          "y": 86,
+          "w": 160,
+          "h": 46,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "digitCount": 3,
+            "sepPos": 2,
+            "min": 0,
+            "max": 300,
+            "step": 10,
+            "value": 150,
+            "rollover": false,
+            "stepDirection": "LV_DIR_RIGHT"
+          },
+          "styles": {},
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd26",
+              "source": "variable",
+              "variableId": "v_limit_a",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "value",
+              "direction": "both",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": "currentLimit * 100"
+            }
+          ]
+        },
+        {
+          "id": "lbl_limunit",
+          "type": "label",
+          "name": "LimitUnit",
+          "x": 188,
+          "y": 101,
+          "w": 70,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "x 10 mA",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#757575",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_note",
+          "type": "label",
+          "name": "Note",
+          "x": 20,
+          "y": 144,
+          "w": 280,
+          "h": 48,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "The banner appears on the live screen while the load is above this. Nothing is switched off - an INA219 measures, it does not interrupt.",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#757575",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "btn_back",
+          "type": "button",
+          "name": "BackButton",
+          "x": 20,
+          "y": 200,
+          "w": 110,
+          "h": 36,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "text": "Back",
+            "icon": "",
+            "iconPos": "left",
+            "iconSize": 20,
+            "iconGap": 6
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#1565C0",
+              "bgOpa": 255,
+              "borderWidth": 0,
+              "radius": 8,
+              "textColor": "#FFFFFF",
+              "textFont": 14,
+              "padTop": 9,
+              "padBottom": 9,
+              "padLeft": 8,
+              "padRight": 8
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [
+            {
+              "id": "ev55",
+              "trigger": "CLICKED",
+              "action": "change_screen",
+              "params": {
+                "screen": "scr_live"
+              }
+            }
+          ],
+          "bindings": [],
+          "children": []
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "fs": {
+    "type": "spiffs",
+    "letter": "S",
+    "autoFormat": true
+  },
+  "variables": [
+    {
+      "id": "v_volts",
+      "name": "volts",
+      "type": "float",
+      "initial": 0,
+      "unit": "V",
+      "decimals": 2,
+      "min": 0,
+      "max": 30,
+      "source": {
+        "kind": "peripheral",
+        "ref": "per_ina",
+        "channel": "voltage"
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_amps",
+      "name": "amps",
+      "type": "float",
+      "initial": 0,
+      "unit": "A",
+      "decimals": 3,
+      "min": 0,
+      "max": 3,
+      "source": {
+        "kind": "peripheral",
+        "ref": "per_ina",
+        "channel": "current"
+      },
+      "formula": "raw / 1000",
+      "persist": false
+    },
+    {
+      "id": "v_watts",
+      "name": "watts",
+      "type": "float",
+      "initial": 0,
+      "unit": "W",
+      "decimals": 2,
+      "min": 0,
+      "max": 90,
+      "source": {
+        "kind": "peripheral",
+        "ref": "per_ina",
+        "channel": "power"
+      },
+      "formula": "raw / 1000",
+      "persist": false
+    },
+    {
+      "id": "v_limit_a",
+      "name": "currentLimit",
+      "type": "float",
+      "initial": 1.5,
+      "unit": "A",
+      "decimals": 2,
+      "min": 0,
+      "max": 3,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": true
+    },
+    {
+      "id": "v_tripped",
+      "name": "tripped",
+      "type": "bool",
+      "initial": 0,
+      "unit": "",
+      "decimals": 0,
+      "min": 0,
+      "max": 1,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": false
+    }
+  ],
+  "automations": [
+    {
+      "id": "auto_trip",
+      "name": "Watch the limit",
+      "enabled": true,
+      "trigger": {
+        "kind": "variable_changed",
+        "params": {
+          "variable": "v_amps",
+          "mode": "any",
+          "value": 0
+        }
+      },
+      "actions": [
+        {
+          "id": "act1",
+          "action": "set_variable",
+          "params": {
+            "variable": "v_tripped",
+            "mode": "expr",
+            "value": 0,
+            "text": "",
+            "delta": 1,
+            "expr": "amps > currentLimit",
+            "source": ""
+          }
+        }
+      ]
+    }
+  ],
+  "exportOpts": {
+    "uiPrefix": "ui",
+    "includeSketch": true,
+    "includeConfig": true,
+    "includePlatformIO": true,
+    "includeLvConf": true,
+    "bufferLines": 40,
+    "doubleBuffer": true,
+    "useDMA": true,
+    "psramBuffer": false,
+    "esphome": {
+      "homeAssistant": true
+    }
+  },
+  "fonts": [],
+  "config": []
+}

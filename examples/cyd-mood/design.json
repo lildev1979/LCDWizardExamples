@@ -1,0 +1,829 @@
+{
+  "version": 1,
+  "name": "Mood Light",
+  "created": "2026-09-11T00:00:00.000Z",
+  "target": "arduino",
+  "lvglVersion": "9",
+  "theme": {
+    "mode": "light",
+    "primary": "#2196F3",
+    "secondary": "#EF6C00",
+    "fontDefault": 14
+  },
+  "hardware": {
+    "board": "cyd-2432s028r",
+    "mcu": "esp32",
+    "gfxLib": "tft_espi",
+    "psram": false,
+    "flashMB": 4,
+    "psramMB": 0,
+    "usbCdc": false,
+    "display": {
+      "driver": "ili9341",
+      "interface": "spi",
+      "width": 320,
+      "height": 240,
+      "rotation": 1,
+      "colorDepth": 16,
+      "invert": false,
+      "rgbOrder": "rgb",
+      "pins": {
+        "sck": 14,
+        "mosi": 13,
+        "miso": 12,
+        "cs": 15,
+        "dc": 2,
+        "rst": -1
+      },
+      "opts": {
+        "freqMhz": 40,
+        "spiHost": "HSPI",
+        "spiMode": "0",
+        "threeWire": false
+      },
+      "backlight": {
+        "pin": 21,
+        "active": 1,
+        "pwm": true,
+        "freq": 5000,
+        "defaultLevel": 100
+      }
+    },
+    "touch": {
+      "driver": "xpt2046",
+      "pins": {
+        "sck": 25,
+        "mosi": 32,
+        "miso": 39,
+        "cs": 33,
+        "irq": 36
+      },
+      "opts": {
+        "freqKhz": 2500,
+        "sharedSPI": false
+      },
+      "swapXY": true,
+      "invertX": false,
+      "invertY": false,
+      "calib": {
+        "xMin": 200,
+        "xMax": 3700,
+        "yMin": 240,
+        "yMax": 3800
+      }
+    },
+    "extraSetup": [],
+    "inputs": [],
+    "buses": [
+      {
+        "id": "bus_cn1",
+        "kind": "i2c",
+        "index": 0,
+        "name": "CN1",
+        "pins": {
+          "sda": 22,
+          "scl": 27
+        },
+        "opts": {
+          "freqKhz": 100,
+          "pullups": true
+        }
+      }
+    ],
+    "peripherals": [
+      {
+        "id": "per_bh",
+        "type": "bh1750",
+        "name": "BH1750",
+        "busId": "bus_cn1",
+        "addr": "0x23",
+        "pins": {},
+        "config": {
+          "mode": "BH1750::CONTINUOUS_HIGH_RES_MODE",
+          "mtreg": 69
+        },
+        "pollMs": 1000,
+        "enabled": true
+      }
+    ],
+    "ioExtenders": [],
+    "analogInputs": [],
+    "digitalIO": [
+      {
+        "id": "io_r",
+        "dir": "out",
+        "name": "ledRed",
+        "source": "gpio",
+        "pin": 4,
+        "extenderId": "",
+        "extPin": 0,
+        "pullup": false,
+        "activeLow": true,
+        "debounceMs": 25,
+        "initial": false
+      },
+      {
+        "id": "io_g",
+        "dir": "out",
+        "name": "ledGreen",
+        "source": "gpio",
+        "pin": 16,
+        "extenderId": "",
+        "extPin": 0,
+        "pullup": false,
+        "activeLow": true,
+        "debounceMs": 25,
+        "initial": false
+      },
+      {
+        "id": "io_b",
+        "dir": "out",
+        "name": "ledBlue",
+        "source": "gpio",
+        "pin": 17,
+        "extenderId": "",
+        "extPin": 0,
+        "pullup": false,
+        "activeLow": true,
+        "debounceMs": 25,
+        "initial": false
+      }
+    ],
+    "partitions": "big_app"
+  },
+  "screens": [
+    {
+      "id": "scr_screen1",
+      "name": "Screen1",
+      "type": "screen",
+      "width": 240,
+      "height": 320,
+      "params": {
+        "temporary": false,
+        "noExport": false
+      },
+      "styles": {},
+      "flags": {},
+      "events": [],
+      "bindings": [],
+      "children": [
+        {
+          "id": "lbl_title",
+          "type": "label",
+          "name": "Title",
+          "x": 10,
+          "y": 8,
+          "w": 220,
+          "h": 26,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "Mood Light",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 20,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#1565C0"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "pnl_swatch",
+          "type": "panel",
+          "name": "Swatch",
+          "x": 30,
+          "y": 40,
+          "w": 180,
+          "h": 64,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 12,
+              "borderWidth": 1,
+              "borderColor": "#BDBDBD"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": []
+        },
+        {
+          "id": "btn_r",
+          "type": "button",
+          "name": "RedButton",
+          "x": 12,
+          "y": 116,
+          "w": 66,
+          "h": 44,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "text": "Red",
+            "icon": "",
+            "iconPos": "left",
+            "iconSize": 20,
+            "iconGap": 6
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#D32F2F",
+              "textColor": "#FFFFFF",
+              "radius": 8
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [
+            {
+              "id": "ev34",
+              "trigger": "CLICKED",
+              "action": "digital_write",
+              "params": {
+                "output": "io_r",
+                "value": "on"
+              }
+            },
+            {
+              "id": "ev35",
+              "trigger": "CLICKED",
+              "action": "digital_write",
+              "params": {
+                "output": "io_g",
+                "value": "off"
+              }
+            },
+            {
+              "id": "ev36",
+              "trigger": "CLICKED",
+              "action": "digital_write",
+              "params": {
+                "output": "io_b",
+                "value": "off"
+              }
+            },
+            {
+              "id": "ev37",
+              "trigger": "CLICKED",
+              "action": "set_property",
+              "params": {
+                "target": "pnl_swatch",
+                "property": "bg_color",
+                "value": "#D32F2F"
+              }
+            }
+          ],
+          "bindings": [],
+          "children": []
+        },
+        {
+          "id": "btn_g",
+          "type": "button",
+          "name": "GreenButton",
+          "x": 87,
+          "y": 116,
+          "w": 66,
+          "h": 44,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "text": "Green",
+            "icon": "",
+            "iconPos": "left",
+            "iconSize": 20,
+            "iconGap": 6
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#2E7D32",
+              "textColor": "#FFFFFF",
+              "radius": 8
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [
+            {
+              "id": "ev38",
+              "trigger": "CLICKED",
+              "action": "digital_write",
+              "params": {
+                "output": "io_r",
+                "value": "off"
+              }
+            },
+            {
+              "id": "ev39",
+              "trigger": "CLICKED",
+              "action": "digital_write",
+              "params": {
+                "output": "io_g",
+                "value": "on"
+              }
+            },
+            {
+              "id": "ev40",
+              "trigger": "CLICKED",
+              "action": "digital_write",
+              "params": {
+                "output": "io_b",
+                "value": "off"
+              }
+            },
+            {
+              "id": "ev41",
+              "trigger": "CLICKED",
+              "action": "set_property",
+              "params": {
+                "target": "pnl_swatch",
+                "property": "bg_color",
+                "value": "#2E7D32"
+              }
+            }
+          ],
+          "bindings": [],
+          "children": []
+        },
+        {
+          "id": "btn_b",
+          "type": "button",
+          "name": "BlueButton",
+          "x": 162,
+          "y": 116,
+          "w": 66,
+          "h": 44,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "text": "Blue",
+            "icon": "",
+            "iconPos": "left",
+            "iconSize": 20,
+            "iconGap": 6
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#1565C0",
+              "textColor": "#FFFFFF",
+              "radius": 8
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [
+            {
+              "id": "ev42",
+              "trigger": "CLICKED",
+              "action": "digital_write",
+              "params": {
+                "output": "io_r",
+                "value": "off"
+              }
+            },
+            {
+              "id": "ev43",
+              "trigger": "CLICKED",
+              "action": "digital_write",
+              "params": {
+                "output": "io_g",
+                "value": "off"
+              }
+            },
+            {
+              "id": "ev44",
+              "trigger": "CLICKED",
+              "action": "digital_write",
+              "params": {
+                "output": "io_b",
+                "value": "on"
+              }
+            },
+            {
+              "id": "ev45",
+              "trigger": "CLICKED",
+              "action": "set_property",
+              "params": {
+                "target": "pnl_swatch",
+                "property": "bg_color",
+                "value": "#1565C0"
+              }
+            }
+          ],
+          "bindings": [],
+          "children": []
+        },
+        {
+          "id": "btn_w",
+          "type": "button",
+          "name": "WhiteButton",
+          "x": 12,
+          "y": 168,
+          "w": 104,
+          "h": 44,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "text": "White",
+            "icon": "",
+            "iconPos": "left",
+            "iconSize": 20,
+            "iconGap": 6
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#616161",
+              "textColor": "#FFFFFF",
+              "radius": 8
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [
+            {
+              "id": "ev46",
+              "trigger": "CLICKED",
+              "action": "digital_write",
+              "params": {
+                "output": "io_r",
+                "value": "on"
+              }
+            },
+            {
+              "id": "ev47",
+              "trigger": "CLICKED",
+              "action": "digital_write",
+              "params": {
+                "output": "io_g",
+                "value": "on"
+              }
+            },
+            {
+              "id": "ev48",
+              "trigger": "CLICKED",
+              "action": "digital_write",
+              "params": {
+                "output": "io_b",
+                "value": "on"
+              }
+            },
+            {
+              "id": "ev49",
+              "trigger": "CLICKED",
+              "action": "set_property",
+              "params": {
+                "target": "pnl_swatch",
+                "property": "bg_color",
+                "value": "#616161"
+              }
+            }
+          ],
+          "bindings": [],
+          "children": []
+        },
+        {
+          "id": "btn_off",
+          "type": "button",
+          "name": "OffButton",
+          "x": 124,
+          "y": 168,
+          "w": 104,
+          "h": 44,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "text": "Off",
+            "icon": "",
+            "iconPos": "left",
+            "iconSize": 20,
+            "iconGap": 6
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#212121",
+              "textColor": "#FFFFFF",
+              "radius": 8
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [
+            {
+              "id": "ev50",
+              "trigger": "CLICKED",
+              "action": "digital_write",
+              "params": {
+                "output": "io_r",
+                "value": "off"
+              }
+            },
+            {
+              "id": "ev51",
+              "trigger": "CLICKED",
+              "action": "digital_write",
+              "params": {
+                "output": "io_g",
+                "value": "off"
+              }
+            },
+            {
+              "id": "ev52",
+              "trigger": "CLICKED",
+              "action": "digital_write",
+              "params": {
+                "output": "io_b",
+                "value": "off"
+              }
+            },
+            {
+              "id": "ev53",
+              "trigger": "CLICKED",
+              "action": "set_property",
+              "params": {
+                "target": "pnl_swatch",
+                "property": "bg_color",
+                "value": "#212121"
+              }
+            }
+          ],
+          "bindings": [],
+          "children": []
+        },
+        {
+          "id": "lbl_luxcap",
+          "type": "label",
+          "name": "LuxCaption",
+          "x": 12,
+          "y": 228,
+          "w": 216,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "Ambient light",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#757575"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "bar_lux",
+          "type": "bar",
+          "name": "LuxBar",
+          "x": 12,
+          "y": 248,
+          "w": 216,
+          "h": 14,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "min": 0,
+            "max": 1000,
+            "mode": "LV_BAR_MODE_NORMAL",
+            "orientation": "LV_BAR_ORIENTATION_AUTO",
+            "value": 120,
+            "animate": false,
+            "valueStart": 0,
+            "animTime": 0
+          },
+          "styles": {},
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd19",
+              "source": "variable",
+              "variableId": "v_lux",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "value",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_lux",
+          "type": "label",
+          "name": "LuxValue",
+          "x": 12,
+          "y": 266,
+          "w": 216,
+          "h": 26,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "120 lx",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 18,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#1565C0"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd20",
+              "source": "variable",
+              "variableId": "v_lux",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "text",
+              "direction": "read",
+              "format": "%.0f",
+              "prefix": "",
+              "postfix": " lx",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_note",
+          "type": "label",
+          "name": "Note",
+          "x": 12,
+          "y": 294,
+          "w": 216,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "LED is the one already on the board",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#757575"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "fs": {
+    "type": "spiffs",
+    "letter": "S",
+    "autoFormat": true
+  },
+  "variables": [
+    {
+      "id": "v_lux",
+      "name": "lux",
+      "type": "float",
+      "initial": 0,
+      "unit": "lx",
+      "decimals": 0,
+      "min": 0,
+      "max": 1000,
+      "source": {
+        "kind": "peripheral",
+        "ref": "per_bh",
+        "channel": "lux"
+      },
+      "formula": "",
+      "persist": false
+    }
+  ],
+  "automations": [
+    {
+      "id": "au_dusk",
+      "name": "Dusk",
+      "enabled": true,
+      "trigger": {
+        "kind": "variable_changed",
+        "params": {
+          "variable": "v_lux",
+          "mode": "below",
+          "value": 20
+        }
+      },
+      "actions": [
+        {
+          "id": "ad1",
+          "action": "digital_write",
+          "params": {
+            "output": "io_r",
+            "value": "on"
+          }
+        },
+        {
+          "id": "ad2",
+          "action": "digital_write",
+          "params": {
+            "output": "io_g",
+            "value": "on"
+          }
+        },
+        {
+          "id": "ad3",
+          "action": "digital_write",
+          "params": {
+            "output": "io_b",
+            "value": "on"
+          }
+        },
+        {
+          "id": "ad4",
+          "action": "set_property",
+          "params": {
+            "target": "pnl_swatch",
+            "property": "bg_color",
+            "value": "#616161"
+          }
+        }
+      ]
+    }
+  ],
+  "exportOpts": {
+    "uiPrefix": "ui",
+    "includeSketch": true,
+    "includeConfig": true,
+    "includePlatformIO": true,
+    "includeLvConf": true,
+    "bufferLines": 40,
+    "doubleBuffer": true,
+    "useDMA": true,
+    "psramBuffer": false,
+    "esphome": {
+      "homeAssistant": false
+    }
+  },
+  "fonts": [],
+  "config": []
+}

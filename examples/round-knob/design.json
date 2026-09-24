@@ -1,0 +1,395 @@
+{
+  "version": 1,
+  "name": "Round Volume Knob",
+  "created": "2026-09-11T00:00:00.000Z",
+  "target": "micropython",
+  "lvglVersion": "9",
+  "theme": {
+    "mode": "light",
+    "primary": "#2196F3",
+    "secondary": "#EF6C00",
+    "fontDefault": 14
+  },
+  "hardware": {
+    "board": "s3-gc9a01-round",
+    "mcu": "esp32s3",
+    "gfxLib": "arduino_gfx",
+    "psram": false,
+    "flashMB": 8,
+    "psramMB": 0,
+    "usbCdc": false,
+    "display": {
+      "driver": "gc9a01",
+      "interface": "spi",
+      "width": 240,
+      "height": 240,
+      "rotation": 0,
+      "colorDepth": 16,
+      "invert": true,
+      "rgbOrder": "bgr",
+      "pins": {
+        "sck": 12,
+        "mosi": 11,
+        "miso": -1,
+        "cs": 10,
+        "dc": 14,
+        "rst": 13
+      },
+      "opts": {
+        "freqMhz": 80,
+        "spiHost": "SPI2_HOST",
+        "spiMode": "0",
+        "threeWire": false
+      },
+      "backlight": {
+        "pin": 2,
+        "active": 1,
+        "pwm": true,
+        "freq": 5000,
+        "defaultLevel": 100
+      }
+    },
+    "touch": {
+      "driver": "cst816s",
+      "pins": {
+        "sda": 8,
+        "scl": 9,
+        "int": 7,
+        "rst": 6
+      },
+      "opts": {
+        "i2cAddr": "0x15",
+        "freqKhz": 400,
+        "sharedI2C": false
+      },
+      "swapXY": false,
+      "invertX": false,
+      "invertY": false
+    },
+    "extraSetup": [],
+    "inputs": [],
+    "buses": [],
+    "peripherals": [],
+    "ioExtenders": [],
+    "analogInputs": [],
+    "digitalIO": [],
+    "partitions": "big_app"
+  },
+  "screens": [
+    {
+      "id": "scr_screen1",
+      "name": "Screen1",
+      "type": "screen",
+      "width": 240,
+      "height": 240,
+      "params": {
+        "temporary": false,
+        "noExport": false
+      },
+      "styles": {},
+      "flags": {},
+      "events": [],
+      "bindings": [],
+      "children": [
+        {
+          "id": "arc_level",
+          "type": "arc",
+          "name": "LevelDial",
+          "x": 10,
+          "y": 10,
+          "w": 220,
+          "h": 220,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "min": 0,
+            "max": 100,
+            "value": 40,
+            "bgStart": 130,
+            "bgEnd": 50,
+            "start": 135,
+            "end": 45,
+            "mode": "LV_ARC_MODE_NORMAL",
+            "rotation": 0,
+            "changeRate": 720,
+            "knobOffset": 0
+          },
+          "styles": {
+            "indicator:default": {
+              "arcWidth": 14,
+              "arcColor": "#1565C0"
+            },
+            "main:default": {
+              "arcWidth": 14,
+              "arcColor": "#E0E0E0"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd60",
+              "source": "variable",
+              "variableId": "v_level",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "value",
+              "direction": "both",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_level",
+          "type": "label",
+          "name": "LevelValue",
+          "x": 60,
+          "y": 96,
+          "w": 120,
+          "h": 48,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "40",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 44,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#1565C0",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd61",
+              "source": "variable",
+              "variableId": "v_level",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "text",
+              "direction": "read",
+              "format": "%.0f",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_cap",
+          "type": "label",
+          "name": "LevelCaption",
+          "x": 60,
+          "y": 146,
+          "w": 120,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "VOLUME",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#757575",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_mute",
+          "type": "label",
+          "name": "MuteBanner",
+          "x": 60,
+          "y": 68,
+          "w": 120,
+          "h": 20,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "MUTED",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 16,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#C62828",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd62",
+              "source": "variable",
+              "variableId": "v_mute",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "hidden",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": "muted == 0"
+            }
+          ]
+        },
+        {
+          "id": "btn_mute",
+          "type": "button",
+          "name": "MuteButton",
+          "x": 85,
+          "y": 168,
+          "w": 70,
+          "h": 34,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "text": "Mute",
+            "icon": "",
+            "iconPos": "left",
+            "iconSize": 20,
+            "iconGap": 6
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "borderWidth": 1,
+              "borderColor": "#BDBDBD",
+              "radius": 8,
+              "textColor": "#212121",
+              "textFont": 14,
+              "padTop": 8,
+              "padBottom": 8,
+              "padLeft": 8,
+              "padRight": 8
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [
+            {
+              "id": "ev70",
+              "trigger": "CLICKED",
+              "action": "set_variable",
+              "params": {
+                "variable": "v_mute",
+                "mode": "toggle"
+              }
+            }
+          ],
+          "bindings": [],
+          "children": []
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "fs": {
+    "type": "spiffs",
+    "letter": "S",
+    "autoFormat": true
+  },
+  "variables": [
+    {
+      "id": "v_level",
+      "name": "level",
+      "type": "int",
+      "initial": 40,
+      "unit": "%",
+      "decimals": 0,
+      "min": 0,
+      "max": 100,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": true
+    },
+    {
+      "id": "v_mute",
+      "name": "muted",
+      "type": "bool",
+      "initial": 0,
+      "unit": "",
+      "decimals": 0,
+      "min": 0,
+      "max": 1,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": false
+    }
+  ],
+  "automations": [],
+  "exportOpts": {
+    "uiPrefix": "ui",
+    "includeSketch": true,
+    "includeConfig": true,
+    "includePlatformIO": true,
+    "includeLvConf": true,
+    "bufferLines": 40,
+    "doubleBuffer": true,
+    "useDMA": true,
+    "psramBuffer": false,
+    "esphome": {
+      "homeAssistant": false
+    }
+  },
+  "fonts": [],
+  "config": []
+}

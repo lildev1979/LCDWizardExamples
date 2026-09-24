@@ -1,0 +1,1156 @@
+{
+  "version": 1,
+  "name": "Solar Dashboard",
+  "created": "2026-09-11T00:00:00.000Z",
+  "target": "arduino",
+  "lvglVersion": "9",
+  "theme": {
+    "mode": "light",
+    "primary": "#2196F3",
+    "secondary": "#EF6C00",
+    "fontDefault": 14
+  },
+  "hardware": {
+    "board": "sunton-8048s070",
+    "mcu": "esp32s3",
+    "gfxLib": "arduino_gfx",
+    "psram": true,
+    "flashMB": 16,
+    "psramMB": 8,
+    "usbCdc": false,
+    "display": {
+      "driver": "st7262",
+      "interface": "rgb",
+      "width": 800,
+      "height": 480,
+      "rotation": 0,
+      "colorDepth": 16,
+      "invert": false,
+      "rgbOrder": "rgb",
+      "pins": {
+        "de": 41,
+        "vsync": 40,
+        "hsync": 39,
+        "pclk": 42,
+        "r0": 14,
+        "r1": 21,
+        "r2": 47,
+        "r3": 48,
+        "r4": 45,
+        "g0": 9,
+        "g1": 46,
+        "g2": 3,
+        "g3": 8,
+        "g4": 16,
+        "g5": 1,
+        "b0": 15,
+        "b1": 7,
+        "b2": 6,
+        "b3": 5,
+        "b4": 4,
+        "rst": -1
+      },
+      "opts": {
+        "pclkMhz": 12.5,
+        "hsyncPolarity": "0",
+        "hsyncFrontPorch": 210,
+        "hsyncPulseWidth": 30,
+        "hsyncBackPorch": 16,
+        "vsyncPolarity": "0",
+        "vsyncFrontPorch": 22,
+        "vsyncPulseWidth": 13,
+        "vsyncBackPorch": 10,
+        "pclkActiveNeg": true
+      },
+      "backlight": {
+        "pin": 2,
+        "active": 1,
+        "pwm": true,
+        "freq": 5000,
+        "defaultLevel": 100
+      }
+    },
+    "touch": {
+      "driver": "gt911",
+      "pins": {
+        "sda": 19,
+        "scl": 20,
+        "int": -1,
+        "rst": 38
+      },
+      "opts": {
+        "i2cAddr": "0x5D",
+        "freqKhz": 400,
+        "sharedI2C": false
+      },
+      "swapXY": false,
+      "invertX": false,
+      "invertY": false
+    },
+    "extraSetup": [],
+    "inputs": [],
+    "buses": [
+      {
+        "id": "bus_dc",
+        "kind": "i2c",
+        "index": 1,
+        "name": "DC monitoring",
+        "pins": {
+          "sda": 17,
+          "scl": 18
+        },
+        "opts": {
+          "freqKhz": 400,
+          "pullups": false
+        }
+      }
+    ],
+    "peripherals": [
+      {
+        "id": "per_pv",
+        "type": "ina219",
+        "name": "Array",
+        "busId": "bus_dc",
+        "addr": "0x40",
+        "pins": {},
+        "config": {
+          "calibration": "setCalibration_32V_2A"
+        },
+        "pollMs": 2000,
+        "enabled": true
+      },
+      {
+        "id": "per_load",
+        "type": "ina219",
+        "name": "House",
+        "busId": "bus_dc",
+        "addr": "0x41",
+        "pins": {},
+        "config": {
+          "calibration": "setCalibration_32V_2A"
+        },
+        "pollMs": 2000,
+        "enabled": true
+      }
+    ],
+    "ioExtenders": [],
+    "analogInputs": [],
+    "digitalIO": [],
+    "partitions": "big_app"
+  },
+  "screens": [
+    {
+      "id": "scr_screen1",
+      "name": "Screen1",
+      "type": "screen",
+      "width": 800,
+      "height": 480,
+      "params": {
+        "temporary": false,
+        "noExport": false
+      },
+      "styles": {},
+      "flags": {},
+      "events": [],
+      "bindings": [],
+      "children": [
+        {
+          "id": "pnl_head_1",
+          "type": "panel",
+          "name": "Header",
+          "x": 0,
+          "y": 0,
+          "w": 800,
+          "h": 44,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#2E7D32",
+              "bgOpa": 255,
+              "radius": 0,
+              "borderWidth": 0,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_head_1",
+              "type": "label",
+              "name": "HeaderText",
+              "x": 0,
+              "y": 11,
+              "w": 800,
+              "h": 22,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "Solar",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 18,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#FFFFFF",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            }
+          ]
+        },
+        {
+          "id": "pnl_pv",
+          "type": "panel",
+          "name": "Array",
+          "x": 18,
+          "y": 66,
+          "w": 177,
+          "h": 130,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 8,
+              "borderWidth": 1,
+              "borderColor": "#E0E0E0",
+              "padTop": 4,
+              "padBottom": 4,
+              "padLeft": 4,
+              "padRight": 4
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_pv_cap",
+              "type": "label",
+              "name": "ArrayCaption",
+              "x": 0,
+              "y": 29,
+              "w": 167,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "ARRAY W",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "lbl_pv",
+              "type": "label",
+              "name": "ArrayValue",
+              "x": 0,
+              "y": 47,
+              "w": 167,
+              "h": 44,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "412",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 40,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#2E7D32",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd77",
+                  "source": "variable",
+                  "variableId": "v_pv_w",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "text",
+                  "direction": "read",
+                  "format": "%.0f",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pnl_load",
+          "type": "panel",
+          "name": "Load",
+          "x": 213,
+          "y": 66,
+          "w": 177,
+          "h": 130,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 8,
+              "borderWidth": 1,
+              "borderColor": "#E0E0E0",
+              "padTop": 4,
+              "padBottom": 4,
+              "padLeft": 4,
+              "padRight": 4
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_load_cap",
+              "type": "label",
+              "name": "LoadCaption",
+              "x": 0,
+              "y": 29,
+              "w": 167,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "HOUSE W",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "lbl_load",
+              "type": "label",
+              "name": "LoadValue",
+              "x": 0,
+              "y": 47,
+              "w": 167,
+              "h": 44,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "187",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 40,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#EF6C00",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd78",
+                  "source": "variable",
+                  "variableId": "v_load_w",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "text",
+                  "direction": "read",
+                  "format": "%.0f",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pnl_bat",
+          "type": "panel",
+          "name": "Battery",
+          "x": 408,
+          "y": 66,
+          "w": 177,
+          "h": 130,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 8,
+              "borderWidth": 1,
+              "borderColor": "#E0E0E0",
+              "padTop": 4,
+              "padBottom": 4,
+              "padLeft": 4,
+              "padRight": 4
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_bat_cap",
+              "type": "label",
+              "name": "BatteryCaption",
+              "x": 0,
+              "y": 29,
+              "w": 167,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "BATTERY V",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "lbl_bat",
+              "type": "label",
+              "name": "BatteryValue",
+              "x": 0,
+              "y": 47,
+              "w": 167,
+              "h": 44,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "12.64",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 40,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#1565C0",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd79",
+                  "source": "variable",
+                  "variableId": "v_bat_v",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "text",
+                  "direction": "read",
+                  "format": "%.2f",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pnl_net",
+          "type": "panel",
+          "name": "Net",
+          "x": 603,
+          "y": 66,
+          "w": 177,
+          "h": 130,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 8,
+              "borderWidth": 1,
+              "borderColor": "#E0E0E0",
+              "padTop": 4,
+              "padBottom": 4,
+              "padLeft": 4,
+              "padRight": 4
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": [
+            {
+              "id": "lbl_net_cap",
+              "type": "label",
+              "name": "NetCaption",
+              "x": 0,
+              "y": 29,
+              "w": 167,
+              "h": 16,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "NET W",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 12,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#757575",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": []
+            },
+            {
+              "id": "lbl_net",
+              "type": "label",
+              "name": "NetValue",
+              "x": 0,
+              "y": 47,
+              "w": 167,
+              "h": 44,
+              "align": "LV_ALIGN_TOP_LEFT",
+              "widthMode": "px",
+              "heightMode": "px",
+              "hidden": false,
+              "locked": false,
+              "params": {
+                "longMode": "LV_LABEL_LONG_WRAP",
+                "text": "225",
+                "recolor": false,
+                "translate": false
+              },
+              "styles": {
+                "main:default": {
+                  "textFont": 40,
+                  "textAlign": "LV_TEXT_ALIGN_CENTER",
+                  "textColor": "#37474F",
+                  "padTop": 0,
+                  "padBottom": 0,
+                  "padLeft": 0,
+                  "padRight": 0
+                }
+              },
+              "flags": {},
+              "layout": {},
+              "events": [],
+              "bindings": [
+                {
+                  "id": "bnd80",
+                  "source": "variable",
+                  "variableId": "v_net",
+                  "sourceNodeId": "",
+                  "sourceProperty": "",
+                  "property": "text",
+                  "direction": "read",
+                  "format": "%.0f",
+                  "prefix": "",
+                  "postfix": "",
+                  "formula": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lbl_soccap",
+          "type": "label",
+          "name": "ChargeCaption",
+          "x": 18,
+          "y": 212,
+          "w": 300,
+          "h": 22,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "State of charge",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#757575"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "bar_soc",
+          "type": "bar",
+          "name": "ChargeBar",
+          "x": 18,
+          "y": 238,
+          "w": 764,
+          "h": 28,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "min": 0,
+            "max": 100,
+            "mode": "LV_BAR_MODE_NORMAL",
+            "orientation": "LV_BAR_ORIENTATION_AUTO",
+            "value": 78,
+            "animate": false,
+            "valueStart": 0,
+            "animTime": 0
+          },
+          "styles": {},
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd81",
+              "source": "variable",
+              "variableId": "v_soc",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "value",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_soc",
+          "type": "label",
+          "name": "ChargeValue",
+          "x": 18,
+          "y": 272,
+          "w": 200,
+          "h": 40,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "78 %",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 30,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#1565C0"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd82",
+              "source": "variable",
+              "variableId": "v_soc",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "text",
+              "direction": "read",
+              "format": "%.0f",
+              "prefix": "",
+              "postfix": " %",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_charging",
+          "type": "label",
+          "name": "ChargingBanner",
+          "x": 240,
+          "y": 278,
+          "w": 300,
+          "h": 28,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "Charging",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 20,
+              "textColor": "#2E7D32"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd83",
+              "source": "variable",
+              "variableId": "v_charging",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "hidden",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": "charging == 0"
+            }
+          ]
+        },
+        {
+          "id": "cht_power",
+          "type": "chart",
+          "name": "PowerChart",
+          "x": 18,
+          "y": 320,
+          "w": 764,
+          "h": 140,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "chartType": "LV_CHART_TYPE_LINE",
+            "pointCount": 96,
+            "divX": 4,
+            "divY": 4,
+            "zoomX": 256,
+            "zoomY": 256,
+            "yMin": 0,
+            "yMax": 800,
+            "secondaryY": false,
+            "y2Min": 0,
+            "y2Max": 100,
+            "xMin": 0,
+            "xMax": 100,
+            "xSource": "",
+            "updateMode": "LV_CHART_UPDATE_MODE_SHIFT",
+            "windowMode": "points",
+            "windowSec": 3600,
+            "majorTickLen": 0,
+            "majorTickCount": 0,
+            "minorTickLen": 0,
+            "minorTickCount": 0,
+            "labelOnX": false,
+            "labelOnY": false,
+            "axisFontSize": 14,
+            "series": [
+              {
+                "name": "Array",
+                "color": "#2E7D32",
+                "data": [
+                  0,
+                  0,
+                  18,
+                  96,
+                  210,
+                  318,
+                  402,
+                  466,
+                  498,
+                  512,
+                  480,
+                  436,
+                  362,
+                  268,
+                  150,
+                  44
+                ]
+              },
+              {
+                "name": "House",
+                "color": "#EF6C00",
+                "data": [
+                  120,
+                  118,
+                  122,
+                  190,
+                  240,
+                  186,
+                  178,
+                  210,
+                  320,
+                  260,
+                  196,
+                  188,
+                  182,
+                  240,
+                  310,
+                  280
+                ]
+              }
+            ]
+          },
+          "styles": {},
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd84",
+              "source": "variable",
+              "variableId": "v_pv_w",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "chartPush",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": "",
+              "seriesIndex": 0
+            },
+            {
+              "id": "bnd85",
+              "source": "variable",
+              "variableId": "v_load_w",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "chartPush",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": "",
+              "seriesIndex": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "fs": {
+    "type": "spiffs",
+    "letter": "S",
+    "autoFormat": true
+  },
+  "variables": [
+    {
+      "id": "v_pv_v",
+      "name": "pvVolts",
+      "type": "float",
+      "initial": 0,
+      "unit": "V",
+      "decimals": 1,
+      "min": 0,
+      "max": 60,
+      "source": {
+        "kind": "peripheral",
+        "ref": "per_pv",
+        "channel": "voltage"
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_pv_w",
+      "name": "pvWatts",
+      "type": "float",
+      "initial": 0,
+      "unit": "W",
+      "decimals": 0,
+      "min": 0,
+      "max": 800,
+      "source": {
+        "kind": "peripheral",
+        "ref": "per_pv",
+        "channel": "power"
+      },
+      "formula": "raw / 1000",
+      "persist": false
+    },
+    {
+      "id": "v_load_w",
+      "name": "loadWatts",
+      "type": "float",
+      "initial": 0,
+      "unit": "W",
+      "decimals": 0,
+      "min": 0,
+      "max": 800,
+      "source": {
+        "kind": "peripheral",
+        "ref": "per_load",
+        "channel": "power"
+      },
+      "formula": "raw / 1000",
+      "persist": false
+    },
+    {
+      "id": "v_bat_v",
+      "name": "batteryVolts",
+      "type": "float",
+      "initial": 0,
+      "unit": "V",
+      "decimals": 2,
+      "min": 10,
+      "max": 15,
+      "source": {
+        "kind": "peripheral",
+        "ref": "per_load",
+        "channel": "voltage"
+      },
+      "formula": "",
+      "persist": false
+    },
+    {
+      "id": "v_soc",
+      "name": "stateOfCharge",
+      "type": "float",
+      "initial": 0,
+      "unit": "%",
+      "decimals": 0,
+      "min": 0,
+      "max": 100,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "clamp(map(batteryVolts, 11.8, 12.7, 0, 100), 0, 100)",
+      "persist": false
+    },
+    {
+      "id": "v_net",
+      "name": "netWatts",
+      "type": "float",
+      "initial": 0,
+      "unit": "W",
+      "decimals": 0,
+      "min": -800,
+      "max": 800,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "pvWatts - loadWatts",
+      "persist": false
+    },
+    {
+      "id": "v_charging",
+      "name": "charging",
+      "type": "bool",
+      "initial": 0,
+      "unit": "",
+      "decimals": 0,
+      "min": 0,
+      "max": 1,
+      "source": {
+        "kind": "none",
+        "ref": "",
+        "channel": ""
+      },
+      "formula": "",
+      "persist": false
+    }
+  ],
+  "automations": [
+    {
+      "id": "auto_charge",
+      "name": "Which way the power is going",
+      "enabled": true,
+      "trigger": {
+        "kind": "timer",
+        "params": {
+          "intervalMs": 1000,
+          "runAtStart": false,
+          "everyMs": 2000
+        }
+      },
+      "actions": [
+        {
+          "id": "act18",
+          "action": "set_variable",
+          "params": {
+            "variable": "v_charging",
+            "mode": "expr",
+            "value": 0,
+            "text": "",
+            "delta": 1,
+            "expr": "netWatts > 20",
+            "source": ""
+          }
+        }
+      ]
+    }
+  ],
+  "exportOpts": {
+    "uiPrefix": "ui",
+    "includeSketch": true,
+    "includeConfig": true,
+    "includePlatformIO": true,
+    "includeLvConf": true,
+    "bufferLines": 40,
+    "doubleBuffer": true,
+    "useDMA": true,
+    "psramBuffer": false,
+    "esphome": {
+      "homeAssistant": false
+    }
+  },
+  "fonts": [],
+  "config": []
+}

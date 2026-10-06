@@ -104,7 +104,18 @@
       "codec": "mp3",
       "volume": 55,
       "bufferKb": 32,
-      "ownTask": true
+      "ownTask": true,
+      "input": {
+        "enabled": false,
+        "kind": "es8311",
+        "pins": {
+          "data": 16,
+          "bclk": -1,
+          "ws": -1
+        },
+        "gainDb": 24,
+        "channel": "left"
+      }
     },
     "partitions": "big_app"
   },
@@ -459,7 +470,10 @@
             "mode": "LV_ARC_MODE_NORMAL",
             "rotation": 0,
             "changeRate": 720,
-            "knobOffset": 0
+            "knobOffset": 0,
+            "follower": "",
+            "followMode": "move",
+            "followOffset": 0
           },
           "styles": {
             "main:default": {

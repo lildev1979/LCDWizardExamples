@@ -19,7 +19,7 @@
     "psramMB": 0,
     "usbCdc": false,
     "display": {
-      "driver": "ili9341",
+      "driver": "ili9342",
       "interface": "spi",
       "width": 320,
       "height": 240,
@@ -63,8 +63,8 @@
         "sharedSPI": false
       },
       "swapXY": true,
-      "invertX": false,
-      "invertY": false,
+      "invertX": true,
+      "invertY": true,
       "calib": {
         "xMin": 200,
         "xMax": 3700,
@@ -93,7 +93,18 @@
       "bufferKb": 16,
       "ownTask": true,
       "busId": "",
-      "addr": "0x18"
+      "addr": "0x18",
+      "input": {
+        "enabled": false,
+        "kind": "i2s_mic",
+        "pins": {
+          "data": -1,
+          "bclk": -1,
+          "ws": -1
+        },
+        "gainDb": 12,
+        "channel": "left"
+      }
     },
     "partitions": "big_app"
   },

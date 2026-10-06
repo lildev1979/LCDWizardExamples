@@ -8,7 +8,9 @@ A weather station for the corner of a desk.
 
 A BME280 hangs off the CYD's CN1 connector as I2C - GPIO22 is SDA, GPIO27 is SCL, and the other two pins on that plug are 3V3 and ground. The sensor is polled every two seconds, which is slow enough to keep it from warming itself up.
 
-Three variables read the three channels; bindings push them into the arc, the bar and the labels, and the temperature also feeds a 40-point chart.
+Three variables read the three channels; bindings push them into the ring, the bars and the numbers, and the temperature also feeds an hour of history: sixty points paced a minute apart, whatever rate the sensor is read at.
+
+The plates, the light behind them and the scale inside the ring are one picture, drawn around the layout, and the ring is an arc with no knob - it reports, so a finger on the glass cannot move it.
 
 ## Hardware and build
 
@@ -29,3 +31,9 @@ Three variables read the three channels; bindings push them into the arc, the ba
 3. Change what you like, then **Export code** for a project that builds for the board.
 
 Or open a copy straight from the gallery: https://lcdwizard.com/p/cyd-weather
+
+## Artwork
+
+The images this design uses, as the original files. They are also inside `design.json`, so the design opens without them.
+
+- [`assets/panel-weather.png`](assets/panel-weather.png) - 240 x 320

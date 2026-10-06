@@ -50,7 +50,7 @@ The stations are real and long-running; swap them for your own on the Data tab, 
 
 - **Board:** [LCDWIKI 2.8" ESP32-32E (E32R28T)](https://lcdwizard.com/boards/lcdwiki-e32r28t)
 - **MCU:** ESP32 (WROOM / WROVER)
-- **Display:** ILI9341 320 x 240, XPT2046 touch
+- **Display:** ILI9342 / ILI9342C 320 x 240, XPT2046 touch
 - **Graphics library:** TFT_eSPI
 - **LVGL:** 9
 - **Exports to:** Arduino (C++)

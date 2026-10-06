@@ -155,25 +155,33 @@
       "bindings": [],
       "children": [
         {
-          "id": "pnl_head_1",
-          "type": "panel",
-          "name": "Header",
+          "id": "img_backdrop",
+          "type": "image",
+          "name": "Backdrop",
           "x": 0,
           "y": 0,
           "w": 800,
-          "h": 44,
+          "h": 480,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
           "hidden": false,
           "locked": false,
-          "params": {},
+          "params": {
+            "src": "as_px_solar",
+            "pivotX": 0,
+            "pivotY": 0,
+            "rotation": 0,
+            "scale": 256,
+            "antialias": true,
+            "offsetX": 0,
+            "offsetY": 0,
+            "scaleX": 256,
+            "scaleY": 256,
+            "innerAlign": "LV_IMAGE_ALIGN_DEFAULT"
+          },
           "styles": {
             "main:default": {
-              "bgColor": "#2E7D32",
-              "bgOpa": 255,
-              "radius": 0,
-              "borderWidth": 0,
               "padTop": 0,
               "padBottom": 0,
               "padLeft": 0,
@@ -183,525 +191,16 @@
           "flags": {},
           "layout": {},
           "events": [],
-          "bindings": [],
-          "children": [
-            {
-              "id": "lbl_head_1",
-              "type": "label",
-              "name": "HeaderText",
-              "x": 0,
-              "y": 11,
-              "w": 800,
-              "h": 22,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "Solar",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 18,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#FFFFFF",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            }
-          ]
+          "bindings": []
         },
         {
-          "id": "pnl_pv",
-          "type": "panel",
-          "name": "Array",
-          "x": 18,
-          "y": 66,
-          "w": 177,
-          "h": 130,
-          "align": "LV_ALIGN_TOP_LEFT",
-          "widthMode": "px",
-          "heightMode": "px",
-          "hidden": false,
-          "locked": false,
-          "params": {},
-          "styles": {
-            "main:default": {
-              "bgColor": "#FFFFFF",
-              "bgOpa": 255,
-              "radius": 8,
-              "borderWidth": 1,
-              "borderColor": "#E0E0E0",
-              "padTop": 4,
-              "padBottom": 4,
-              "padLeft": 4,
-              "padRight": 4
-            }
-          },
-          "flags": {},
-          "layout": {},
-          "events": [],
-          "bindings": [],
-          "children": [
-            {
-              "id": "lbl_pv_cap",
-              "type": "label",
-              "name": "ArrayCaption",
-              "x": 0,
-              "y": 29,
-              "w": 167,
-              "h": 16,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "ARRAY W",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 12,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#757575",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            },
-            {
-              "id": "lbl_pv",
-              "type": "label",
-              "name": "ArrayValue",
-              "x": 0,
-              "y": 47,
-              "w": 167,
-              "h": 44,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "412",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 40,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#2E7D32",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": [
-                {
-                  "id": "bnd77",
-                  "source": "variable",
-                  "variableId": "v_pv_w",
-                  "sourceNodeId": "",
-                  "sourceProperty": "",
-                  "property": "text",
-                  "direction": "read",
-                  "format": "%.0f",
-                  "prefix": "",
-                  "postfix": "",
-                  "formula": ""
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "pnl_load",
-          "type": "panel",
-          "name": "Load",
-          "x": 213,
-          "y": 66,
-          "w": 177,
-          "h": 130,
-          "align": "LV_ALIGN_TOP_LEFT",
-          "widthMode": "px",
-          "heightMode": "px",
-          "hidden": false,
-          "locked": false,
-          "params": {},
-          "styles": {
-            "main:default": {
-              "bgColor": "#FFFFFF",
-              "bgOpa": 255,
-              "radius": 8,
-              "borderWidth": 1,
-              "borderColor": "#E0E0E0",
-              "padTop": 4,
-              "padBottom": 4,
-              "padLeft": 4,
-              "padRight": 4
-            }
-          },
-          "flags": {},
-          "layout": {},
-          "events": [],
-          "bindings": [],
-          "children": [
-            {
-              "id": "lbl_load_cap",
-              "type": "label",
-              "name": "LoadCaption",
-              "x": 0,
-              "y": 29,
-              "w": 167,
-              "h": 16,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "HOUSE W",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 12,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#757575",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            },
-            {
-              "id": "lbl_load",
-              "type": "label",
-              "name": "LoadValue",
-              "x": 0,
-              "y": 47,
-              "w": 167,
-              "h": 44,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "187",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 40,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#EF6C00",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": [
-                {
-                  "id": "bnd78",
-                  "source": "variable",
-                  "variableId": "v_load_w",
-                  "sourceNodeId": "",
-                  "sourceProperty": "",
-                  "property": "text",
-                  "direction": "read",
-                  "format": "%.0f",
-                  "prefix": "",
-                  "postfix": "",
-                  "formula": ""
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "pnl_bat",
-          "type": "panel",
-          "name": "Battery",
-          "x": 408,
-          "y": 66,
-          "w": 177,
-          "h": 130,
-          "align": "LV_ALIGN_TOP_LEFT",
-          "widthMode": "px",
-          "heightMode": "px",
-          "hidden": false,
-          "locked": false,
-          "params": {},
-          "styles": {
-            "main:default": {
-              "bgColor": "#FFFFFF",
-              "bgOpa": 255,
-              "radius": 8,
-              "borderWidth": 1,
-              "borderColor": "#E0E0E0",
-              "padTop": 4,
-              "padBottom": 4,
-              "padLeft": 4,
-              "padRight": 4
-            }
-          },
-          "flags": {},
-          "layout": {},
-          "events": [],
-          "bindings": [],
-          "children": [
-            {
-              "id": "lbl_bat_cap",
-              "type": "label",
-              "name": "BatteryCaption",
-              "x": 0,
-              "y": 29,
-              "w": 167,
-              "h": 16,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "BATTERY V",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 12,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#757575",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            },
-            {
-              "id": "lbl_bat",
-              "type": "label",
-              "name": "BatteryValue",
-              "x": 0,
-              "y": 47,
-              "w": 167,
-              "h": 44,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "12.64",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 40,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#1565C0",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": [
-                {
-                  "id": "bnd79",
-                  "source": "variable",
-                  "variableId": "v_bat_v",
-                  "sourceNodeId": "",
-                  "sourceProperty": "",
-                  "property": "text",
-                  "direction": "read",
-                  "format": "%.2f",
-                  "prefix": "",
-                  "postfix": "",
-                  "formula": ""
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "pnl_net",
-          "type": "panel",
-          "name": "Net",
-          "x": 603,
-          "y": 66,
-          "w": 177,
-          "h": 130,
-          "align": "LV_ALIGN_TOP_LEFT",
-          "widthMode": "px",
-          "heightMode": "px",
-          "hidden": false,
-          "locked": false,
-          "params": {},
-          "styles": {
-            "main:default": {
-              "bgColor": "#FFFFFF",
-              "bgOpa": 255,
-              "radius": 8,
-              "borderWidth": 1,
-              "borderColor": "#E0E0E0",
-              "padTop": 4,
-              "padBottom": 4,
-              "padLeft": 4,
-              "padRight": 4
-            }
-          },
-          "flags": {},
-          "layout": {},
-          "events": [],
-          "bindings": [],
-          "children": [
-            {
-              "id": "lbl_net_cap",
-              "type": "label",
-              "name": "NetCaption",
-              "x": 0,
-              "y": 29,
-              "w": 167,
-              "h": 16,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "NET W",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 12,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#757575",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            },
-            {
-              "id": "lbl_net",
-              "type": "label",
-              "name": "NetValue",
-              "x": 0,
-              "y": 47,
-              "w": 167,
-              "h": 44,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "225",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 40,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#37474F",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": [
-                {
-                  "id": "bnd80",
-                  "source": "variable",
-                  "variableId": "v_net",
-                  "sourceNodeId": "",
-                  "sourceProperty": "",
-                  "property": "text",
-                  "direction": "read",
-                  "format": "%.0f",
-                  "prefix": "",
-                  "postfix": "",
-                  "formula": ""
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "lbl_soccap",
+          "id": "lbl_title",
           "type": "label",
-          "name": "ChargeCaption",
-          "x": 18,
-          "y": 212,
+          "name": "Title",
+          "x": 24,
+          "y": 14,
           "w": 300,
-          "h": 22,
+          "h": 18,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -709,15 +208,394 @@
           "locked": false,
           "params": {
             "longMode": "LV_LABEL_LONG_WRAP",
-            "text": "State of charge",
+            "text": "SOLAR",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 14,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#EAF1F7",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 3
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_site",
+          "type": "label",
+          "name": "Site",
+          "x": 416,
+          "y": 15,
+          "w": 360,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "SHED ROOF  700 W",
             "recolor": false,
             "translate": false
           },
           "styles": {
             "main:default": {
               "textFont": 12,
-              "textAlign": "LV_TEXT_ALIGN_CENTER",
-              "textColor": "#757575"
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#8A98A8",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 2
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "flow_charge",
+          "type": "panel",
+          "name": "ChargeFlow",
+          "x": 250,
+          "y": 140,
+          "w": 37,
+          "h": 4,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#3CE38A",
+              "bgOpa": 255,
+              "radius": 2,
+              "borderWidth": 0,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {
+            "LV_OBJ_FLAG_SCROLLABLE": false,
+            "LV_OBJ_FLAG_CLICKABLE": false
+          },
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd108",
+              "source": "variable",
+              "variableId": "v_charging",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "hidden",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": "charging == 0"
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "lbl_pv_cap",
+          "type": "label",
+          "name": "ArrayCaption",
+          "x": 120,
+          "y": 76,
+          "w": 90,
+          "h": 18,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "ARRAY",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 14,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#EAF1F7",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 2
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_pv",
+          "type": "label",
+          "name": "ArrayValue",
+          "x": 42,
+          "y": 130,
+          "w": 150,
+          "h": 71,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "412",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": "oswald:64",
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#FFCB3D",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd109",
+              "source": "variable",
+              "variableId": "v_pv_w",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "text",
+              "direction": "read",
+              "format": "%.0f",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_pv_unit",
+          "type": "label",
+          "name": "ArrayUnit",
+          "x": 198,
+          "y": 167,
+          "w": 34,
+          "h": 24,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "W",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 20,
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#8A98A8",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_pvv",
+          "type": "label",
+          "name": "ArrayVolts",
+          "x": 120,
+          "y": 96,
+          "w": 100,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "38.4 V",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#8A98A8",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd110",
+              "source": "variable",
+              "variableId": "v_pv_v",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "text",
+              "direction": "read",
+              "format": "%.1f",
+              "prefix": "",
+              "postfix": " V",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_bat_cap",
+          "type": "label",
+          "name": "BatteryCaption",
+          "x": 305,
+          "y": 70,
+          "w": 90,
+          "h": 18,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "BATTERY",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 14,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#EAF1F7",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 2
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_soc",
+          "type": "label",
+          "name": "ChargeValue",
+          "x": 399,
+          "y": 60,
+          "w": 70,
+          "h": 45,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "78",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": "oswald:40",
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#3CE38A",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd111",
+              "source": "variable",
+              "variableId": "v_soc",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "text",
+              "direction": "read",
+              "format": "%.0f",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_socunit",
+          "type": "label",
+          "name": "ChargeUnit",
+          "x": 473,
+          "y": 74,
+          "w": 22,
+          "h": 20,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "%",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 16,
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#8A98A8",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
             }
           },
           "flags": {},
@@ -729,10 +607,10 @@
           "id": "bar_soc",
           "type": "bar",
           "name": "ChargeBar",
-          "x": 18,
-          "y": 238,
-          "w": 764,
-          "h": 28,
+          "x": 307,
+          "y": 104,
+          "w": 172,
+          "h": 50,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -748,13 +626,28 @@
             "valueStart": 0,
             "animTime": 0
           },
-          "styles": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#222B36",
+              "bgOpa": 255,
+              "radius": 4,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            },
+            "indicator:default": {
+              "bgColor": "#3CE38A",
+              "bgOpa": 255,
+              "radius": 4
+            }
+          },
           "flags": {},
           "layout": {},
           "events": [],
           "bindings": [
             {
-              "id": "bnd81",
+              "id": "bnd112",
               "source": "variable",
               "variableId": "v_soc",
               "sourceNodeId": "",
@@ -769,13 +662,13 @@
           ]
         },
         {
-          "id": "lbl_soc",
+          "id": "lbl_bat",
           "type": "label",
-          "name": "ChargeValue",
-          "x": 18,
-          "y": 272,
-          "w": 200,
-          "h": 40,
+          "name": "BatteryVolts",
+          "x": 305,
+          "y": 196,
+          "w": 96,
+          "h": 20,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -783,15 +676,19 @@
           "locked": false,
           "params": {
             "longMode": "LV_LABEL_LONG_WRAP",
-            "text": "78 %",
+            "text": "12.64 V",
             "recolor": false,
             "translate": false
           },
           "styles": {
             "main:default": {
-              "textFont": 30,
-              "textAlign": "LV_TEXT_ALIGN_CENTER",
-              "textColor": "#1565C0"
+              "textFont": 16,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#EAF1F7",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
             }
           },
           "flags": {},
@@ -799,16 +696,16 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd82",
+              "id": "bnd113",
               "source": "variable",
-              "variableId": "v_soc",
+              "variableId": "v_bat_v",
               "sourceNodeId": "",
               "sourceProperty": "",
               "property": "text",
               "direction": "read",
-              "format": "%.0f",
+              "format": "%.2f",
               "prefix": "",
-              "postfix": " %",
+              "postfix": " V",
               "formula": ""
             }
           ]
@@ -817,10 +714,10 @@
           "id": "lbl_charging",
           "type": "label",
           "name": "ChargingBanner",
-          "x": 240,
-          "y": 278,
-          "w": 300,
-          "h": 28,
+          "x": 405,
+          "y": 198,
+          "w": 90,
+          "h": 16,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -828,14 +725,20 @@
           "locked": false,
           "params": {
             "longMode": "LV_LABEL_LONG_WRAP",
-            "text": "Charging",
+            "text": "CHARGING",
             "recolor": false,
             "translate": false
           },
           "styles": {
             "main:default": {
-              "textFont": 20,
-              "textColor": "#2E7D32"
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#3CE38A",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 1
             }
           },
           "flags": {},
@@ -843,7 +746,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd83",
+              "id": "bnd114",
               "source": "variable",
               "variableId": "v_charging",
               "sourceNodeId": "",
@@ -858,13 +761,361 @@
           ]
         },
         {
+          "id": "lbl_load_cap",
+          "type": "label",
+          "name": "LoadCaption",
+          "x": 646,
+          "y": 76,
+          "w": 90,
+          "h": 18,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "HOUSE",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 14,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#EAF1F7",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 2
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_load",
+          "type": "label",
+          "name": "LoadValue",
+          "x": 568,
+          "y": 130,
+          "w": 150,
+          "h": 71,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "187",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": "oswald:64",
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#FF8F4A",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd115",
+              "source": "variable",
+              "variableId": "v_load_w",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "text",
+              "direction": "read",
+              "format": "%.0f",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_load_unit",
+          "type": "label",
+          "name": "LoadUnit",
+          "x": 724,
+          "y": 167,
+          "w": 34,
+          "h": 24,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "W",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 20,
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#8A98A8",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_net",
+          "type": "label",
+          "name": "NetValue",
+          "x": 568,
+          "y": 202,
+          "w": 140,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "NET 225 W",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#8A98A8",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 1
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd116",
+              "source": "variable",
+              "variableId": "v_net",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "text",
+              "direction": "read",
+              "format": "%.0f",
+              "prefix": "NET ",
+              "postfix": " W",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_day",
+          "type": "label",
+          "name": "ChartCaption",
+          "x": 44,
+          "y": 260,
+          "w": 200,
+          "h": 18,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "THE LAST DAY",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 14,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#EAF1F7",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 2
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "dot_pv",
+          "type": "panel",
+          "name": "ArrayKey",
+          "x": 576,
+          "y": 265,
+          "w": 10,
+          "h": 10,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFCB3D",
+              "bgOpa": 255,
+              "radius": 99,
+              "borderWidth": 0,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {
+            "LV_OBJ_FLAG_SCROLLABLE": false,
+            "LV_OBJ_FLAG_CLICKABLE": false
+          },
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": []
+        },
+        {
+          "id": "lbl_pv_key",
+          "type": "label",
+          "name": "ArrayKeyText",
+          "x": 592,
+          "y": 262,
+          "w": 70,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "ARRAY",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#8A98A8",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 1
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "dot_load",
+          "type": "panel",
+          "name": "HouseKey",
+          "x": 676,
+          "y": 265,
+          "w": 10,
+          "h": 10,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FF8F4A",
+              "bgOpa": 255,
+              "radius": 99,
+              "borderWidth": 0,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {
+            "LV_OBJ_FLAG_SCROLLABLE": false,
+            "LV_OBJ_FLAG_CLICKABLE": false
+          },
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": []
+        },
+        {
+          "id": "lbl_load_key",
+          "type": "label",
+          "name": "HouseKeyText",
+          "x": 692,
+          "y": 262,
+          "w": 70,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "HOUSE",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#8A98A8",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 1
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
           "id": "cht_power",
           "type": "chart",
           "name": "PowerChart",
-          "x": 18,
-          "y": 320,
-          "w": 764,
-          "h": 140,
+          "x": 44,
+          "y": 286,
+          "w": 712,
+          "h": 164,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -873,7 +1124,7 @@
           "params": {
             "chartType": "LV_CHART_TYPE_LINE",
             "pointCount": 96,
-            "divX": 4,
+            "divX": 0,
             "divY": 4,
             "zoomX": 256,
             "zoomY": 256,
@@ -886,8 +1137,8 @@
             "xMax": 100,
             "xSource": "",
             "updateMode": "LV_CHART_UPDATE_MODE_SHIFT",
-            "windowMode": "points",
-            "windowSec": 3600,
+            "windowMode": "time",
+            "windowSec": 86400,
             "majorTickLen": 0,
             "majorTickCount": 0,
             "minorTickLen": 0,
@@ -898,57 +1149,236 @@
             "series": [
               {
                 "name": "Array",
-                "color": "#2E7D32",
+                "color": "#FFCB3D",
                 "data": [
                   0,
                   0,
-                  18,
-                  96,
-                  210,
-                  318,
-                  402,
-                  466,
-                  498,
-                  512,
-                  480,
-                  436,
-                  362,
-                  268,
-                  150,
-                  44
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  3,
+                  23,
+                  48,
+                  75,
+                  105,
+                  135,
+                  166,
+                  198,
+                  229,
+                  260,
+                  290,
+                  319,
+                  348,
+                  374,
+                  399,
+                  422,
+                  443,
+                  462,
+                  478,
+                  492,
+                  503,
+                  511,
+                  517,
+                  519,
+                  518,
+                  510,
+                  493,
+                  461,
+                  413,
+                  356,
+                  304,
+                  275,
+                  273,
+                  290,
+                  308,
+                  314,
+                  306,
+                  285,
+                  259,
+                  229,
+                  198,
+                  166,
+                  135,
+                  105,
+                  75,
+                  48,
+                  23,
+                  3,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
                 ]
               },
               {
                 "name": "House",
-                "color": "#EF6C00",
+                "color": "#FF8F4A",
                 "data": [
+                  110,
+                  116,
                   120,
+                  123,
+                  124,
+                  122,
+                  118,
+                  113,
+                  107,
+                  102,
+                  98,
+                  96,
+                  97,
+                  100,
+                  105,
+                  110,
+                  116,
+                  121,
+                  123,
+                  124,
+                  122,
+                  118,
+                  112,
+                  108,
+                  106,
+                  114,
+                  140,
+                  188,
+                  247,
+                  290,
+                  294,
+                  258,
+                  206,
+                  164,
+                  139,
+                  126,
+                  118,
+                  112,
+                  106,
+                  101,
+                  97,
+                  96,
+                  97,
+                  102,
+                  109,
+                  123,
+                  144,
+                  176,
+                  215,
+                  251,
+                  270,
+                  261,
+                  229,
+                  185,
+                  145,
+                  118,
+                  104,
+                  100,
+                  102,
+                  106,
+                  112,
                   118,
                   122,
-                  190,
-                  240,
-                  186,
-                  178,
-                  210,
-                  320,
-                  260,
-                  196,
-                  188,
-                  182,
-                  240,
-                  310,
-                  280
+                  125,
+                  127,
+                  127,
+                  128,
+                  132,
+                  140,
+                  156,
+                  180,
+                  212,
+                  250,
+                  291,
+                  327,
+                  355,
+                  368,
+                  364,
+                  345,
+                  313,
+                  274,
+                  232,
+                  193,
+                  160,
+                  135,
+                  117,
+                  108,
+                  104,
+                  105,
+                  108,
+                  113,
+                  118,
+                  122,
+                  124,
+                  123,
+                  120
                 ]
               }
             ]
           },
-          "styles": {},
+          "styles": {
+            "main:default": {
+              "bgOpa": 0,
+              "borderWidth": 0,
+              "radius": 0,
+              "lineColor": "#8A98A8",
+              "lineOpa": 70,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            },
+            "items:default": {
+              "lineWidth": 2,
+              "lineColor": "#8A98A8"
+            },
+            "indicator:default": {
+              "bgOpa": 0
+            }
+          },
           "flags": {},
           "layout": {},
           "events": [],
           "bindings": [
             {
-              "id": "bnd84",
+              "id": "bnd117",
               "source": "variable",
               "variableId": "v_pv_w",
               "sourceNodeId": "",
@@ -962,7 +1392,7 @@
               "seriesIndex": 0
             },
             {
-              "id": "bnd85",
+              "id": "bnd118",
               "source": "variable",
               "variableId": "v_load_w",
               "sourceNodeId": "",
@@ -980,7 +1410,19 @@
       ]
     }
   ],
-  "assets": [],
+  "assets": [
+    {
+      "id": "as_px_solar",
+      "name": "panel-solar.png",
+      "varName": "ui_img_px_solar",
+      "dataUrl": "data:image/png;base64,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",
+      "width": 800,
+      "height": 480,
+      "storage": "c_array",
+      "format": "RGB565",
+      "path": "panel-solar.bin"
+    }
+  ],
   "fs": {
     "type": "spiffs",
     "letter": "S",
@@ -1093,7 +1535,7 @@
       "id": "v_charging",
       "name": "charging",
       "type": "bool",
-      "initial": 0,
+      "initial": 1,
       "unit": "",
       "decimals": 0,
       "min": 0,

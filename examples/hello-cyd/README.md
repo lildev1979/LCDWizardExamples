@@ -10,6 +10,8 @@ A slider drives the arc and the number above it through a widget-to-widget bindi
 
 Press Play in the designer to try it without flashing anything, then take it apart - change the range on the arc, restyle the button, add a screen.
 
+There is no picture in it and no font beyond LVGL's own. The ground is the screen's own gradient, the card is a panel and the pill is a label with a background, so everything about how it looks is a style you can read in the inspector.
+
 ## Hardware and build
 
 - **Board:** [ESP32-2432S028R "Cheap Yellow Display"](https://lcdwizard.com/boards/cyd-2432s028r)

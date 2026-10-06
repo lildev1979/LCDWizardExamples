@@ -127,451 +127,33 @@
       "bindings": [],
       "children": [
         {
-          "id": "pnl_head_1",
-          "type": "panel",
-          "name": "Header",
+          "id": "img_backdrop",
+          "type": "image",
+          "name": "Backdrop",
           "x": 0,
           "y": 0,
           "w": 320,
-          "h": 44,
-          "align": "LV_ALIGN_TOP_LEFT",
-          "widthMode": "px",
-          "heightMode": "px",
-          "hidden": false,
-          "locked": false,
-          "params": {},
-          "styles": {
-            "main:default": {
-              "bgColor": "#1565C0",
-              "bgOpa": 255,
-              "radius": 0,
-              "borderWidth": 0,
-              "padTop": 0,
-              "padBottom": 0,
-              "padLeft": 0,
-              "padRight": 0
-            }
-          },
-          "flags": {},
-          "layout": {},
-          "events": [],
-          "bindings": [],
-          "children": [
-            {
-              "id": "lbl_head_1",
-              "type": "label",
-              "name": "HeaderText",
-              "x": 0,
-              "y": 11,
-              "w": 320,
-              "h": 22,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "Bench Supply",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 18,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#FFFFFF",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            }
-          ]
-        },
-        {
-          "id": "pnl_v",
-          "type": "panel",
-          "name": "Volts",
-          "x": 8,
-          "y": 54,
-          "w": 96,
-          "h": 108,
-          "align": "LV_ALIGN_TOP_LEFT",
-          "widthMode": "px",
-          "heightMode": "px",
-          "hidden": false,
-          "locked": false,
-          "params": {},
-          "styles": {
-            "main:default": {
-              "bgColor": "#FFFFFF",
-              "bgOpa": 255,
-              "radius": 8,
-              "borderWidth": 1,
-              "borderColor": "#E0E0E0",
-              "padTop": 4,
-              "padBottom": 4,
-              "padLeft": 4,
-              "padRight": 4
-            }
-          },
-          "flags": {},
-          "layout": {},
-          "events": [],
-          "bindings": [],
-          "children": [
-            {
-              "id": "lbl_v_cap",
-              "type": "label",
-              "name": "VoltsCaption",
-              "x": 0,
-              "y": 23,
-              "w": 86,
-              "h": 16,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "VOLTS",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 12,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#757575",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            },
-            {
-              "id": "lbl_v",
-              "type": "label",
-              "name": "VoltsValue",
-              "x": 0,
-              "y": 41,
-              "w": 86,
-              "h": 34,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "12.04",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 30,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#1565C0",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": [
-                {
-                  "id": "bnd21",
-                  "source": "variable",
-                  "variableId": "v_volts",
-                  "sourceNodeId": "",
-                  "sourceProperty": "",
-                  "property": "text",
-                  "direction": "read",
-                  "format": "%.2f",
-                  "prefix": "",
-                  "postfix": "",
-                  "formula": ""
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "pnl_i",
-          "type": "panel",
-          "name": "Amps",
-          "x": 112,
-          "y": 54,
-          "w": 96,
-          "h": 108,
-          "align": "LV_ALIGN_TOP_LEFT",
-          "widthMode": "px",
-          "heightMode": "px",
-          "hidden": false,
-          "locked": false,
-          "params": {},
-          "styles": {
-            "main:default": {
-              "bgColor": "#FFFFFF",
-              "bgOpa": 255,
-              "radius": 8,
-              "borderWidth": 1,
-              "borderColor": "#E0E0E0",
-              "padTop": 4,
-              "padBottom": 4,
-              "padLeft": 4,
-              "padRight": 4
-            }
-          },
-          "flags": {},
-          "layout": {},
-          "events": [],
-          "bindings": [],
-          "children": [
-            {
-              "id": "lbl_i_cap",
-              "type": "label",
-              "name": "AmpsCaption",
-              "x": 0,
-              "y": 23,
-              "w": 86,
-              "h": 16,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "AMPS",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 12,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#757575",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            },
-            {
-              "id": "lbl_i",
-              "type": "label",
-              "name": "AmpsValue",
-              "x": 0,
-              "y": 41,
-              "w": 86,
-              "h": 34,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "0.482",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 30,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#EF6C00",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": [
-                {
-                  "id": "bnd22",
-                  "source": "variable",
-                  "variableId": "v_amps",
-                  "sourceNodeId": "",
-                  "sourceProperty": "",
-                  "property": "text",
-                  "direction": "read",
-                  "format": "%.3f",
-                  "prefix": "",
-                  "postfix": "",
-                  "formula": ""
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "pnl_w",
-          "type": "panel",
-          "name": "Watts",
-          "x": 216,
-          "y": 54,
-          "w": 96,
-          "h": 108,
-          "align": "LV_ALIGN_TOP_LEFT",
-          "widthMode": "px",
-          "heightMode": "px",
-          "hidden": false,
-          "locked": false,
-          "params": {},
-          "styles": {
-            "main:default": {
-              "bgColor": "#FFFFFF",
-              "bgOpa": 255,
-              "radius": 8,
-              "borderWidth": 1,
-              "borderColor": "#E0E0E0",
-              "padTop": 4,
-              "padBottom": 4,
-              "padLeft": 4,
-              "padRight": 4
-            }
-          },
-          "flags": {},
-          "layout": {},
-          "events": [],
-          "bindings": [],
-          "children": [
-            {
-              "id": "lbl_w_cap",
-              "type": "label",
-              "name": "WattsCaption",
-              "x": 0,
-              "y": 23,
-              "w": 86,
-              "h": 16,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "WATTS",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 12,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#757575",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            },
-            {
-              "id": "lbl_w",
-              "type": "label",
-              "name": "WattsValue",
-              "x": 0,
-              "y": 41,
-              "w": 86,
-              "h": 34,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "5.80",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 30,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#2E7D32",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": [
-                {
-                  "id": "bnd23",
-                  "source": "variable",
-                  "variableId": "v_watts",
-                  "sourceNodeId": "",
-                  "sourceProperty": "",
-                  "property": "text",
-                  "direction": "read",
-                  "format": "%.2f",
-                  "prefix": "",
-                  "postfix": "",
-                  "formula": ""
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "lbl_loadcap",
-          "type": "label",
-          "name": "LoadCaption",
-          "x": 8,
-          "y": 170,
-          "w": 304,
-          "h": 16,
+          "h": 240,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
           "hidden": false,
           "locked": false,
           "params": {
-            "longMode": "LV_LABEL_LONG_WRAP",
-            "text": "Current against the trip limit",
-            "recolor": false,
-            "translate": false
+            "src": "as_px_bench",
+            "pivotX": 0,
+            "pivotY": 0,
+            "rotation": 0,
+            "scale": 256,
+            "antialias": true,
+            "offsetX": 0,
+            "offsetY": 0,
+            "scaleX": 256,
+            "scaleY": 256,
+            "innerAlign": "LV_IMAGE_ALIGN_DEFAULT"
           },
           "styles": {
             "main:default": {
-              "textFont": 12,
-              "textAlign": "LV_TEXT_ALIGN_CENTER",
-              "textColor": "#757575",
               "padTop": 0,
               "padBottom": 0,
               "padLeft": 0,
@@ -584,13 +166,741 @@
           "bindings": []
         },
         {
+          "id": "lbl_ltitle",
+          "type": "label",
+          "name": "Title",
+          "x": 14,
+          "y": 8,
+          "w": 160,
+          "h": 14,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "BENCH SUPPLY",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 10,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#C9CED4",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 2
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_lmodel",
+          "type": "label",
+          "name": "Model",
+          "x": 174,
+          "y": 8,
+          "w": 132,
+          "h": 14,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "INA219  26 V  3.2 A",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 10,
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#8A9098",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 1
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_vcap",
+          "type": "label",
+          "name": "VoltsCaption",
+          "x": 22,
+          "y": 36,
+          "w": 120,
+          "h": 14,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "VOLTS",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 10,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#4F5B46",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 2
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_vghost",
+          "type": "label",
+          "name": "VoltsSegments",
+          "x": 22,
+          "y": 50,
+          "w": 159,
+          "h": 48,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "88.88",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": "seg7-classic-bold:48",
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#A3AF92",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_v",
+          "type": "label",
+          "name": "VoltsValue",
+          "x": 22,
+          "y": 50,
+          "w": 159,
+          "h": 48,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "12.04",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": "seg7-classic-bold:48",
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#1A2216",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd23",
+              "source": "variable",
+              "variableId": "v_volts",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "text",
+              "direction": "read",
+              "format": "%.2f",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_vunit",
+          "type": "label",
+          "name": "VoltsUnit",
+          "x": 188,
+          "y": 68,
+          "w": 28,
+          "h": 28,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "V",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 24,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#1A2216",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_icap",
+          "type": "label",
+          "name": "AmpsCaption",
+          "x": 22,
+          "y": 118,
+          "w": 120,
+          "h": 14,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "AMPS",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 10,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#4F5B46",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 2
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_ighost",
+          "type": "label",
+          "name": "AmpsSegments",
+          "x": 22,
+          "y": 132,
+          "w": 159,
+          "h": 48,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "8.888",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": "seg7-classic-bold:48",
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#A3AF92",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_i",
+          "type": "label",
+          "name": "AmpsValue",
+          "x": 22,
+          "y": 132,
+          "w": 159,
+          "h": 48,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "0.482",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": "seg7-classic-bold:48",
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#1A2216",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd24",
+              "source": "variable",
+              "variableId": "v_amps",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "text",
+              "direction": "read",
+              "format": "%.3f",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_iunit",
+          "type": "label",
+          "name": "AmpsUnit",
+          "x": 188,
+          "y": 150,
+          "w": 28,
+          "h": 28,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "A",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 24,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#1A2216",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_wcap",
+          "type": "label",
+          "name": "WattsCaption",
+          "x": 240,
+          "y": 36,
+          "w": 62,
+          "h": 14,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "WATTS",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 10,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#4F5B46",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 1
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_wghost",
+          "type": "label",
+          "name": "WattsSegments",
+          "x": 240,
+          "y": 55,
+          "w": 61,
+          "h": 25,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "88.8",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": "seg7-classic-bold:24",
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#A3AF92",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_w",
+          "type": "label",
+          "name": "WattsValue",
+          "x": 240,
+          "y": 55,
+          "w": 61,
+          "h": 25,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "5.8",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": "seg7-classic-bold:24",
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#1A2216",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd25",
+              "source": "variable",
+              "variableId": "v_watts",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "text",
+              "direction": "read",
+              "format": "%.1f",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_wunit",
+          "type": "label",
+          "name": "WattsUnit",
+          "x": 240,
+          "y": 86,
+          "w": 62,
+          "h": 14,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "W",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 10,
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#4F5B46",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_limcap",
+          "type": "label",
+          "name": "LimitCaption",
+          "x": 240,
+          "y": 118,
+          "w": 62,
+          "h": 14,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "LIMIT",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 10,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#4F5B46",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 1
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_limghost",
+          "type": "label",
+          "name": "LimitSegments",
+          "x": 240,
+          "y": 137,
+          "w": 61,
+          "h": 25,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "8.88",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": "seg7-classic-bold:24",
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#A3AF92",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_lim",
+          "type": "label",
+          "name": "LimitValue",
+          "x": 240,
+          "y": 137,
+          "w": 61,
+          "h": 25,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "1.50",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": "seg7-classic-bold:24",
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#1A2216",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd26",
+              "source": "variable",
+              "variableId": "v_limit_a",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "text",
+              "direction": "read",
+              "format": "%.2f",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_limunit",
+          "type": "label",
+          "name": "LimitUnit",
+          "x": 240,
+          "y": 168,
+          "w": 62,
+          "h": 14,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "A",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 10,
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#4F5B46",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_loadcap",
+          "type": "label",
+          "name": "LoadCaption",
+          "x": 22,
+          "y": 206,
+          "w": 40,
+          "h": 14,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "LOAD",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 10,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#4F5B46",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 1
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
           "id": "bar_load",
           "type": "bar",
           "name": "LoadBar",
-          "x": 8,
-          "y": 190,
-          "w": 304,
-          "h": 16,
+          "x": 66,
+          "y": 210,
+          "w": 146,
+          "h": 6,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -606,13 +916,28 @@
             "valueStart": 0,
             "animTime": 0
           },
-          "styles": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#A3AF92",
+              "bgOpa": 255,
+              "radius": 3,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            },
+            "indicator:default": {
+              "bgColor": "#1A2216",
+              "bgOpa": 255,
+              "radius": 3
+            }
+          },
           "flags": {},
           "layout": {},
           "events": [],
           "bindings": [
             {
-              "id": "bnd24",
+              "id": "bnd27",
               "source": "variable",
               "variableId": "v_amps",
               "sourceNodeId": "",
@@ -630,14 +955,14 @@
           "id": "lbl_trip",
           "type": "label",
           "name": "TripBanner",
-          "x": 8,
-          "y": 212,
-          "w": 150,
+          "x": 132,
+          "y": 203,
+          "w": 86,
           "h": 20,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
-          "hidden": false,
+          "hidden": true,
           "locked": false,
           "params": {
             "longMode": "LV_LABEL_LONG_WRAP",
@@ -647,13 +972,17 @@
           },
           "styles": {
             "main:default": {
-              "textFont": 16,
-              "textAlign": "LV_TEXT_ALIGN_LEFT",
-              "textColor": "#C62828",
-              "padTop": 0,
-              "padBottom": 0,
+              "textFont": 10,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#FFFFFF",
+              "padTop": 3,
+              "padBottom": 3,
               "padLeft": 0,
-              "padRight": 0
+              "padRight": 0,
+              "bgColor": "#B3261E",
+              "bgOpa": 255,
+              "radius": 4,
+              "textLetterSpace": 1
             }
           },
           "flags": {},
@@ -661,7 +990,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd25",
+              "id": "bnd22",
               "source": "variable",
               "variableId": "v_tripped",
               "sourceNodeId": "",
@@ -679,17 +1008,17 @@
           "id": "btn_limits",
           "type": "button",
           "name": "LimitsButton",
-          "x": 212,
-          "y": 204,
-          "w": 100,
-          "h": 32,
+          "x": 232,
+          "y": 196,
+          "w": 78,
+          "h": 34,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
           "hidden": false,
           "locked": false,
           "params": {
-            "text": "Limits",
+            "text": "LIMIT",
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
@@ -697,24 +1026,32 @@
           },
           "styles": {
             "main:default": {
-              "bgColor": "#FFFFFF",
+              "bgColor": "#4A4E55",
+              "bgGradColor": "#30333A",
+              "bgGradDir": "LV_GRAD_DIR_VER",
               "bgOpa": 255,
               "borderWidth": 1,
-              "borderColor": "#BDBDBD",
-              "radius": 8,
-              "textColor": "#212121",
-              "textFont": 14,
-              "padTop": 7,
-              "padBottom": 7,
-              "padLeft": 8,
-              "padRight": 8
+              "borderColor": "#62676F",
+              "borderOpa": 255,
+              "radius": 6,
+              "textColor": "#F1F3F5",
+              "textFont": 12,
+              "textLetterSpace": 1,
+              "padTop": 9,
+              "padBottom": 9,
+              "padLeft": 2,
+              "padRight": 2
+            },
+            "main:pressed": {
+              "bgColor": "#24272B",
+              "bgGradColor": "#24272B"
             }
           },
           "flags": {},
           "layout": {},
           "events": [
             {
-              "id": "ev54",
+              "id": "ev82",
               "trigger": "CLICKED",
               "action": "change_screen",
               "params": {
@@ -743,97 +1080,33 @@
       "bindings": [],
       "children": [
         {
-          "id": "pnl_head_2",
-          "type": "panel",
-          "name": "Header",
+          "id": "img_backdrop2",
+          "type": "image",
+          "name": "Backdrop2",
           "x": 0,
           "y": 0,
           "w": 320,
-          "h": 44,
-          "align": "LV_ALIGN_TOP_LEFT",
-          "widthMode": "px",
-          "heightMode": "px",
-          "hidden": false,
-          "locked": false,
-          "params": {},
-          "styles": {
-            "main:default": {
-              "bgColor": "#37474F",
-              "bgOpa": 255,
-              "radius": 0,
-              "borderWidth": 0,
-              "padTop": 0,
-              "padBottom": 0,
-              "padLeft": 0,
-              "padRight": 0
-            }
-          },
-          "flags": {},
-          "layout": {},
-          "events": [],
-          "bindings": [],
-          "children": [
-            {
-              "id": "lbl_head_2",
-              "type": "label",
-              "name": "HeaderText",
-              "x": 0,
-              "y": 11,
-              "w": 320,
-              "h": 22,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "Trip limit",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 18,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#FFFFFF",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            }
-          ]
-        },
-        {
-          "id": "lbl_limcap",
-          "type": "label",
-          "name": "LimitCaption",
-          "x": 20,
-          "y": 62,
-          "w": 280,
-          "h": 16,
+          "h": 240,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
           "hidden": false,
           "locked": false,
           "params": {
-            "longMode": "LV_LABEL_LONG_WRAP",
-            "text": "Warn above this current",
-            "recolor": false,
-            "translate": false
+            "src": "as_px_bench",
+            "pivotX": 0,
+            "pivotY": 0,
+            "rotation": 0,
+            "scale": 256,
+            "antialias": true,
+            "offsetX": 0,
+            "offsetY": 0,
+            "scaleX": 256,
+            "scaleY": 256,
+            "innerAlign": "LV_IMAGE_ALIGN_DEFAULT"
           },
           "styles": {
             "main:default": {
-              "textFont": 12,
-              "textAlign": "LV_TEXT_ALIGN_CENTER",
-              "textColor": "#757575",
               "padTop": 0,
               "padBottom": 0,
               "padLeft": 0,
@@ -846,13 +1119,121 @@
           "bindings": []
         },
         {
+          "id": "lbl_stitle",
+          "type": "label",
+          "name": "Title",
+          "x": 14,
+          "y": 8,
+          "w": 160,
+          "h": 14,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "TRIP LIMIT",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 10,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#C9CED4",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 2
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_smodel",
+          "type": "label",
+          "name": "Model",
+          "x": 174,
+          "y": 8,
+          "w": 132,
+          "h": 14,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "WARN ABOVE THIS",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 10,
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#8A9098",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 1
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_setcap",
+          "type": "label",
+          "name": "SetCaption",
+          "x": 22,
+          "y": 36,
+          "w": 160,
+          "h": 14,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "AMPS",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 10,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#4F5B46",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 2
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
           "id": "spb_limit",
           "type": "spinbox",
           "name": "CurrentLimit",
-          "x": 20,
-          "y": 86,
-          "w": 160,
-          "h": 46,
+          "x": 22,
+          "y": 48,
+          "w": 162,
+          "h": 54,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -868,13 +1249,31 @@
             "rollover": false,
             "stepDirection": "LV_DIR_RIGHT"
           },
-          "styles": {},
+          "styles": {
+            "main:default": {
+              "bgOpa": 0,
+              "borderWidth": 0,
+              "radius": 0,
+              "textColor": "#1A2216",
+              "textFont": "seg7-classic-bold:48",
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "padTop": 2,
+              "padBottom": 2,
+              "padLeft": 2,
+              "padRight": 2
+            },
+            "cursor:default": {
+              "bgColor": "#1A2216",
+              "bgOpa": 50,
+              "textColor": "#1A2216"
+            }
+          },
           "flags": {},
           "layout": {},
           "events": [],
           "bindings": [
             {
-              "id": "bnd26",
+              "id": "bnd28",
               "source": "variable",
               "variableId": "v_limit_a",
               "sourceNodeId": "",
@@ -889,13 +1288,13 @@
           ]
         },
         {
-          "id": "lbl_limunit",
+          "id": "lbl_setunit",
           "type": "label",
-          "name": "LimitUnit",
+          "name": "SetUnit",
           "x": 188,
-          "y": 101,
-          "w": 70,
-          "h": 16,
+          "y": 68,
+          "w": 28,
+          "h": 28,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -903,15 +1302,15 @@
           "locked": false,
           "params": {
             "longMode": "LV_LABEL_LONG_WRAP",
-            "text": "x 10 mA",
+            "text": "A",
             "recolor": false,
             "translate": false
           },
           "styles": {
             "main:default": {
-              "textFont": 12,
+              "textFont": 24,
               "textAlign": "LV_TEXT_ALIGN_LEFT",
-              "textColor": "#757575",
+              "textColor": "#1A2216",
               "padTop": 0,
               "padBottom": 0,
               "padLeft": 0,
@@ -927,10 +1326,10 @@
           "id": "lbl_note",
           "type": "label",
           "name": "Note",
-          "x": 20,
-          "y": 144,
-          "w": 280,
-          "h": 48,
+          "x": 22,
+          "y": 120,
+          "w": 190,
+          "h": 64,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -938,7 +1337,7 @@
           "locked": false,
           "params": {
             "longMode": "LV_LABEL_LONG_WRAP",
-            "text": "The banner appears on the live screen while the load is above this. Nothing is switched off - an INA219 measures, it does not interrupt.",
+            "text": "The live screen flags a load above this. Nothing is switched off: an INA219 measures, it does not interrupt.",
             "recolor": false,
             "translate": false
           },
@@ -946,7 +1345,7 @@
             "main:default": {
               "textFont": 12,
               "textAlign": "LV_TEXT_ALIGN_LEFT",
-              "textColor": "#757575",
+              "textColor": "#4F5B46",
               "padTop": 0,
               "padBottom": 0,
               "padLeft": 0,
@@ -959,20 +1358,20 @@
           "bindings": []
         },
         {
-          "id": "btn_back",
+          "id": "btn_up",
           "type": "button",
-          "name": "BackButton",
-          "x": 20,
-          "y": 200,
-          "w": 110,
-          "h": 36,
+          "name": "RaiseButton",
+          "x": 229,
+          "y": 27,
+          "w": 84,
+          "h": 82,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
           "hidden": false,
           "locked": false,
           "params": {
-            "text": "Back",
+            "text": "+",
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
@@ -980,23 +1379,186 @@
           },
           "styles": {
             "main:default": {
-              "bgColor": "#1565C0",
+              "bgColor": "#4A4E55",
+              "bgGradColor": "#30333A",
+              "bgGradDir": "LV_GRAD_DIR_VER",
               "bgOpa": 255,
-              "borderWidth": 0,
-              "radius": 8,
-              "textColor": "#FFFFFF",
-              "textFont": 14,
-              "padTop": 9,
-              "padBottom": 9,
-              "padLeft": 8,
-              "padRight": 8
+              "borderWidth": 1,
+              "borderColor": "#62676F",
+              "borderOpa": 255,
+              "radius": 9,
+              "textColor": "#F1F3F5",
+              "textFont": 28,
+              "textLetterSpace": 0,
+              "padTop": 25,
+              "padBottom": 25,
+              "padLeft": 2,
+              "padRight": 2
+            },
+            "main:pressed": {
+              "bgColor": "#24272B",
+              "bgGradColor": "#24272B"
             }
           },
           "flags": {},
           "layout": {},
           "events": [
             {
-              "id": "ev55",
+              "id": "ev83",
+              "trigger": "CLICKED",
+              "action": "step_spinbox",
+              "params": {
+                "target": "spb_limit",
+                "direction": "increase"
+              }
+            }
+          ],
+          "bindings": [],
+          "children": []
+        },
+        {
+          "id": "btn_down",
+          "type": "button",
+          "name": "LowerButton",
+          "x": 229,
+          "y": 109,
+          "w": 84,
+          "h": 82,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "text": "-",
+            "icon": "",
+            "iconPos": "left",
+            "iconSize": 20,
+            "iconGap": 6
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#4A4E55",
+              "bgGradColor": "#30333A",
+              "bgGradDir": "LV_GRAD_DIR_VER",
+              "bgOpa": 255,
+              "borderWidth": 1,
+              "borderColor": "#62676F",
+              "borderOpa": 255,
+              "radius": 9,
+              "textColor": "#F1F3F5",
+              "textFont": 28,
+              "textLetterSpace": 0,
+              "padTop": 25,
+              "padBottom": 25,
+              "padLeft": 2,
+              "padRight": 2
+            },
+            "main:pressed": {
+              "bgColor": "#24272B",
+              "bgGradColor": "#24272B"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [
+            {
+              "id": "ev84",
+              "trigger": "CLICKED",
+              "action": "step_spinbox",
+              "params": {
+                "target": "spb_limit",
+                "direction": "decrease"
+              }
+            }
+          ],
+          "bindings": [],
+          "children": []
+        },
+        {
+          "id": "lbl_kept",
+          "type": "label",
+          "name": "KeptNote",
+          "x": 22,
+          "y": 206,
+          "w": 190,
+          "h": 14,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "KEPT THROUGH A POWER CUT",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 10,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#4F5B46",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 1
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "btn_back",
+          "type": "button",
+          "name": "BackButton",
+          "x": 232,
+          "y": 196,
+          "w": 78,
+          "h": 34,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "text": "BACK",
+            "icon": "",
+            "iconPos": "left",
+            "iconSize": 20,
+            "iconGap": 6
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#4A4E55",
+              "bgGradColor": "#30333A",
+              "bgGradDir": "LV_GRAD_DIR_VER",
+              "bgOpa": 255,
+              "borderWidth": 1,
+              "borderColor": "#62676F",
+              "borderOpa": 255,
+              "radius": 6,
+              "textColor": "#F1F3F5",
+              "textFont": 12,
+              "textLetterSpace": 1,
+              "padTop": 9,
+              "padBottom": 9,
+              "padLeft": 2,
+              "padRight": 2
+            },
+            "main:pressed": {
+              "bgColor": "#24272B",
+              "bgGradColor": "#24272B"
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [
+            {
+              "id": "ev85",
               "trigger": "CLICKED",
               "action": "change_screen",
               "params": {
@@ -1010,7 +1572,19 @@
       ]
     }
   ],
-  "assets": [],
+  "assets": [
+    {
+      "id": "as_px_bench",
+      "name": "panel-bench.png",
+      "varName": "ui_img_px_bench",
+      "dataUrl": "data:image/png;base64,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",
+      "width": 320,
+      "height": 240,
+      "storage": "c_array",
+      "format": "RGB565",
+      "path": "panel-bench.bin"
+    }
+  ],
   "fs": {
     "type": "spiffs",
     "letter": "S",

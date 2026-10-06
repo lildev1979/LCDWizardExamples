@@ -10,6 +10,8 @@ The dial writes a setpoint and the firmware reads it back, so the number on scre
 
 A BME280 on the capacitive CYD CN1 connector measures the room.
 
+The settings screen is the same dial showing the boost run down, so the two screens share one backdrop.
+
 Exported with Home Assistant turned on, the setpoint, the temperature and the heat demand all appear as entities - so a schedule can live in Home Assistant while the panel keeps working when the network does not.
 
 ## Hardware and build
@@ -42,3 +44,9 @@ Or open a copy straight from the gallery: https://lcdwizard.com/p/thermostat
 
 ![Settings](screens/02-settings.png)
 
+
+## Artwork
+
+The images this design uses, as the original files. They are also inside `design.json`, so the design opens without them.
+
+- [`assets/panel-thermo.png`](assets/panel-thermo.png) - 240 x 320

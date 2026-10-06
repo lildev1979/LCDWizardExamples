@@ -186,25 +186,33 @@
       "bindings": [],
       "children": [
         {
-          "id": "pnl_head_1",
-          "type": "panel",
-          "name": "Header",
+          "id": "img_backdrop",
+          "type": "image",
+          "name": "Backdrop",
           "x": 0,
           "y": 0,
           "w": 800,
-          "h": 44,
+          "h": 480,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
           "hidden": false,
           "locked": false,
-          "params": {},
+          "params": {
+            "src": "as_px_dust",
+            "pivotX": 0,
+            "pivotY": 0,
+            "rotation": 0,
+            "scale": 256,
+            "antialias": true,
+            "offsetX": 0,
+            "offsetY": 0,
+            "scaleX": 256,
+            "scaleY": 256,
+            "innerAlign": "LV_IMAGE_ALIGN_DEFAULT"
+          },
           "styles": {
             "main:default": {
-              "bgColor": "#37474F",
-              "bgOpa": 255,
-              "radius": 0,
-              "borderWidth": 0,
               "padTop": 0,
               "padBottom": 0,
               "padLeft": 0,
@@ -214,933 +222,16 @@
           "flags": {},
           "layout": {},
           "events": [],
-          "bindings": [],
-          "children": [
-            {
-              "id": "lbl_head_1",
-              "type": "label",
-              "name": "HeaderText",
-              "x": 0,
-              "y": 11,
-              "w": 800,
-              "h": 22,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "Dust Extraction",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 18,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#FFFFFF",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            }
-          ]
+          "bindings": []
         },
         {
-          "id": "pnl_saw",
-          "type": "panel",
-          "name": "Tablesaw",
-          "x": 16,
-          "y": 64,
-          "w": 180,
-          "h": 150,
-          "align": "LV_ALIGN_TOP_LEFT",
-          "widthMode": "px",
-          "heightMode": "px",
-          "hidden": false,
-          "locked": false,
-          "params": {},
-          "styles": {
-            "main:default": {
-              "bgColor": "#FFFFFF",
-              "bgOpa": 255,
-              "radius": 10,
-              "borderWidth": 1,
-              "borderColor": "#CFD8DC",
-              "padTop": 8,
-              "padBottom": 8,
-              "padLeft": 8,
-              "padRight": 8
-            }
-          },
-          "flags": {},
-          "layout": {},
-          "events": [],
-          "bindings": [],
-          "children": [
-            {
-              "id": "lbl_saw",
-              "type": "label",
-              "name": "TablesawName",
-              "x": 0,
-              "y": 8,
-              "w": 162,
-              "h": 22,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "Table saw",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 18,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#212121",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            },
-            {
-              "id": "sw_saw",
-              "type": "switch",
-              "name": "TablesawGate",
-              "x": 41,
-              "y": 46,
-              "w": 80,
-              "h": 40,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "checked": false,
-                "animTime": 0
-              },
-              "styles": {},
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": [
-                {
-                  "id": "bnd68",
-                  "source": "variable",
-                  "variableId": "v_saw",
-                  "sourceNodeId": "",
-                  "sourceProperty": "",
-                  "property": "checked",
-                  "direction": "both",
-                  "format": "",
-                  "prefix": "",
-                  "postfix": "",
-                  "formula": ""
-                }
-              ]
-            },
-            {
-              "id": "lbl_saw_s",
-              "type": "label",
-              "name": "TablesawState",
-              "x": 0,
-              "y": 98,
-              "w": 162,
-              "h": 16,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "gate",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 12,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#757575",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            }
-          ]
-        },
-        {
-          "id": "pnl_planer",
-          "type": "panel",
-          "name": "Planer",
-          "x": 212,
-          "y": 64,
-          "w": 180,
-          "h": 150,
-          "align": "LV_ALIGN_TOP_LEFT",
-          "widthMode": "px",
-          "heightMode": "px",
-          "hidden": false,
-          "locked": false,
-          "params": {},
-          "styles": {
-            "main:default": {
-              "bgColor": "#FFFFFF",
-              "bgOpa": 255,
-              "radius": 10,
-              "borderWidth": 1,
-              "borderColor": "#CFD8DC",
-              "padTop": 8,
-              "padBottom": 8,
-              "padLeft": 8,
-              "padRight": 8
-            }
-          },
-          "flags": {},
-          "layout": {},
-          "events": [],
-          "bindings": [],
-          "children": [
-            {
-              "id": "lbl_planer",
-              "type": "label",
-              "name": "PlanerName",
-              "x": 0,
-              "y": 8,
-              "w": 162,
-              "h": 22,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "Planer",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 18,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#212121",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            },
-            {
-              "id": "sw_planer",
-              "type": "switch",
-              "name": "PlanerGate",
-              "x": 41,
-              "y": 46,
-              "w": 80,
-              "h": 40,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "checked": false,
-                "animTime": 0
-              },
-              "styles": {},
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": [
-                {
-                  "id": "bnd69",
-                  "source": "variable",
-                  "variableId": "v_planer",
-                  "sourceNodeId": "",
-                  "sourceProperty": "",
-                  "property": "checked",
-                  "direction": "both",
-                  "format": "",
-                  "prefix": "",
-                  "postfix": "",
-                  "formula": ""
-                }
-              ]
-            },
-            {
-              "id": "lbl_planer_s",
-              "type": "label",
-              "name": "PlanerState",
-              "x": 0,
-              "y": 98,
-              "w": 162,
-              "h": 16,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "gate",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 12,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#757575",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            }
-          ]
-        },
-        {
-          "id": "pnl_sander",
-          "type": "panel",
-          "name": "Sander",
-          "x": 408,
-          "y": 64,
-          "w": 180,
-          "h": 150,
-          "align": "LV_ALIGN_TOP_LEFT",
-          "widthMode": "px",
-          "heightMode": "px",
-          "hidden": false,
-          "locked": false,
-          "params": {},
-          "styles": {
-            "main:default": {
-              "bgColor": "#FFFFFF",
-              "bgOpa": 255,
-              "radius": 10,
-              "borderWidth": 1,
-              "borderColor": "#CFD8DC",
-              "padTop": 8,
-              "padBottom": 8,
-              "padLeft": 8,
-              "padRight": 8
-            }
-          },
-          "flags": {},
-          "layout": {},
-          "events": [],
-          "bindings": [],
-          "children": [
-            {
-              "id": "lbl_sander",
-              "type": "label",
-              "name": "SanderName",
-              "x": 0,
-              "y": 8,
-              "w": 162,
-              "h": 22,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "Sander",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 18,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#212121",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            },
-            {
-              "id": "sw_sander",
-              "type": "switch",
-              "name": "SanderGate",
-              "x": 41,
-              "y": 46,
-              "w": 80,
-              "h": 40,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "checked": false,
-                "animTime": 0
-              },
-              "styles": {},
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": [
-                {
-                  "id": "bnd70",
-                  "source": "variable",
-                  "variableId": "v_sander",
-                  "sourceNodeId": "",
-                  "sourceProperty": "",
-                  "property": "checked",
-                  "direction": "both",
-                  "format": "",
-                  "prefix": "",
-                  "postfix": "",
-                  "formula": ""
-                }
-              ]
-            },
-            {
-              "id": "lbl_sander_s",
-              "type": "label",
-              "name": "SanderState",
-              "x": 0,
-              "y": 98,
-              "w": 162,
-              "h": 16,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "gate",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 12,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#757575",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            }
-          ]
-        },
-        {
-          "id": "pnl_lathe",
-          "type": "panel",
-          "name": "Lathe",
-          "x": 604,
-          "y": 64,
-          "w": 180,
-          "h": 150,
-          "align": "LV_ALIGN_TOP_LEFT",
-          "widthMode": "px",
-          "heightMode": "px",
-          "hidden": false,
-          "locked": false,
-          "params": {},
-          "styles": {
-            "main:default": {
-              "bgColor": "#FFFFFF",
-              "bgOpa": 255,
-              "radius": 10,
-              "borderWidth": 1,
-              "borderColor": "#CFD8DC",
-              "padTop": 8,
-              "padBottom": 8,
-              "padLeft": 8,
-              "padRight": 8
-            }
-          },
-          "flags": {},
-          "layout": {},
-          "events": [],
-          "bindings": [],
-          "children": [
-            {
-              "id": "lbl_lathe",
-              "type": "label",
-              "name": "LatheName",
-              "x": 0,
-              "y": 8,
-              "w": 162,
-              "h": 22,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "Lathe",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 18,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#212121",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            },
-            {
-              "id": "sw_lathe",
-              "type": "switch",
-              "name": "LatheGate",
-              "x": 41,
-              "y": 46,
-              "w": 80,
-              "h": 40,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "checked": false,
-                "animTime": 0
-              },
-              "styles": {},
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": [
-                {
-                  "id": "bnd71",
-                  "source": "variable",
-                  "variableId": "v_lathe",
-                  "sourceNodeId": "",
-                  "sourceProperty": "",
-                  "property": "checked",
-                  "direction": "both",
-                  "format": "",
-                  "prefix": "",
-                  "postfix": "",
-                  "formula": ""
-                }
-              ]
-            },
-            {
-              "id": "lbl_lathe_s",
-              "type": "label",
-              "name": "LatheState",
-              "x": 0,
-              "y": 98,
-              "w": 162,
-              "h": 16,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "gate",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 12,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#757575",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            }
-          ]
-        },
-        {
-          "id": "pnl_fan",
-          "type": "panel",
-          "name": "ExtractorPanel",
-          "x": 16,
-          "y": 230,
-          "w": 768,
-          "h": 120,
-          "align": "LV_ALIGN_TOP_LEFT",
-          "widthMode": "px",
-          "heightMode": "px",
-          "hidden": false,
-          "locked": false,
-          "params": {},
-          "styles": {
-            "main:default": {
-              "bgColor": "#ECEFF1",
-              "bgOpa": 255,
-              "radius": 10,
-              "borderWidth": 0,
-              "padTop": 16,
-              "padBottom": 16,
-              "padLeft": 16,
-              "padRight": 16
-            }
-          },
-          "flags": {},
-          "layout": {},
-          "events": [],
-          "bindings": [],
-          "children": [
-            {
-              "id": "lbl_fancap",
-              "type": "label",
-              "name": "ExtractorCaption",
-              "x": 0,
-              "y": 6,
-              "w": 110,
-              "h": 24,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "Extractor",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 20,
-                  "textAlign": "LV_TEXT_ALIGN_LEFT",
-                  "textColor": "#212121",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            },
-            {
-              "id": "sw_fan",
-              "type": "switch",
-              "name": "ExtractorSwitch",
-              "x": 0,
-              "y": 40,
-              "w": 90,
-              "h": 44,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "checked": false,
-                "animTime": 0
-              },
-              "styles": {},
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": [
-                {
-                  "id": "bnd72",
-                  "source": "variable",
-                  "variableId": "v_fan",
-                  "sourceNodeId": "",
-                  "sourceProperty": "",
-                  "property": "checked",
-                  "direction": "both",
-                  "format": "",
-                  "prefix": "",
-                  "postfix": "",
-                  "formula": ""
-                }
-              ]
-            },
-            {
-              "id": "lbl_hours",
-              "type": "label",
-              "name": "RunHours",
-              "x": 120,
-              "y": 28,
-              "w": 200,
-              "h": 32,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "18.4 h",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 28,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#37474F",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": [
-                {
-                  "id": "bnd73",
-                  "source": "variable",
-                  "variableId": "v_hours",
-                  "sourceNodeId": "",
-                  "sourceProperty": "",
-                  "property": "text",
-                  "direction": "read",
-                  "format": "%.1f",
-                  "prefix": "",
-                  "postfix": " h",
-                  "formula": ""
-                }
-              ]
-            },
-            {
-              "id": "lbl_hourscap",
-              "type": "label",
-              "name": "RunHoursCaption",
-              "x": 120,
-              "y": 62,
-              "w": 200,
-              "h": 16,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "Motor hours",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 12,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#757575",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            },
-            {
-              "id": "lbl_dpcap",
-              "type": "label",
-              "name": "FilterCaption",
-              "x": 436,
-              "y": 6,
-              "w": 300,
-              "h": 16,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "Filter pressure drop",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 12,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#757575",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": []
-            },
-            {
-              "id": "bar_dp",
-              "type": "bar",
-              "name": "FilterBar",
-              "x": 436,
-              "y": 30,
-              "w": 300,
-              "h": 22,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "min": 0,
-                "max": 2000,
-                "mode": "LV_BAR_MODE_NORMAL",
-                "orientation": "LV_BAR_ORIENTATION_AUTO",
-                "value": 620,
-                "animate": false,
-                "valueStart": 0,
-                "animTime": 0
-              },
-              "styles": {},
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": [
-                {
-                  "id": "bnd74",
-                  "source": "variable",
-                  "variableId": "v_dp",
-                  "sourceNodeId": "",
-                  "sourceProperty": "",
-                  "property": "value",
-                  "direction": "read",
-                  "format": "",
-                  "prefix": "",
-                  "postfix": "",
-                  "formula": ""
-                }
-              ]
-            },
-            {
-              "id": "lbl_dp",
-              "type": "label",
-              "name": "FilterValue",
-              "x": 436,
-              "y": 58,
-              "w": 300,
-              "h": 28,
-              "align": "LV_ALIGN_TOP_LEFT",
-              "widthMode": "px",
-              "heightMode": "px",
-              "hidden": false,
-              "locked": false,
-              "params": {
-                "longMode": "LV_LABEL_LONG_WRAP",
-                "text": "620 Pa",
-                "recolor": false,
-                "translate": false
-              },
-              "styles": {
-                "main:default": {
-                  "textFont": 24,
-                  "textAlign": "LV_TEXT_ALIGN_CENTER",
-                  "textColor": "#1565C0",
-                  "padTop": 0,
-                  "padBottom": 0,
-                  "padLeft": 0,
-                  "padRight": 0
-                }
-              },
-              "flags": {},
-              "layout": {},
-              "events": [],
-              "bindings": [
-                {
-                  "id": "bnd75",
-                  "source": "variable",
-                  "variableId": "v_dp",
-                  "sourceNodeId": "",
-                  "sourceProperty": "",
-                  "property": "text",
-                  "direction": "read",
-                  "format": "%.0f",
-                  "prefix": "",
-                  "postfix": " Pa",
-                  "formula": ""
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "lbl_service",
+          "id": "lbl_title",
           "type": "label",
-          "name": "ServiceBanner",
-          "x": 16,
-          "y": 366,
-          "w": 768,
-          "h": 24,
+          "name": "Title",
+          "x": 24,
+          "y": 14,
+          "w": 360,
+          "h": 18,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1148,15 +239,917 @@
           "locked": false,
           "params": {
             "longMode": "LV_LABEL_LONG_WRAP",
-            "text": "Clean the filter - pressure drop is above 1200 Pa",
+            "text": "DUST EXTRACTION",
             "recolor": false,
             "translate": false
           },
           "styles": {
             "main:default": {
-              "textFont": 20,
+              "textFont": 14,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#EAF1F7",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 3
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_place",
+          "type": "label",
+          "name": "Place",
+          "x": 416,
+          "y": 15,
+          "w": 360,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "WORKSHOP  4 GATES",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#8A98A8",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 2
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "flow_trunk",
+          "type": "panel",
+          "name": "TrunkAir",
+          "x": 64,
+          "y": 88,
+          "w": 558,
+          "h": 6,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#35C8FF",
+              "bgOpa": 255,
+              "radius": 2,
+              "borderWidth": 0,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {
+            "LV_OBJ_FLAG_SCROLLABLE": false,
+            "LV_OBJ_FLAG_CLICKABLE": false
+          },
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd94",
+              "source": "variable",
+              "variableId": "v_fan",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "hidden",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": "extractor == 0"
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "flow_saw",
+          "type": "panel",
+          "name": "TablesawAir",
+          "x": 92,
+          "y": 100,
+          "w": 6,
+          "h": 50,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#35C8FF",
+              "bgOpa": 255,
+              "radius": 2,
+              "borderWidth": 0,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {
+            "LV_OBJ_FLAG_SCROLLABLE": false,
+            "LV_OBJ_FLAG_CLICKABLE": false
+          },
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd95",
+              "source": "variable",
+              "variableId": "v_saw",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "hidden",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": "saw == 0"
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "lbl_saw",
+          "type": "label",
+          "name": "TablesawName",
+          "x": 38,
+          "y": 164,
+          "w": 114,
+          "h": 20,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "Table saw",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 16,
               "textAlign": "LV_TEXT_ALIGN_CENTER",
-              "textColor": "#C62828",
+              "textColor": "#EAF1F7",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "sw_saw",
+          "type": "switch",
+          "name": "TablesawGate",
+          "x": 53,
+          "y": 204,
+          "w": 84,
+          "h": 42,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "checked": true,
+            "animTime": 0
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#252F3B",
+              "bgOpa": 255,
+              "radius": 99
+            },
+            "indicator:checked": {
+              "bgColor": "#35C8FF",
+              "bgOpa": 255,
+              "radius": 99
+            },
+            "knob:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 99
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd96",
+              "source": "variable",
+              "variableId": "v_saw",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "checked",
+              "direction": "both",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_saw_s",
+          "type": "label",
+          "name": "TablesawState",
+          "x": 38,
+          "y": 262,
+          "w": 114,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "BLAST GATE",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#8A98A8",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 1
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "flow_planer",
+          "type": "panel",
+          "name": "PlanerAir",
+          "x": 237,
+          "y": 100,
+          "w": 6,
+          "h": 50,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": true,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#35C8FF",
+              "bgOpa": 255,
+              "radius": 2,
+              "borderWidth": 0,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {
+            "LV_OBJ_FLAG_SCROLLABLE": false,
+            "LV_OBJ_FLAG_CLICKABLE": false
+          },
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd97",
+              "source": "variable",
+              "variableId": "v_planer",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "hidden",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": "planer == 0"
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "lbl_planer",
+          "type": "label",
+          "name": "PlanerName",
+          "x": 183,
+          "y": 164,
+          "w": 114,
+          "h": 20,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "Planer",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 16,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#EAF1F7",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "sw_planer",
+          "type": "switch",
+          "name": "PlanerGate",
+          "x": 198,
+          "y": 204,
+          "w": 84,
+          "h": 42,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "checked": false,
+            "animTime": 0
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#252F3B",
+              "bgOpa": 255,
+              "radius": 99
+            },
+            "indicator:checked": {
+              "bgColor": "#35C8FF",
+              "bgOpa": 255,
+              "radius": 99
+            },
+            "knob:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 99
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd98",
+              "source": "variable",
+              "variableId": "v_planer",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "checked",
+              "direction": "both",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_planer_s",
+          "type": "label",
+          "name": "PlanerState",
+          "x": 183,
+          "y": 262,
+          "w": 114,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "BLAST GATE",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#8A98A8",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 1
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "flow_sander",
+          "type": "panel",
+          "name": "SanderAir",
+          "x": 382,
+          "y": 100,
+          "w": 6,
+          "h": 50,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": true,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#35C8FF",
+              "bgOpa": 255,
+              "radius": 2,
+              "borderWidth": 0,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {
+            "LV_OBJ_FLAG_SCROLLABLE": false,
+            "LV_OBJ_FLAG_CLICKABLE": false
+          },
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd99",
+              "source": "variable",
+              "variableId": "v_sander",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "hidden",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": "sander == 0"
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "lbl_sander",
+          "type": "label",
+          "name": "SanderName",
+          "x": 328,
+          "y": 164,
+          "w": 114,
+          "h": 20,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "Sander",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 16,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#EAF1F7",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "sw_sander",
+          "type": "switch",
+          "name": "SanderGate",
+          "x": 343,
+          "y": 204,
+          "w": 84,
+          "h": 42,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "checked": false,
+            "animTime": 0
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#252F3B",
+              "bgOpa": 255,
+              "radius": 99
+            },
+            "indicator:checked": {
+              "bgColor": "#35C8FF",
+              "bgOpa": 255,
+              "radius": 99
+            },
+            "knob:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 99
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd100",
+              "source": "variable",
+              "variableId": "v_sander",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "checked",
+              "direction": "both",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_sander_s",
+          "type": "label",
+          "name": "SanderState",
+          "x": 328,
+          "y": 262,
+          "w": 114,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "BLAST GATE",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#8A98A8",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 1
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "flow_lathe",
+          "type": "panel",
+          "name": "LatheAir",
+          "x": 527,
+          "y": 100,
+          "w": 6,
+          "h": 50,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": true,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#35C8FF",
+              "bgOpa": 255,
+              "radius": 2,
+              "borderWidth": 0,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {
+            "LV_OBJ_FLAG_SCROLLABLE": false,
+            "LV_OBJ_FLAG_CLICKABLE": false
+          },
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd101",
+              "source": "variable",
+              "variableId": "v_lathe",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "hidden",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": "lathe == 0"
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "lbl_lathe",
+          "type": "label",
+          "name": "LatheName",
+          "x": 473,
+          "y": 164,
+          "w": 114,
+          "h": 20,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "Lathe",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 16,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#EAF1F7",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "sw_lathe",
+          "type": "switch",
+          "name": "LatheGate",
+          "x": 488,
+          "y": 204,
+          "w": 84,
+          "h": 42,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "checked": false,
+            "animTime": 0
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#252F3B",
+              "bgOpa": 255,
+              "radius": 99
+            },
+            "indicator:checked": {
+              "bgColor": "#35C8FF",
+              "bgOpa": 255,
+              "radius": 99
+            },
+            "knob:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 99
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd102",
+              "source": "variable",
+              "variableId": "v_lathe",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "checked",
+              "direction": "both",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_lathe_s",
+          "type": "label",
+          "name": "LatheState",
+          "x": 473,
+          "y": 262,
+          "w": 114,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "BLAST GATE",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#8A98A8",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 1
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_fancap",
+          "type": "label",
+          "name": "ExtractorCaption",
+          "x": 635,
+          "y": 70,
+          "w": 130,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "EXTRACTOR",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#8A98A8",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 2
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "sw_fan",
+          "type": "switch",
+          "name": "ExtractorSwitch",
+          "x": 658,
+          "y": 96,
+          "w": 84,
+          "h": 42,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "checked": true,
+            "animTime": 0
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#252F3B",
+              "bgOpa": 255,
+              "radius": 99
+            },
+            "indicator:checked": {
+              "bgColor": "#35C8FF",
+              "bgOpa": 255,
+              "radius": 99
+            },
+            "knob:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 99
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd104",
+              "source": "variable",
+              "variableId": "v_fan",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "checked",
+              "direction": "both",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_hours",
+          "type": "label",
+          "name": "RunHours",
+          "x": 635,
+          "y": 152,
+          "w": 130,
+          "h": 45,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "18.4",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": "oswald:40",
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#EAF1F7",
               "padTop": 0,
               "padBottom": 0,
               "padLeft": 0,
@@ -1168,7 +1161,306 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd76",
+              "id": "bnd105",
+              "source": "variable",
+              "variableId": "v_hours",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "text",
+              "direction": "read",
+              "format": "%.1f",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_hourscap",
+          "type": "label",
+          "name": "RunHoursCaption",
+          "x": 635,
+          "y": 197,
+          "w": 130,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "MOTOR HOURS",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#8A98A8",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 1
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_dpcap",
+          "type": "label",
+          "name": "FilterCaption",
+          "x": 50,
+          "y": 328,
+          "w": 230,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "FILTER PRESSURE DROP",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_LEFT",
+              "textColor": "#8A98A8",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 2
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_dplimit",
+          "type": "label",
+          "name": "FilterLimit",
+          "x": 290,
+          "y": 328,
+          "w": 120,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "CLEAN AT 1200",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 12,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#FF5468",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "bar_dp",
+          "type": "bar",
+          "name": "FilterBar",
+          "x": 50,
+          "y": 358,
+          "w": 500,
+          "h": 16,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "min": 0,
+            "max": 2000,
+            "mode": "LV_BAR_MODE_NORMAL",
+            "orientation": "LV_BAR_ORIENTATION_AUTO",
+            "value": 620,
+            "animate": false,
+            "valueStart": 0,
+            "animTime": 0
+          },
+          "styles": {
+            "main:default": {
+              "bgColor": "#252F3B",
+              "bgOpa": 255,
+              "radius": 8,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            },
+            "indicator:default": {
+              "bgColor": "#35C8FF",
+              "bgOpa": 255,
+              "radius": 8
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd106",
+              "source": "variable",
+              "variableId": "v_dp",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "value",
+              "direction": "read",
+              "format": "",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_dp",
+          "type": "label",
+          "name": "FilterValue",
+          "x": 605,
+          "y": 322,
+          "w": 110,
+          "h": 45,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "620",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": "oswald:40",
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#EAF1F7",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd107",
+              "source": "variable",
+              "variableId": "v_dp",
+              "sourceNodeId": "",
+              "sourceProperty": "",
+              "property": "text",
+              "direction": "read",
+              "format": "%.0f",
+              "prefix": "",
+              "postfix": "",
+              "formula": ""
+            }
+          ]
+        },
+        {
+          "id": "lbl_dpunit",
+          "type": "label",
+          "name": "FilterUnit",
+          "x": 721,
+          "y": 344,
+          "w": 34,
+          "h": 20,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "Pa",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 16,
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#8A98A8",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": []
+        },
+        {
+          "id": "lbl_service",
+          "type": "label",
+          "name": "ServiceBanner",
+          "x": 570,
+          "y": 372,
+          "w": 185,
+          "h": 20,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": true,
+          "locked": false,
+          "params": {
+            "longMode": "LV_LABEL_LONG_WRAP",
+            "text": "CLEAN THE FILTER",
+            "recolor": false,
+            "translate": false
+          },
+          "styles": {
+            "main:default": {
+              "textFont": 16,
+              "textAlign": "LV_TEXT_ALIGN_RIGHT",
+              "textColor": "#FF5468",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0,
+              "textLetterSpace": 1
+            }
+          },
+          "flags": {},
+          "layout": {},
+          "events": [],
+          "bindings": [
+            {
+              "id": "bnd103",
               "source": "variable",
               "variableId": "v_service",
               "sourceNodeId": "",
@@ -1186,9 +1478,9 @@
           "id": "btn_all",
           "type": "button",
           "name": "CloseAllGates",
-          "x": 16,
-          "y": 406,
-          "w": 220,
+          "x": 30,
+          "y": 412,
+          "w": 260,
           "h": 54,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
@@ -1196,7 +1488,7 @@
           "hidden": false,
           "locked": false,
           "params": {
-            "text": "Close all gates",
+            "text": "CLOSE ALL GATES",
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
@@ -1204,23 +1496,32 @@
           },
           "styles": {
             "main:default": {
-              "bgColor": "#37474F",
+              "bgColor": "#2A3441",
+              "bgGradColor": "#1D2530",
+              "bgGradDir": "LV_GRAD_DIR_VER",
               "bgOpa": 255,
-              "borderWidth": 0,
-              "radius": 8,
-              "textColor": "#FFFFFF",
-              "textFont": 14,
-              "padTop": 18,
-              "padBottom": 18,
-              "padLeft": 8,
-              "padRight": 8
+              "borderWidth": 1,
+              "borderColor": "#3D4A5A",
+              "borderOpa": 255,
+              "radius": 10,
+              "textColor": "#EAF1F7",
+              "textFont": 18,
+              "textLetterSpace": 2,
+              "padTop": 16,
+              "padBottom": 16,
+              "padLeft": 2,
+              "padRight": 2
+            },
+            "main:pressed": {
+              "bgColor": "#141A21",
+              "bgGradColor": "#141A21"
             }
           },
           "flags": {},
           "layout": {},
           "events": [
             {
-              "id": "ev76",
+              "id": "ev106",
               "trigger": "CLICKED",
               "action": "set_variable",
               "params": {
@@ -1230,7 +1531,7 @@
               }
             },
             {
-              "id": "ev77",
+              "id": "ev107",
               "trigger": "CLICKED",
               "action": "set_variable",
               "params": {
@@ -1240,7 +1541,7 @@
               }
             },
             {
-              "id": "ev78",
+              "id": "ev108",
               "trigger": "CLICKED",
               "action": "set_variable",
               "params": {
@@ -1250,7 +1551,7 @@
               }
             },
             {
-              "id": "ev79",
+              "id": "ev109",
               "trigger": "CLICKED",
               "action": "set_variable",
               "params": {
@@ -1267,10 +1568,10 @@
           "id": "lbl_hint",
           "type": "label",
           "name": "Hint",
-          "x": 252,
-          "y": 425,
-          "w": 532,
-          "h": 16,
+          "x": 310,
+          "y": 421,
+          "w": 420,
+          "h": 36,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1278,15 +1579,15 @@
           "locked": false,
           "params": {
             "longMode": "LV_LABEL_LONG_WRAP",
-            "text": "The extractor starts itself when a gate opens and stops when the last one closes.",
+            "text": "The extractor starts itself when a gate opens, and stops when the last one closes.",
             "recolor": false,
             "translate": false
           },
           "styles": {
             "main:default": {
-              "textFont": 12,
+              "textFont": 14,
               "textAlign": "LV_TEXT_ALIGN_LEFT",
-              "textColor": "#757575",
+              "textColor": "#8A98A8",
               "padTop": 0,
               "padBottom": 0,
               "padLeft": 0,
@@ -1301,7 +1602,19 @@
       ]
     }
   ],
-  "assets": [],
+  "assets": [
+    {
+      "id": "as_px_dust",
+      "name": "panel-dust.png",
+      "varName": "ui_img_px_dust",
+      "dataUrl": "data:image/png;base64,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",
+      "width": 800,
+      "height": 480,
+      "storage": "c_array",
+      "format": "RGB565",
+      "path": "panel-dust.bin"
+    }
+  ],
   "fs": {
     "type": "spiffs",
     "letter": "S",
@@ -1380,7 +1693,7 @@
       "id": "v_fan",
       "name": "extractor",
       "type": "bool",
-      "initial": 0,
+      "initial": 1,
       "unit": "",
       "decimals": 0,
       "min": 0,

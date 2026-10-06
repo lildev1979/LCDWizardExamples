@@ -6,7 +6,7 @@
 
 No sensors. The board is the whole of it.
 
-A shot is twenty-five to thirty seconds, and what you want is a number you can read from across the bench, a band to land in, and the last one to compare against. The bar fills towards the target and the in-range marker appears when you are within two seconds of it.
+A shot is twenty-five to thirty seconds, and what you want is a number you can read from across the bench, a band to land in, and the last one to compare against. The bar fills towards the target and the in-range marker appears when you are within two seconds of it. The target is a marker on that same bar, and dragging it is how you set it.
 
 Built for the M5Stack Core2, which is the right size to sit next to a grinder. Exported as MicroPython so the target and the band are things you can change from the REPL between shots rather than between builds.
 
@@ -28,3 +28,9 @@ Built for the M5Stack Core2, which is the right size to sit next to a grinder. E
 3. Change what you like, then **Export code** for a project that builds for the board.
 
 Or open a copy straight from the gallery: https://lcdwizard.com/p/shot-timer
+
+## Artwork
+
+The images this design uses, as the original files. They are also inside `design.json`, so the design opens without them.
+
+- [`assets/panel-shot.png`](assets/panel-shot.png) - 320 x 240

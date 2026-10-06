@@ -92,7 +92,14 @@
         "temporary": false,
         "noExport": false
       },
-      "styles": {},
+      "styles": {
+        "main:default": {
+          "bgColor": "#F5F8FC",
+          "bgGradColor": "#E4EBF5",
+          "bgGradDir": "LV_GRAD_DIR_VER",
+          "bgOpa": 255
+        }
+      },
       "flags": {},
       "events": [],
       "bindings": [],
@@ -102,7 +109,7 @@
           "type": "label",
           "name": "Title",
           "x": 10,
-          "y": 14,
+          "y": 16,
           "w": 220,
           "h": 28,
           "align": "LV_ALIGN_TOP_LEFT",
@@ -118,9 +125,9 @@
           },
           "styles": {
             "main:default": {
-              "textFont": 20,
+              "textFont": 24,
               "textAlign": "LV_TEXT_ALIGN_CENTER",
-              "textColor": "#1565C0"
+              "textColor": "#101828"
             }
           },
           "flags": {},
@@ -133,9 +140,9 @@
           "type": "label",
           "name": "Hint",
           "x": 10,
-          "y": 44,
+          "y": 48,
           "w": 220,
-          "h": 18,
+          "h": 16,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -151,7 +158,7 @@
             "main:default": {
               "textFont": 12,
               "textAlign": "LV_TEXT_ALIGN_CENTER",
-              "textColor": "#757575"
+              "textColor": "#667085"
             }
           },
           "flags": {},
@@ -160,13 +167,48 @@
           "bindings": []
         },
         {
+          "id": "pnl_card",
+          "type": "panel",
+          "name": "Card",
+          "x": 16,
+          "y": 72,
+          "w": 208,
+          "h": 174,
+          "align": "LV_ALIGN_TOP_LEFT",
+          "widthMode": "px",
+          "heightMode": "px",
+          "hidden": false,
+          "locked": false,
+          "params": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 20,
+              "borderWidth": 1,
+              "borderColor": "#DDE5EF",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {
+            "LV_OBJ_FLAG_SCROLLABLE": false
+          },
+          "layout": {},
+          "events": [],
+          "bindings": [],
+          "children": []
+        },
+        {
           "id": "arc_gauge",
           "type": "arc",
           "name": "Gauge",
-          "x": 45,
-          "y": 70,
-          "w": 150,
-          "h": 150,
+          "x": 56,
+          "y": 84,
+          "w": 128,
+          "h": 128,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -183,10 +225,41 @@
             "mode": "LV_ARC_MODE_NORMAL",
             "rotation": 0,
             "changeRate": 720,
-            "knobOffset": 0
+            "knobOffset": 0,
+            "follower": "",
+            "followMode": "move",
+            "followOffset": 0
           },
-          "styles": {},
-          "flags": {},
+          "styles": {
+            "main:default": {
+              "bgOpa": 0,
+              "borderWidth": 0,
+              "arcColor": "#E4EAF2",
+              "arcOpa": 255,
+              "arcWidth": 12,
+              "arcRounded": true,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            },
+            "indicator:default": {
+              "arcColor": "#2F6FED",
+              "arcOpa": 255,
+              "arcWidth": 12,
+              "arcRounded": true
+            },
+            "knob:default": {
+              "bgOpa": 0,
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
+            }
+          },
+          "flags": {
+            "LV_OBJ_FLAG_CLICKABLE": false
+          },
           "layout": {},
           "events": [],
           "bindings": [
@@ -209,9 +282,9 @@
           "id": "lbl_readout",
           "type": "label",
           "name": "Readout",
-          "x": 45,
+          "x": 60,
           "y": 128,
-          "w": 150,
+          "w": 120,
           "h": 36,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
@@ -226,9 +299,13 @@
           },
           "styles": {
             "main:default": {
-              "textFont": 28,
+              "textFont": 32,
               "textAlign": "LV_TEXT_ALIGN_CENTER",
-              "textColor": "#1565C0"
+              "textColor": "#101828",
+              "padTop": 0,
+              "padBottom": 0,
+              "padLeft": 0,
+              "padRight": 0
             }
           },
           "flags": {},
@@ -254,10 +331,10 @@
           "id": "lbl_status",
           "type": "label",
           "name": "Status",
-          "x": 10,
-          "y": 226,
-          "w": 220,
-          "h": 22,
+          "x": 54,
+          "y": 214,
+          "w": 132,
+          "h": 24,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -271,7 +348,16 @@
           },
           "styles": {
             "main:default": {
-              "textAlign": "LV_TEXT_ALIGN_CENTER"
+              "textFont": 14,
+              "textAlign": "LV_TEXT_ALIGN_CENTER",
+              "textColor": "#1D4FC4",
+              "bgColor": "#E8F0FE",
+              "bgOpa": 255,
+              "radius": 99,
+              "padTop": 3,
+              "padBottom": 3,
+              "padLeft": 8,
+              "padRight": 8
             }
           },
           "flags": {},
@@ -283,10 +369,10 @@
           "id": "sld_dial",
           "type": "slider",
           "name": "Dial",
-          "x": 25,
-          "y": 256,
-          "w": 190,
-          "h": 14,
+          "x": 30,
+          "y": 262,
+          "w": 180,
+          "h": 8,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -299,7 +385,30 @@
             "value": 40,
             "valueLeft": 0
           },
-          "styles": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#E4EAF2",
+              "bgOpa": 255,
+              "radius": 4
+            },
+            "indicator:default": {
+              "bgColor": "#2F6FED",
+              "bgOpa": 255,
+              "radius": 4
+            },
+            "knob:default": {
+              "bgColor": "#FFFFFF",
+              "bgOpa": 255,
+              "radius": 99,
+              "borderWidth": 3,
+              "borderColor": "#2F6FED",
+              "borderOpa": 255,
+              "padTop": 6,
+              "padBottom": 6,
+              "padLeft": 6,
+              "padRight": 6
+            }
+          },
           "flags": {},
           "layout": {},
           "events": [],
@@ -309,10 +418,10 @@
           "id": "btn_go",
           "type": "button",
           "name": "Go",
-          "x": 60,
-          "y": 278,
-          "w": 120,
-          "h": 36,
+          "x": 50,
+          "y": 282,
+          "w": 140,
+          "h": 32,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -325,7 +434,23 @@
             "iconSize": 20,
             "iconGap": 6
           },
-          "styles": {},
+          "styles": {
+            "main:default": {
+              "bgColor": "#2F6FED",
+              "bgGradColor": "#1D4FC4",
+              "bgGradDir": "LV_GRAD_DIR_VER",
+              "bgOpa": 255,
+              "radius": 99,
+              "borderWidth": 0,
+              "textColor": "#FFFFFF",
+              "textFont": 14,
+              "padTop": 7,
+              "padBottom": 7
+            },
+            "main:pressed": {
+              "bgColor": "#1D4FC4"
+            }
+          },
           "flags": {},
           "layout": {},
           "events": [

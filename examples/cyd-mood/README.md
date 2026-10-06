@@ -12,6 +12,8 @@ A BH1750 on CN1 reads the room. When it drops below 20 lx an automation turns th
 
 The only part to buy is the light sensor. Everything else is already soldered to the board.
 
+Three pins that are each on or off make eight states, and all eight are here. The lamp on screen is a disc that takes the colour, two fainter ones behind it for the glow, and a picture of a highlight on top that never changes - so one sprite makes a lit sphere of any colour.
+
 ## Hardware and build
 
 - **Board:** [ESP32-2432S028R "Cheap Yellow Display"](https://lcdwizard.com/boards/cyd-2432s028r)
@@ -31,3 +33,10 @@ The only part to buy is the light sensor. Everything else is already soldered to
 3. Change what you like, then **Export code** for a project that builds for the board.
 
 Or open a copy straight from the gallery: https://lcdwizard.com/p/cyd-mood
+
+## Artwork
+
+The images this design uses, as the original files. They are also inside `design.json`, so the design opens without them.
+
+- [`assets/panel-mood.png`](assets/panel-mood.png) - 240 x 320
+- [`assets/lamp-gloss.png`](assets/lamp-gloss.png) - 76 x 76

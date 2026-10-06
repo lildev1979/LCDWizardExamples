@@ -10,7 +10,9 @@ Every switch and the dimmer are bound to variables, and with Home Assistant turn
 
 All off sets every room in one press, and a banner tells you when something is still on, which is the state you actually want to see from the doorway.
 
-The WT32-SC01 is 320 x 480 with capacitive touch, so the rows are big enough to hit without looking.
+A room that is on is lit: a panel in the lamp's colour, bound to the same variable as the switch, so it shows whoever switched it - the panel or Home Assistant.
+
+The WT32-SC01 is 320 x 480 with capacitive touch, so the tiles are big enough to hit without looking.
 
 ## Hardware and build
 
@@ -30,3 +32,9 @@ The WT32-SC01 is 320 x 480 with capacitive touch, so the rows are big enough to 
 3. Change what you like, then **Export code** for a project that builds for the board.
 
 Or open a copy straight from the gallery: https://lcdwizard.com/p/wall-panel
+
+## Artwork
+
+The images this design uses, as the original files. They are also inside `design.json`, so the design opens without them.
+
+- [`assets/panel-wall.png`](assets/panel-wall.png) - 320 x 480

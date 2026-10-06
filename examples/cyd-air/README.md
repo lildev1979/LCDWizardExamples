@@ -12,6 +12,8 @@ Two automations watch the CO2 reading: past 1000 ppm the verdict turns red and a
 
 The SCD40 only produces a new sample every five seconds or so, which is why it is polled at that rate rather than faster.
 
+It is drawn as an instrument: a seven-segment reading over its own unlit segments, which is a second label behind the first saying 8888. The marker on the colour scale is a slider with nothing drawn but its knob, riding a scale that is in the backdrop.
+
 ## Hardware and build
 
 - **Board:** [ESP32-2432S028R "Cheap Yellow Display"](https://lcdwizard.com/boards/cyd-2432s028r)
@@ -31,3 +33,9 @@ The SCD40 only produces a new sample every five seconds or so, which is why it i
 3. Change what you like, then **Export code** for a project that builds for the board.
 
 Or open a copy straight from the gallery: https://lcdwizard.com/p/cyd-air
+
+## Artwork
+
+The images this design uses, as the original files. They are also inside `design.json`, so the design opens without them.
+
+- [`assets/panel-air.png`](assets/panel-air.png) - 240 x 320

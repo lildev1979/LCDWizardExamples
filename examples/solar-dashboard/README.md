@@ -8,7 +8,7 @@ Seven hundred watts on a shed roof and the four numbers that matter: what the ar
 
 Two INA219s share one bus - one on the array, one on the load - which is the cheap way to do this and is why their addresses differ. State of charge is a lead-acid rest curve on the battery voltage: it reads pessimistic under load, which is the direction you want to be wrong in.
 
-The chart carries two series on one set of axes, which is the comparison you actually look at - generation against consumption, not either alone.
+The battery is drawn as one, and the bar inside it is its state of charge. The chart carries two series on one set of axes, which is the comparison you actually look at - generation against consumption, not either alone - and holds a day: ninety-six points a quarter of an hour apart.
 
 ## Hardware and build
 
@@ -29,3 +29,9 @@ The chart carries two series on one set of axes, which is the comparison you act
 3. Change what you like, then **Export code** for a project that builds for the board.
 
 Or open a copy straight from the gallery: https://lcdwizard.com/p/solar-dashboard
+
+## Artwork
+
+The images this design uses, as the original files. They are also inside `design.json`, so the design opens without them.
+
+- [`assets/panel-solar.png`](assets/panel-solar.png) - 800 x 480

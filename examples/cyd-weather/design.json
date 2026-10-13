@@ -178,7 +178,7 @@
           "x": 16,
           "y": 10,
           "w": 150,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -214,7 +214,7 @@
           "x": 166,
           "y": 10,
           "w": 58,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -306,7 +306,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd7",
+              "id": "bnd35",
               "source": "variable",
               "variableId": "v_temp",
               "sourceNodeId": "",
@@ -355,7 +355,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd8",
+              "id": "bnd36",
               "source": "variable",
               "variableId": "v_temp",
               "sourceNodeId": "",
@@ -411,7 +411,7 @@
           "x": 53,
           "y": 159,
           "w": 40,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -446,7 +446,7 @@
           "x": 147,
           "y": 159,
           "w": 40,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -481,7 +481,7 @@
           "x": 22,
           "y": 198,
           "w": 66,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -545,7 +545,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd10",
+              "id": "bnd38",
               "source": "variable",
               "variableId": "v_hum",
               "sourceNodeId": "",
@@ -564,9 +564,9 @@
           "type": "label",
           "name": "HumUnit",
           "x": 74,
-          "y": 218,
+          "y": 221,
           "w": 30,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -638,7 +638,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd9",
+              "id": "bnd37",
               "source": "variable",
               "variableId": "v_hum",
               "sourceNodeId": "",
@@ -659,7 +659,7 @@
           "x": 136,
           "y": 198,
           "w": 66,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -723,7 +723,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd12",
+              "id": "bnd40",
               "source": "variable",
               "variableId": "v_pres",
               "sourceNodeId": "",
@@ -742,9 +742,9 @@
           "type": "label",
           "name": "PresUnit",
           "x": 188,
-          "y": 218,
+          "y": 221,
           "w": 30,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -816,7 +816,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd11",
+              "id": "bnd39",
               "source": "variable",
               "variableId": "v_pres",
               "sourceNodeId": "",
@@ -837,7 +837,7 @@
           "x": 22,
           "y": 255,
           "w": 100,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -882,6 +882,7 @@
           "params": {
             "chartType": "LV_CHART_TYPE_LINE",
             "pointCount": 60,
+            "pointSize": 7,
             "divX": 0,
             "divY": 0,
             "zoomX": 256,
@@ -904,6 +905,12 @@
             "labelOnX": false,
             "labelOnY": false,
             "axisFontSize": 14,
+            "xTicksOwn": false,
+            "xMajorTickCount": 5,
+            "xMinorTickCount": 2,
+            "xLabels": "ticks",
+            "xLabelMin": 0,
+            "xLabelMax": 100,
             "series": [
               {
                 "name": "Temperature",
@@ -998,7 +1005,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd13",
+              "id": "bnd41",
               "source": "variable",
               "variableId": "v_temp",
               "sourceNodeId": "",
@@ -1102,5 +1109,6 @@
     }
   },
   "fonts": [],
-  "config": []
+  "config": [],
+  "webSources": []
 }

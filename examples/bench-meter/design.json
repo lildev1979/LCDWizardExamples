@@ -172,7 +172,7 @@
           "x": 14,
           "y": 8,
           "w": 160,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -208,7 +208,7 @@
           "x": 174,
           "y": 8,
           "w": 132,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -244,7 +244,7 @@
           "x": 22,
           "y": 36,
           "w": 120,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -343,7 +343,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd23",
+              "id": "bnd51",
               "source": "variable",
               "variableId": "v_volts",
               "sourceNodeId": "",
@@ -364,7 +364,7 @@
           "x": 188,
           "y": 68,
           "w": 28,
-          "h": 28,
+          "h": 27,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -399,7 +399,7 @@
           "x": 22,
           "y": 118,
           "w": 120,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -498,7 +498,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd24",
+              "id": "bnd52",
               "source": "variable",
               "variableId": "v_amps",
               "sourceNodeId": "",
@@ -519,7 +519,7 @@
           "x": 188,
           "y": 150,
           "w": 28,
-          "h": 28,
+          "h": 27,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -554,7 +554,7 @@
           "x": 240,
           "y": 36,
           "w": 62,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -653,7 +653,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd25",
+              "id": "bnd53",
               "source": "variable",
               "variableId": "v_watts",
               "sourceNodeId": "",
@@ -674,7 +674,7 @@
           "x": 240,
           "y": 86,
           "w": 62,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -709,7 +709,7 @@
           "x": 240,
           "y": 118,
           "w": 62,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -808,7 +808,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd26",
+              "id": "bnd54",
               "source": "variable",
               "variableId": "v_limit_a",
               "sourceNodeId": "",
@@ -818,7 +818,7 @@
               "format": "%.2f",
               "prefix": "",
               "postfix": "",
-              "formula": ""
+              "formula": "limitHundredths / 100"
             }
           ]
         },
@@ -829,7 +829,7 @@
           "x": 240,
           "y": 168,
           "w": 62,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -864,7 +864,7 @@
           "x": 22,
           "y": 206,
           "w": 40,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -937,7 +937,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd27",
+              "id": "bnd55",
               "source": "variable",
               "variableId": "v_amps",
               "sourceNodeId": "",
@@ -990,7 +990,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd22",
+              "id": "bnd50",
               "source": "variable",
               "variableId": "v_tripped",
               "sourceNodeId": "",
@@ -1022,7 +1022,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -1051,7 +1052,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev82",
+              "id": "ev116",
               "trigger": "CLICKED",
               "action": "change_screen",
               "params": {
@@ -1125,7 +1126,7 @@
           "x": 14,
           "y": 8,
           "w": 160,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1161,7 +1162,7 @@
           "x": 174,
           "y": 8,
           "w": 132,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1197,7 +1198,7 @@
           "x": 22,
           "y": 36,
           "w": 160,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1241,7 +1242,7 @@
           "locked": false,
           "params": {
             "digitCount": 3,
-            "sepPos": 2,
+            "sepPos": 1,
             "min": 0,
             "max": 300,
             "step": 10,
@@ -1273,7 +1274,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd28",
+              "id": "bnd56",
               "source": "variable",
               "variableId": "v_limit_a",
               "sourceNodeId": "",
@@ -1283,7 +1284,7 @@
               "format": "",
               "prefix": "",
               "postfix": "",
-              "formula": "currentLimit * 100"
+              "formula": ""
             }
           ]
         },
@@ -1294,7 +1295,7 @@
           "x": 188,
           "y": 68,
           "w": 28,
-          "h": 28,
+          "h": 27,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1329,7 +1330,7 @@
           "x": 22,
           "y": 120,
           "w": 190,
-          "h": 64,
+          "h": 60,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1375,7 +1376,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -1390,8 +1392,8 @@
               "textColor": "#F1F3F5",
               "textFont": 28,
               "textLetterSpace": 0,
-              "padTop": 25,
-              "padBottom": 25,
+              "padTop": 26,
+              "padBottom": 26,
               "padLeft": 2,
               "padRight": 2
             },
@@ -1404,7 +1406,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev83",
+              "id": "ev117",
               "trigger": "CLICKED",
               "action": "step_spinbox",
               "params": {
@@ -1434,7 +1436,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -1449,8 +1452,8 @@
               "textColor": "#F1F3F5",
               "textFont": 28,
               "textLetterSpace": 0,
-              "padTop": 25,
-              "padBottom": 25,
+              "padTop": 26,
+              "padBottom": 26,
               "padLeft": 2,
               "padRight": 2
             },
@@ -1463,7 +1466,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev84",
+              "id": "ev118",
               "trigger": "CLICKED",
               "action": "step_spinbox",
               "params": {
@@ -1482,7 +1485,7 @@
           "x": 22,
           "y": 206,
           "w": 190,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1529,7 +1532,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -1558,7 +1562,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev85",
+              "id": "ev119",
               "trigger": "CLICKED",
               "action": "change_screen",
               "params": {
@@ -1644,13 +1648,13 @@
     },
     {
       "id": "v_limit_a",
-      "name": "currentLimit",
-      "type": "float",
-      "initial": 1.5,
-      "unit": "A",
-      "decimals": 2,
+      "name": "limitHundredths",
+      "type": "int",
+      "initial": 150,
+      "unit": "A/100",
+      "decimals": 0,
       "min": 0,
-      "max": 3,
+      "max": 300,
       "source": {
         "kind": "none",
         "ref": "",
@@ -1692,7 +1696,7 @@
       },
       "actions": [
         {
-          "id": "act1",
+          "id": "act3",
           "action": "set_variable",
           "params": {
             "variable": "v_tripped",
@@ -1700,7 +1704,7 @@
             "value": 0,
             "text": "",
             "delta": 1,
-            "expr": "amps > currentLimit",
+            "expr": "amps > limitHundredths / 100",
             "source": ""
           }
         }
@@ -1722,5 +1726,6 @@
     }
   },
   "fonts": [],
-  "config": []
+  "config": [],
+  "webSources": []
 }

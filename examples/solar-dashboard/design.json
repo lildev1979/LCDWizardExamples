@@ -200,7 +200,7 @@
           "x": 24,
           "y": 14,
           "w": 300,
-          "h": 18,
+          "h": 16,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -236,7 +236,7 @@
           "x": 416,
           "y": 15,
           "w": 360,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -299,7 +299,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd108",
+              "id": "bnd136",
               "source": "variable",
               "variableId": "v_charging",
               "sourceNodeId": "",
@@ -321,7 +321,7 @@
           "x": 120,
           "y": 76,
           "w": 90,
-          "h": 18,
+          "h": 16,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -385,7 +385,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd109",
+              "id": "bnd137",
               "source": "variable",
               "variableId": "v_pv_w",
               "sourceNodeId": "",
@@ -406,7 +406,7 @@
           "x": 198,
           "y": 167,
           "w": 34,
-          "h": 24,
+          "h": 22,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -441,7 +441,7 @@
           "x": 120,
           "y": 96,
           "w": 100,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -469,7 +469,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd110",
+              "id": "bnd138",
               "source": "variable",
               "variableId": "v_pv_v",
               "sourceNodeId": "",
@@ -490,7 +490,7 @@
           "x": 305,
           "y": 70,
           "w": 90,
-          "h": 18,
+          "h": 16,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -554,7 +554,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd111",
+              "id": "bnd139",
               "source": "variable",
               "variableId": "v_soc",
               "sourceNodeId": "",
@@ -575,7 +575,7 @@
           "x": 473,
           "y": 74,
           "w": 22,
-          "h": 20,
+          "h": 18,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -647,7 +647,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd112",
+              "id": "bnd140",
               "source": "variable",
               "variableId": "v_soc",
               "sourceNodeId": "",
@@ -668,7 +668,7 @@
           "x": 305,
           "y": 196,
           "w": 96,
-          "h": 20,
+          "h": 18,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -696,7 +696,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd113",
+              "id": "bnd141",
               "source": "variable",
               "variableId": "v_bat_v",
               "sourceNodeId": "",
@@ -717,7 +717,7 @@
           "x": 405,
           "y": 198,
           "w": 90,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -746,7 +746,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd114",
+              "id": "bnd142",
               "source": "variable",
               "variableId": "v_charging",
               "sourceNodeId": "",
@@ -767,7 +767,7 @@
           "x": 646,
           "y": 76,
           "w": 90,
-          "h": 18,
+          "h": 16,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -831,7 +831,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd115",
+              "id": "bnd143",
               "source": "variable",
               "variableId": "v_load_w",
               "sourceNodeId": "",
@@ -852,7 +852,7 @@
           "x": 724,
           "y": 167,
           "w": 34,
-          "h": 24,
+          "h": 22,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -887,7 +887,7 @@
           "x": 568,
           "y": 202,
           "w": 140,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -916,7 +916,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd116",
+              "id": "bnd144",
               "source": "variable",
               "variableId": "v_net",
               "sourceNodeId": "",
@@ -937,7 +937,7 @@
           "x": 44,
           "y": 260,
           "w": 200,
-          "h": 18,
+          "h": 16,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1008,7 +1008,7 @@
           "x": 592,
           "y": 262,
           "w": 70,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1079,7 +1079,7 @@
           "x": 692,
           "y": 262,
           "w": 70,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1124,6 +1124,7 @@
           "params": {
             "chartType": "LV_CHART_TYPE_LINE",
             "pointCount": 96,
+            "pointSize": 7,
             "divX": 0,
             "divY": 4,
             "zoomX": 256,
@@ -1146,6 +1147,12 @@
             "labelOnX": false,
             "labelOnY": false,
             "axisFontSize": 14,
+            "xTicksOwn": false,
+            "xMajorTickCount": 5,
+            "xMinorTickCount": 2,
+            "xLabels": "ticks",
+            "xLabelMin": 0,
+            "xLabelMax": 100,
             "series": [
               {
                 "name": "Array",
@@ -1378,7 +1385,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd117",
+              "id": "bnd145",
               "source": "variable",
               "variableId": "v_pv_w",
               "sourceNodeId": "",
@@ -1392,7 +1399,7 @@
               "seriesIndex": 0
             },
             {
-              "id": "bnd118",
+              "id": "bnd146",
               "source": "variable",
               "variableId": "v_load_w",
               "sourceNodeId": "",
@@ -1564,7 +1571,7 @@
       },
       "actions": [
         {
-          "id": "act18",
+          "id": "act20",
           "action": "set_variable",
           "params": {
             "variable": "v_charging",
@@ -1594,5 +1601,6 @@
     }
   },
   "fonts": [],
-  "config": []
+  "config": [],
+  "webSources": []
 }

@@ -128,7 +128,7 @@
       "flags": {},
       "events": [
         {
-          "id": "ev12",
+          "id": "ev46",
           "trigger": "SWIPE_LEFT",
           "action": "change_screen",
           "params": {
@@ -140,7 +140,7 @@
           }
         },
         {
-          "id": "ev13",
+          "id": "ev47",
           "trigger": "SWIPE_UP",
           "action": "change_screen",
           "params": {
@@ -152,7 +152,7 @@
           }
         },
         {
-          "id": "ev14",
+          "id": "ev48",
           "trigger": "SWIPE_DOWN",
           "action": "change_screen",
           "params": {
@@ -216,7 +216,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -226,8 +227,8 @@
               "radius": 4,
               "textColor": "#8E7BB8",
               "textFont": 10,
-              "padTop": 2,
-              "padBottom": 2,
+              "padTop": 4,
+              "padBottom": 4,
               "padLeft": 8,
               "padRight": 8
             }
@@ -236,7 +237,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev1",
+              "id": "ev35",
               "trigger": "CLICKED",
               "action": "change_screen",
               "params": {
@@ -258,7 +259,7 @@
           "x": 8,
           "y": 6,
           "w": 128,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -286,7 +287,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd1",
+              "id": "bnd29",
               "source": "variable",
               "variableId": "v_ip",
               "sourceNodeId": "",
@@ -307,7 +308,7 @@
           "x": 146,
           "y": 6,
           "w": 44,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -335,7 +336,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd2",
+              "id": "bnd30",
               "source": "variable",
               "variableId": "v_bars",
               "sourceNodeId": "",
@@ -388,7 +389,7 @@
           "x": 8,
           "y": 32,
           "w": 304,
-          "h": 26,
+          "h": 24,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -435,7 +436,7 @@
           "x": 8,
           "y": 62,
           "w": 304,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -517,7 +518,7 @@
           "x": 16,
           "y": 90,
           "w": 288,
-          "h": 18,
+          "h": 16,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -564,7 +565,7 @@
           "x": 10,
           "y": 119,
           "w": 12,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -655,7 +656,7 @@
           "x": 10,
           "y": 135,
           "w": 12,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -784,7 +785,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev2",
+              "id": "ev36",
               "trigger": "VALUE_CHANGED",
               "action": "config_set",
               "params": {
@@ -815,7 +816,7 @@
           "x": 8,
           "y": 157,
           "w": 14,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -869,7 +870,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev3",
+              "id": "ev37",
               "trigger": "CLICKED",
               "action": "audio_station_step",
               "params": {
@@ -907,7 +908,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev4",
+              "id": "ev38",
               "trigger": "CLICKED",
               "action": "audio_play",
               "params": {
@@ -956,7 +957,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev5",
+              "id": "ev39",
               "trigger": "CLICKED",
               "action": "audio_station_step",
               "params": {
@@ -987,7 +988,7 @@
       "flags": {},
       "events": [
         {
-          "id": "ev15",
+          "id": "ev49",
           "trigger": "SWIPE_RIGHT",
           "action": "change_screen",
           "params": {
@@ -1121,6 +1122,14 @@
             "nameField": "f_name",
             "urlField": "f_url",
             "genreField": "f_genre",
+            "cardFolder": "",
+            "cardEnds": "next",
+            "cardGenre": "On the card",
+            "playlistFrom": "none",
+            "playlistUrl": "",
+            "playlistList": "",
+            "playlistField": "",
+            "playlistGenre": "From the playlist",
             "showGenre": true,
             "rowHeight": 42
           },
@@ -1140,7 +1149,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev6",
+              "id": "ev40",
               "trigger": "RADIO_STATION",
               "action": "change_screen",
               "params": {
@@ -1241,7 +1250,7 @@
       "flags": {},
       "events": [
         {
-          "id": "ev10",
+          "id": "ev44",
           "trigger": "SCREEN_LOADED",
           "action": "set_backlight",
           "params": {
@@ -1251,7 +1260,7 @@
           }
         },
         {
-          "id": "ev11",
+          "id": "ev45",
           "trigger": "SWIPE_UP",
           "action": "change_screen",
           "params": {
@@ -1272,7 +1281,7 @@
           "x": 16,
           "y": 14,
           "w": 100,
-          "h": 18,
+          "h": 16,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1307,7 +1316,7 @@
           "x": 124,
           "y": 16,
           "w": 180,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1377,7 +1386,7 @@
           "x": 22,
           "y": 60,
           "w": 160,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1412,7 +1421,7 @@
           "x": 232,
           "y": 60,
           "w": 64,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1493,7 +1502,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev7",
+              "id": "ev41",
               "trigger": "VALUE_CHANGED",
               "action": "set_backlight",
               "params": {
@@ -1503,7 +1512,7 @@
               }
             },
             {
-              "id": "ev8",
+              "id": "ev42",
               "trigger": "VALUE_CHANGED",
               "action": "save_config",
               "params": {}
@@ -1541,7 +1550,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -1562,7 +1572,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev9",
+              "id": "ev43",
               "trigger": "CLICKED",
               "action": "change_screen",
               "params": {
@@ -1884,5 +1894,6 @@
       "autoSave": true
     }
   ],
-  "fonts": []
+  "fonts": [],
+  "webSources": []
 }

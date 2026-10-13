@@ -175,7 +175,7 @@
           "x": 16,
           "y": 9,
           "w": 124,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -211,7 +211,7 @@
           "x": 140,
           "y": 9,
           "w": 84,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -303,7 +303,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd52",
+              "id": "bnd80",
               "source": "variable",
               "variableId": "v_target",
               "sourceNodeId": "",
@@ -380,7 +380,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd53",
+              "id": "bnd81",
               "source": "variable",
               "variableId": "v_moist",
               "sourceNodeId": "",
@@ -399,9 +399,9 @@
           "type": "label",
           "name": "MoistureCaption",
           "x": 86,
-          "y": 72,
+          "y": 73,
           "w": 68,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -465,7 +465,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd54",
+              "id": "bnd82",
               "source": "variable",
               "variableId": "v_moist",
               "sourceNodeId": "",
@@ -486,7 +486,7 @@
           "x": 84,
           "y": 170,
           "w": 72,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -514,7 +514,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd51",
+              "id": "bnd79",
               "source": "variable",
               "variableId": "v_pump",
               "sourceNodeId": "",
@@ -533,9 +533,9 @@
           "type": "label",
           "name": "TargetCaption",
           "x": 20,
-          "y": 226,
+          "y": 227,
           "w": 52,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -598,7 +598,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd55",
+              "id": "bnd83",
               "source": "variable",
               "variableId": "v_target",
               "sourceNodeId": "",
@@ -617,9 +617,9 @@
           "type": "label",
           "name": "RunsCaption",
           "x": 134,
-          "y": 226,
+          "y": 227,
           "w": 52,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -682,7 +682,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd56",
+              "id": "bnd84",
               "source": "variable",
               "variableId": "v_runs",
               "sourceNodeId": "",
@@ -714,7 +714,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -743,7 +744,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev94",
+              "id": "ev128",
               "trigger": "CLICKED",
               "action": "set_variable",
               "params": {
@@ -774,7 +775,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -803,7 +805,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev95",
+              "id": "ev129",
               "trigger": "CLICKED",
               "action": "change_screen",
               "params": {
@@ -877,7 +879,7 @@
           "x": 16,
           "y": 9,
           "w": 124,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -913,7 +915,7 @@
           "x": 140,
           "y": 9,
           "w": 84,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1005,7 +1007,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd57",
+              "id": "bnd85",
               "source": "variable",
               "variableId": "v_moist",
               "sourceNodeId": "",
@@ -1085,7 +1087,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd58",
+              "id": "bnd86",
               "source": "variable",
               "variableId": "v_target",
               "sourceNodeId": "",
@@ -1104,9 +1106,9 @@
           "type": "label",
           "name": "TargetCaption",
           "x": 80,
-          "y": 72,
+          "y": 73,
           "w": 80,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1169,7 +1171,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd59",
+              "id": "bnd87",
               "source": "variable",
               "variableId": "v_target",
               "sourceNodeId": "",
@@ -1188,9 +1190,9 @@
           "type": "label",
           "name": "ModeCaption",
           "x": 20,
-          "y": 226,
+          "y": 227,
           "w": 44,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1257,7 +1259,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd60",
+              "id": "bnd88",
               "source": "variable",
               "variableId": "v_auto",
               "sourceNodeId": "",
@@ -1278,7 +1280,7 @@
           "x": 134,
           "y": 219,
           "w": 44,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1313,7 +1315,7 @@
           "x": 180,
           "y": 219,
           "w": 40,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1341,7 +1343,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd61",
+              "id": "bnd89",
               "source": "variable",
               "variableId": "v_lock",
               "sourceNodeId": "",
@@ -1399,7 +1401,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd62",
+              "id": "bnd90",
               "source": "variable",
               "variableId": "v_lock",
               "sourceNodeId": "",
@@ -1420,7 +1422,7 @@
           "x": 10,
           "y": 260,
           "w": 220,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1466,7 +1468,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -1495,7 +1498,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev96",
+              "id": "ev130",
               "trigger": "CLICKED",
               "action": "change_screen",
               "params": {
@@ -1646,7 +1649,7 @@
       },
       "actions": [
         {
-          "id": "act5",
+          "id": "act7",
           "action": "set_variable",
           "params": {
             "variable": "v_pump",
@@ -1674,7 +1677,7 @@
       },
       "actions": [
         {
-          "id": "act6",
+          "id": "act8",
           "action": "digital_write",
           "params": {
             "output": "dio_pump",
@@ -1682,7 +1685,7 @@
           }
         },
         {
-          "id": "act7",
+          "id": "act9",
           "action": "set_variable",
           "params": {
             "variable": "v_lock",
@@ -1712,5 +1715,6 @@
     }
   },
   "fonts": [],
-  "config": []
+  "config": [],
+  "webSources": []
 }

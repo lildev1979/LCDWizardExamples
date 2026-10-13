@@ -83,7 +83,8 @@
         "config": {
           "bitrate": "500",
           "extended": false,
-          "listen": false
+          "listen": false,
+          "enLevel": "high"
         },
         "pollMs": 100,
         "enabled": true,
@@ -190,7 +191,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd73",
+              "id": "bnd101",
               "source": "variable",
               "variableId": "v_link",
               "sourceNodeId": "",
@@ -281,7 +282,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd74",
+              "id": "bnd102",
               "source": "variable",
               "variableId": "v_coolant",
               "sourceNodeId": "",
@@ -369,7 +370,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd75",
+              "id": "bnd103",
               "source": "variable",
               "variableId": "v_coolant",
               "sourceNodeId": "",
@@ -513,5 +514,6 @@
     }
   },
   "fonts": [],
-  "config": []
+  "config": [],
+  "webSources": []
 }

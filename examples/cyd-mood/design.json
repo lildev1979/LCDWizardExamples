@@ -213,7 +213,7 @@
           "x": 16,
           "y": 10,
           "w": 120,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -249,7 +249,7 @@
           "x": 136,
           "y": 10,
           "w": 88,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -440,7 +440,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -465,7 +466,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev34",
+              "id": "ev68",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -474,7 +475,7 @@
               }
             },
             {
-              "id": "ev35",
+              "id": "ev69",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -483,7 +484,7 @@
               }
             },
             {
-              "id": "ev36",
+              "id": "ev70",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -492,7 +493,7 @@
               }
             },
             {
-              "id": "ev37",
+              "id": "ev71",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -502,7 +503,7 @@
               }
             },
             {
-              "id": "ev38",
+              "id": "ev72",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -512,7 +513,7 @@
               }
             },
             {
-              "id": "ev39",
+              "id": "ev73",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -543,7 +544,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -568,7 +570,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev40",
+              "id": "ev74",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -577,7 +579,7 @@
               }
             },
             {
-              "id": "ev41",
+              "id": "ev75",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -586,7 +588,7 @@
               }
             },
             {
-              "id": "ev42",
+              "id": "ev76",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -595,7 +597,7 @@
               }
             },
             {
-              "id": "ev43",
+              "id": "ev77",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -605,7 +607,7 @@
               }
             },
             {
-              "id": "ev44",
+              "id": "ev78",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -615,7 +617,7 @@
               }
             },
             {
-              "id": "ev45",
+              "id": "ev79",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -646,7 +648,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -671,7 +674,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev46",
+              "id": "ev80",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -680,7 +683,7 @@
               }
             },
             {
-              "id": "ev47",
+              "id": "ev81",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -689,7 +692,7 @@
               }
             },
             {
-              "id": "ev48",
+              "id": "ev82",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -698,7 +701,7 @@
               }
             },
             {
-              "id": "ev49",
+              "id": "ev83",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -708,7 +711,7 @@
               }
             },
             {
-              "id": "ev50",
+              "id": "ev84",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -718,7 +721,7 @@
               }
             },
             {
-              "id": "ev51",
+              "id": "ev85",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -749,7 +752,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -774,7 +778,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev52",
+              "id": "ev86",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -783,7 +787,7 @@
               }
             },
             {
-              "id": "ev53",
+              "id": "ev87",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -792,7 +796,7 @@
               }
             },
             {
-              "id": "ev54",
+              "id": "ev88",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -801,7 +805,7 @@
               }
             },
             {
-              "id": "ev55",
+              "id": "ev89",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -811,7 +815,7 @@
               }
             },
             {
-              "id": "ev56",
+              "id": "ev90",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -821,7 +825,7 @@
               }
             },
             {
-              "id": "ev57",
+              "id": "ev91",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -852,7 +856,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -877,7 +882,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev58",
+              "id": "ev92",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -886,7 +891,7 @@
               }
             },
             {
-              "id": "ev59",
+              "id": "ev93",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -895,7 +900,7 @@
               }
             },
             {
-              "id": "ev60",
+              "id": "ev94",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -904,7 +909,7 @@
               }
             },
             {
-              "id": "ev61",
+              "id": "ev95",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -914,7 +919,7 @@
               }
             },
             {
-              "id": "ev62",
+              "id": "ev96",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -924,7 +929,7 @@
               }
             },
             {
-              "id": "ev63",
+              "id": "ev97",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -955,7 +960,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -980,7 +986,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev64",
+              "id": "ev98",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -989,7 +995,7 @@
               }
             },
             {
-              "id": "ev65",
+              "id": "ev99",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -998,7 +1004,7 @@
               }
             },
             {
-              "id": "ev66",
+              "id": "ev100",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -1007,7 +1013,7 @@
               }
             },
             {
-              "id": "ev67",
+              "id": "ev101",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -1017,7 +1023,7 @@
               }
             },
             {
-              "id": "ev68",
+              "id": "ev102",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -1027,7 +1033,7 @@
               }
             },
             {
-              "id": "ev69",
+              "id": "ev103",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -1058,7 +1064,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -1083,7 +1090,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev70",
+              "id": "ev104",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -1092,7 +1099,7 @@
               }
             },
             {
-              "id": "ev71",
+              "id": "ev105",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -1101,7 +1108,7 @@
               }
             },
             {
-              "id": "ev72",
+              "id": "ev106",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -1110,7 +1117,7 @@
               }
             },
             {
-              "id": "ev73",
+              "id": "ev107",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -1120,7 +1127,7 @@
               }
             },
             {
-              "id": "ev74",
+              "id": "ev108",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -1130,7 +1137,7 @@
               }
             },
             {
-              "id": "ev75",
+              "id": "ev109",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -1161,7 +1168,8 @@
             "icon": "power",
             "iconPos": "left",
             "iconSize": 18,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -1186,7 +1194,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev76",
+              "id": "ev110",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -1195,7 +1203,7 @@
               }
             },
             {
-              "id": "ev77",
+              "id": "ev111",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -1204,7 +1212,7 @@
               }
             },
             {
-              "id": "ev78",
+              "id": "ev112",
               "trigger": "CLICKED",
               "action": "digital_write",
               "params": {
@@ -1213,7 +1221,7 @@
               }
             },
             {
-              "id": "ev79",
+              "id": "ev113",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -1223,7 +1231,7 @@
               }
             },
             {
-              "id": "ev80",
+              "id": "ev114",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -1233,7 +1241,7 @@
               }
             },
             {
-              "id": "ev81",
+              "id": "ev115",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -1253,7 +1261,7 @@
           "x": 22,
           "y": 278,
           "w": 110,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1317,7 +1325,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd20",
+              "id": "bnd48",
               "source": "variable",
               "variableId": "v_lux",
               "sourceNodeId": "",
@@ -1338,7 +1346,7 @@
           "x": 198,
           "y": 281,
           "w": 20,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1410,7 +1418,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd21",
+              "id": "bnd49",
               "source": "variable",
               "variableId": "v_lux",
               "sourceNodeId": "",
@@ -1558,5 +1566,6 @@
     }
   },
   "fonts": [],
-  "config": []
+  "config": [],
+  "webSources": []
 }

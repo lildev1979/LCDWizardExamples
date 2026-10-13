@@ -137,7 +137,7 @@
           "x": 14,
           "y": 7,
           "w": 150,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -173,7 +173,7 @@
           "x": 164,
           "y": 7,
           "w": 142,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -209,7 +209,7 @@
           "x": 22,
           "y": 36,
           "w": 90,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -245,7 +245,7 @@
           "x": 124,
           "y": 36,
           "w": 80,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -274,7 +274,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd63",
+              "id": "bnd91",
               "source": "variable",
               "variableId": "v_good",
               "sourceNodeId": "",
@@ -358,7 +358,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd64",
+              "id": "bnd92",
               "source": "variable",
               "variableId": "v_elapsed",
               "sourceNodeId": "",
@@ -379,7 +379,7 @@
           "x": 232,
           "y": 34,
           "w": 70,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -478,7 +478,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd65",
+              "id": "bnd93",
               "source": "variable",
               "variableId": "v_last",
               "sourceNodeId": "",
@@ -499,7 +499,7 @@
           "x": 232,
           "y": 92,
           "w": 70,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -598,7 +598,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd66",
+              "id": "bnd94",
               "source": "variable",
               "variableId": "v_target",
               "sourceNodeId": "",
@@ -656,7 +656,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd67",
+              "id": "bnd95",
               "source": "variable",
               "variableId": "v_elapsed",
               "sourceNodeId": "",
@@ -719,7 +719,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd68",
+              "id": "bnd96",
               "source": "variable",
               "variableId": "v_target",
               "sourceNodeId": "",
@@ -751,7 +751,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -766,8 +767,8 @@
               "textColor": "#2A1204",
               "textFont": 16,
               "textLetterSpace": 2,
-              "padTop": 13,
-              "padBottom": 13,
+              "padTop": 14,
+              "padBottom": 14,
               "padLeft": 2,
               "padRight": 2
             },
@@ -780,7 +781,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev97",
+              "id": "ev131",
               "trigger": "CLICKED",
               "action": "set_variable",
               "params": {
@@ -789,7 +790,7 @@
               }
             },
             {
-              "id": "ev98",
+              "id": "ev132",
               "trigger": "CLICKED",
               "action": "set_variable",
               "params": {
@@ -820,7 +821,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -835,8 +837,8 @@
               "textColor": "#F1F3F5",
               "textFont": 14,
               "textLetterSpace": 1,
-              "padTop": 14,
-              "padBottom": 14,
+              "padTop": 15,
+              "padBottom": 15,
               "padLeft": 2,
               "padRight": 2
             },
@@ -849,7 +851,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev99",
+              "id": "ev133",
               "trigger": "CLICKED",
               "action": "set_variable",
               "params": {
@@ -985,7 +987,7 @@
       },
       "actions": [
         {
-          "id": "act8",
+          "id": "act10",
           "action": "set_variable",
           "params": {
             "variable": "v_elapsed",
@@ -998,7 +1000,7 @@
           }
         },
         {
-          "id": "act9",
+          "id": "act11",
           "action": "set_variable",
           "params": {
             "variable": "v_good",
@@ -1028,5 +1030,6 @@
     }
   },
   "fonts": [],
-  "config": []
+  "config": [],
+  "webSources": []
 }

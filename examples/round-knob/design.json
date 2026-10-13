@@ -193,7 +193,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd70",
+              "id": "bnd98",
               "source": "variable",
               "variableId": "v_level",
               "sourceNodeId": "",
@@ -265,7 +265,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd71",
+              "id": "bnd99",
               "source": "variable",
               "variableId": "v_level",
               "sourceNodeId": "",
@@ -314,7 +314,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd72",
+              "id": "bnd100",
               "source": "variable",
               "variableId": "v_level",
               "sourceNodeId": "",
@@ -335,7 +335,7 @@
           "x": 90,
           "y": 141,
           "w": 60,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -368,9 +368,9 @@
           "type": "label",
           "name": "MuteBanner",
           "x": 90,
-          "y": 82,
+          "y": 83,
           "w": 60,
-          "h": 16,
+          "h": 15,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -398,7 +398,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd69",
+              "id": "bnd97",
               "source": "variable",
               "variableId": "v_mute",
               "sourceNodeId": "",
@@ -430,7 +430,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -451,7 +452,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev100",
+              "id": "ev134",
               "trigger": "CLICKED",
               "action": "set_variable",
               "params": {
@@ -547,5 +548,6 @@
     }
   },
   "fonts": [],
-  "config": []
+  "config": [],
+  "webSources": []
 }

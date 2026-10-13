@@ -186,7 +186,7 @@
           "x": 14,
           "y": 8,
           "w": 130,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -222,7 +222,7 @@
           "x": 144,
           "y": 8,
           "w": 162,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -258,7 +258,7 @@
           "x": 22,
           "y": 36,
           "w": 80,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -294,7 +294,7 @@
           "x": 124,
           "y": 36,
           "w": 24,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -392,7 +392,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd85",
+              "id": "bnd113",
               "source": "variable",
               "variableId": "v_temp",
               "sourceNodeId": "",
@@ -411,9 +411,9 @@
           "type": "label",
           "name": "SetpointCaption",
           "x": 178,
-          "y": 41,
+          "y": 43,
           "w": 59,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -512,7 +512,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd86",
+              "id": "bnd114",
               "source": "variable",
               "variableId": "v_setpoint",
               "sourceNodeId": "",
@@ -531,9 +531,9 @@
           "type": "label",
           "name": "ElapsedCaption",
           "x": 178,
-          "y": 83,
+          "y": 85,
           "w": 59,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -632,7 +632,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd87",
+              "id": "bnd115",
               "source": "variable",
               "variableId": "v_sec",
               "sourceNodeId": "",
@@ -651,9 +651,9 @@
           "type": "label",
           "name": "StagePreheatUnlit",
           "x": 12,
-          "y": 121,
+          "y": 123,
           "w": 56,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -686,9 +686,9 @@
           "type": "label",
           "name": "StagePreheat",
           "x": 12,
-          "y": 121,
+          "y": 123,
           "w": 56,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -716,7 +716,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd88",
+              "id": "bnd116",
               "source": "variable",
               "variableId": "v_stage",
               "sourceNodeId": "",
@@ -735,9 +735,9 @@
           "type": "label",
           "name": "StageSoakUnlit",
           "x": 72,
-          "y": 121,
+          "y": 123,
           "w": 56,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -770,9 +770,9 @@
           "type": "label",
           "name": "StageSoak",
           "x": 72,
-          "y": 121,
+          "y": 123,
           "w": 56,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -800,7 +800,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd89",
+              "id": "bnd117",
               "source": "variable",
               "variableId": "v_stage",
               "sourceNodeId": "",
@@ -819,9 +819,9 @@
           "type": "label",
           "name": "StageReflowUnlit",
           "x": 132,
-          "y": 121,
+          "y": 123,
           "w": 56,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -854,9 +854,9 @@
           "type": "label",
           "name": "StageReflow",
           "x": 132,
-          "y": 121,
+          "y": 123,
           "w": 56,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -884,7 +884,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd90",
+              "id": "bnd118",
               "source": "variable",
               "variableId": "v_stage",
               "sourceNodeId": "",
@@ -903,9 +903,9 @@
           "type": "label",
           "name": "StageCoolUnlit",
           "x": 192,
-          "y": 121,
+          "y": 123,
           "w": 56,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -938,9 +938,9 @@
           "type": "label",
           "name": "StageCool",
           "x": 192,
-          "y": 121,
+          "y": 123,
           "w": 56,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -968,7 +968,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd91",
+              "id": "bnd119",
               "source": "variable",
               "variableId": "v_stage",
               "sourceNodeId": "",
@@ -987,9 +987,9 @@
           "type": "label",
           "name": "HeaterBannerUnlit",
           "x": 252,
-          "y": 121,
+          "y": 123,
           "w": 56,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1022,9 +1022,9 @@
           "type": "label",
           "name": "HeaterBanner",
           "x": 252,
-          "y": 121,
+          "y": 123,
           "w": 56,
-          "h": 14,
+          "h": 11,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -1052,7 +1052,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd92",
+              "id": "bnd120",
               "source": "variable",
               "variableId": "v_heat",
               "sourceNodeId": "",
@@ -1082,6 +1082,7 @@
           "params": {
             "chartType": "LV_CHART_TYPE_LINE",
             "pointCount": 60,
+            "pointSize": 7,
             "divX": 0,
             "divY": 4,
             "zoomX": 256,
@@ -1104,6 +1105,12 @@
             "labelOnX": false,
             "labelOnY": false,
             "axisFontSize": 14,
+            "xTicksOwn": false,
+            "xMajorTickCount": 5,
+            "xMinorTickCount": 2,
+            "xLabels": "ticks",
+            "xLabelMin": 0,
+            "xLabelMax": 100,
             "series": [
               {
                 "name": "Oven",
@@ -1153,7 +1160,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd93",
+              "id": "bnd121",
               "source": "variable",
               "variableId": "v_temp",
               "sourceNodeId": "",
@@ -1185,7 +1192,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -1200,8 +1208,8 @@
               "textColor": "#04210F",
               "textFont": 14,
               "textLetterSpace": 2,
-              "padTop": 5,
-              "padBottom": 5,
+              "padTop": 6,
+              "padBottom": 6,
               "padLeft": 2,
               "padRight": 2
             },
@@ -1214,7 +1222,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev101",
+              "id": "ev135",
               "trigger": "CLICKED",
               "action": "set_variable",
               "params": {
@@ -1224,7 +1232,7 @@
               }
             },
             {
-              "id": "ev102",
+              "id": "ev136",
               "trigger": "CLICKED",
               "action": "set_variable",
               "params": {
@@ -1234,7 +1242,7 @@
               }
             },
             {
-              "id": "ev103",
+              "id": "ev137",
               "trigger": "CLICKED",
               "action": "set_variable",
               "params": {
@@ -1265,7 +1273,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -1280,8 +1289,8 @@
               "textColor": "#E1E5EA",
               "textFont": 14,
               "textLetterSpace": 2,
-              "padTop": 5,
-              "padBottom": 5,
+              "padTop": 6,
+              "padBottom": 6,
               "padLeft": 2,
               "padRight": 2
             },
@@ -1294,7 +1303,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev104",
+              "id": "ev138",
               "trigger": "CLICKED",
               "action": "set_variable",
               "params": {
@@ -1304,7 +1313,7 @@
               }
             },
             {
-              "id": "ev105",
+              "id": "ev139",
               "trigger": "CLICKED",
               "action": "set_variable",
               "params": {
@@ -1457,7 +1466,7 @@
       },
       "actions": [
         {
-          "id": "act10",
+          "id": "act12",
           "action": "set_variable",
           "params": {
             "variable": "v_sec",
@@ -1470,7 +1479,7 @@
           }
         },
         {
-          "id": "act11",
+          "id": "act13",
           "action": "set_variable",
           "params": {
             "variable": "v_setpoint",
@@ -1483,7 +1492,7 @@
           }
         },
         {
-          "id": "act12",
+          "id": "act14",
           "action": "set_variable",
           "params": {
             "variable": "v_stage",
@@ -1496,7 +1505,7 @@
           }
         },
         {
-          "id": "act13",
+          "id": "act15",
           "action": "set_variable",
           "params": {
             "variable": "v_heat",
@@ -1524,7 +1533,7 @@
       },
       "actions": [
         {
-          "id": "act14",
+          "id": "act16",
           "action": "digital_write",
           "params": {
             "output": "dio_heat",
@@ -1549,5 +1558,6 @@
     }
   },
   "fonts": [],
-  "config": []
+  "config": [],
+  "webSources": []
 }

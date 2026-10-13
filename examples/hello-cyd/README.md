@@ -1,8 +1,8 @@
-# Hello CYD
+# Hello LCD
 
 *A dial, a readout and a button. Nothing to wire - press Play and drag something.*
 
-![Hello CYD, Screen1](screens/01-screen1.png)
+![Hello LCD, Screen1](screens/01-screen1.png)
 
 The starting point for a Cheap Yellow Display.
 

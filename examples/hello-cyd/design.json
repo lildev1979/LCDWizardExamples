@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "Hello CYD",
+  "name": "Hello LCD",
   "created": "2026-09-11T00:00:00.000Z",
   "target": "arduino",
   "lvglVersion": "9",
@@ -119,7 +119,7 @@
           "locked": false,
           "params": {
             "longMode": "LV_LABEL_LONG_WRAP",
-            "text": "Hello, CYD!",
+            "text": "Hello, LCD!",
             "recolor": false,
             "translate": false
           },
@@ -264,7 +264,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd5",
+              "id": "bnd33",
               "source": "widget",
               "variableId": "",
               "sourceNodeId": "sld_dial",
@@ -285,7 +285,7 @@
           "x": 60,
           "y": 128,
           "w": 120,
-          "h": 36,
+          "h": 35,
           "align": "LV_ALIGN_TOP_LEFT",
           "widthMode": "px",
           "heightMode": "px",
@@ -313,7 +313,7 @@
           "events": [],
           "bindings": [
             {
-              "id": "bnd6",
+              "id": "bnd34",
               "source": "widget",
               "variableId": "",
               "sourceNodeId": "sld_dial",
@@ -432,7 +432,8 @@
             "icon": "",
             "iconPos": "left",
             "iconSize": 20,
-            "iconGap": 6
+            "iconGap": 6,
+            "translate": false
           },
           "styles": {
             "main:default": {
@@ -455,7 +456,7 @@
           "layout": {},
           "events": [
             {
-              "id": "ev33",
+              "id": "ev67",
               "trigger": "CLICKED",
               "action": "set_property",
               "params": {
@@ -494,5 +495,6 @@
     }
   },
   "fonts": [],
-  "config": []
+  "config": [],
+  "webSources": []
 }

@@ -3811,7 +3811,11 @@
     "role": "hid",
     "layout": "us",
     "startOn": true,
-    "reconnect": true
+    "reconnect": true,
+    "speakerName": "",
+    "findAtStart": true,
+    "output": "bluetooth",
+    "speakerKeys": true
   },
   "fonts": [],
   "config": [],
